@@ -1166,17 +1166,14 @@ function renderDeals() {
     c.className = 'ac';
     c.style.opacity = '0';
     c.style.transform = 'translateY(16px)';
-    const prixHtml = d.prix && d.prix !== '***€'
-      ? `<span class="apri" style="font-size:11px;color:var(--muted)">Prix · ${safe(d.prix)}</span>`
-      : `<span class="apri" style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)">
-          Prix · <span style="background:rgba(0,255,136,0.07);border:1px solid rgba(0,255,136,0.15);border-radius:3px;padding:2px 8px;color:var(--gtx);letter-spacing:.08em">abonnés</span>
-        </span>`;
     c.innerHTML = `
       <div class="atop"><span class="acat">${safe(d.cat)}</span><span class="ascr"> ${safe(d.score)}</span></div>
       <p class="atit">${safe(d.title)}</p>
       <p class="acit">${safe(d.city)} · il y a ${safe(d.ago)}</p>
       <div class="abot">
-        ${prixHtml}
+        <span class="apri" style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)">
+          Prix · <span style="background:rgba(0,255,136,0.07);border:1px solid rgba(0,255,136,0.15);border-radius:3px;padding:2px 8px;color:var(--gtx);letter-spacing:.08em">abonnés</span>
+        </span>
         <span class="amrg">${safe(d.marge)}</span>
       </div>`;
     grid.appendChild(c);
@@ -1351,7 +1348,7 @@ function renderStats(d) {
       DEALS_POOL = d.recent_deals.map(rd => ({
         cat: rd.cat,
         title: rd.modele || `${rd.cat} — annonce qualifiée`,
-        prix: rd.prix ? rd.prix + '€' : '***€',
+        prix: '***€',
         marge: '+' + rd.marge + '€',
         city: rd.ville,
         score: rd.score + '/10',
