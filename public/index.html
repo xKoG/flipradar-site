@@ -86,10 +86,6 @@ h1 .d{color:var(--green)}
 .hsv{font-family:var(--display);font-size:24px;font-weight:800;color:var(--green);display:block;letter-spacing:-.01em;text-shadow:0 0 24px rgba(0,255,136,.18);margin-bottom:5px}
 .hsl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
 @media(max-width:640px){.hstats{flex-direction:column}.hs{border-right:none;border-bottom:1px solid var(--bdr)}.hs:last-child{border-bottom:none}}
-@keyframes hsvpulse{0%{transform:scale(1)}40%{transform:scale(1.08);text-shadow:0 0 40px rgba(0,255,136,.85),0 0 70px rgba(0,255,136,.35)}100%{transform:scale(1);text-shadow:0 0 24px rgba(0,255,136,.18)}}
-.hsv-pulse{animation:hsvpulse .7s ease}
-.hs-bump{position:absolute;top:14px;right:18px;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green)}
-@media(prefers-reduced-motion:reduce){.hsv-pulse{animation:none}}
 
 /* CTA */
 .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:up .7s ease .34s both}
@@ -120,15 +116,6 @@ h1 .d{color:var(--green)}
 .stag{font-family:var(--mono);font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gtx);margin-bottom:20px;display:flex;align-items:center;gap:14px;font-weight:500}
 .stag::before{content:'';display:block;width:28px;height:1px;background:linear-gradient(to right,var(--gtx),transparent);flex-shrink:0}
 h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:64px;max-width:680px}
-h2.r.v{animation:textglitch .5s steps(3) both}
-@keyframes textglitch{
-  0%{text-shadow:2px 0 var(--green),-2px 0 #ff4d4d}
-  20%{text-shadow:-3px 0 var(--green),3px 0 #ff4d4d}
-  40%{text-shadow:3px 0 var(--green),-3px 0 #ff4d4d}
-  60%{text-shadow:-1px 0 var(--green),1px 0 #ff4d4d}
-  100%{text-shadow:none}
-}
-@media(prefers-reduced-motion:reduce){h2.r.v{animation:none}}
 
 /* LIVE BADGE */
 .live-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gtx);background:var(--glo);border:1px solid var(--bdg);padding:4px 12px;border-radius:40px;margin-left:14px;vertical-align:middle}
@@ -137,12 +124,6 @@ h2.r.v{animation:textglitch .5s steps(3) both}
 /* LIVE STATS */
 .lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
 .lcard{background:var(--bg2);padding:28px 26px;position:relative;overflow:hidden}
-.lcard::after{content:'';position:absolute;top:0;left:-100%;width:100%;height:1px;background:linear-gradient(90deg,transparent,var(--green),transparent);box-shadow:0 0 8px rgba(0,255,136,.7);animation:lcardscan 4.5s linear infinite}
-.lcard:nth-child(2)::after{animation-delay:-1.1s}
-.lcard:nth-child(3)::after{animation-delay:-2.2s}
-.lcard:nth-child(4)::after{animation-delay:-3.3s}
-@keyframes lcardscan{to{left:100%}}
-@media(prefers-reduced-motion:reduce){.lcard::after{animation:none;display:none}}
 .ltag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .ldot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pl 2s ease-in-out infinite;flex-shrink:0}
 .lv{font-family:var(--display);font-size:32px;font-weight:800;color:#fff;letter-spacing:-.01em;margin-bottom:4px;line-height:1;transition:all .4s ease}
@@ -190,34 +171,11 @@ h2.r.v{animation:textglitch .5s steps(3) both}
 .pt{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:.04em}
 .pd{font-size:13px;color:var(--muted);line-height:1.7}
 
-/* TERMINAL */
-.term{background:#020507;border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-top:48px}
-.tbar{background:var(--bg3);border-bottom:1px solid var(--bdr);padding:12px 20px;display:flex;align-items:center;gap:8px}
-.dd{width:11px;height:11px;border-radius:50%}
-.dr{background:#ff5f57}.dy{background:#ffbd2e}.dg{background:#28ca40}
-.tlb{font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:10px}
-.tbody{padding:26px 32px;font-family:var(--mono);font-size:12px;line-height:2.1;overflow-x:auto}
-.tg{color:var(--gtx)}.tw{color:#fff}.td{color:var(--muted)}.ta{color:var(--amber)}
-@media(max-width:640px){.tbody{padding:18px 20px;font-size:11px}}
-
 /* WORST CASE */
 .wc-box{background:var(--bg2);border:1px solid var(--bdr);border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:28px 32px;margin-top:24px}
 .wc-title{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
 .wc-text{font-size:14px;color:var(--text);line-height:1.75}
 .wc-text strong{color:#fff;font-weight:600}
-
-/* TELEGRAM */
-.tg-why{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
-.tgw{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:32px 28px;transition:all .25s ease}
-.tgw:hover{border-color:rgba(0,255,136,.14);background:rgba(0,255,136,.018);transform:translateY(-2px)}
-.tgw-icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.15);color:var(--gtx);margin-bottom:16px}
-.tgw-icon svg *{stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset 1.1s ease .15s}
-.tg-why.in .tgw-icon svg *{stroke-dashoffset:0}
-.tgw:hover{background:var(--bg3)}
-.tgw-ico{font-size:22px;margin-bottom:14px}
-.tgw-t{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;margin-bottom:8px;letter-spacing:.04em}
-.tgw-d{font-size:13px;color:var(--muted);line-height:1.65}
-@media(max-width:640px){.tg-why{grid-template-columns:1fr}}
 
 /* COVERAGE */
 .zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:32px}
@@ -578,7 +536,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       <a href="https://www.instagram.com/flip_radar/" rel="noopener noreferrer" aria-label="Instagram FlipRadar" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 1.5A4.3 4.3 0 0 0 3.5 7.8v8.4a4.3 4.3 0 0 0 4.3 4.3h8.4a4.3 4.3 0 0 0 4.3-4.3V7.8a4.3 4.3 0 0 0-4.3-4.3H7.8Zm4.2 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
       <a href="https://facebook.com/profile.php?id=61590312890661" rel="noopener noreferrer" aria-label="Facebook FlipRadar" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.5-3.1h-3.2v-2c0-.9.4-1.6 1.7-1.6h1.7V4.5c-.3 0-1.5-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9v1.7H6.6V14h2.8v8h4.1Z"/></svg></a>
     </div>
-    <a href="#" class="nb" rel="noopener noreferrer" data-open-city-modal>Accès →</a>
+    <a href="#" class="nb" rel="noopener noreferrer" data-open-city-modal>Rejoindre →</a>
   </div>
 </nav>
 
@@ -598,8 +556,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <div class="hs"><span class="hsv" id="h-best">+700€</span><span class="hsl">meilleur deal</span></div>
   </div>
   <div class="ctas">
-    <a href="https://t.me/flip_radar" class="bp" rel="noopener noreferrer"> Voir les alertes</a>
-    <a href="#comment" class="bg">Comment ça marche →</a>
+    <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Rejoindre maintenant →</a>
+    <a href="#comment" class="bg">Voir comment ça marche ↓</a>
   </div>
   <p class="scroll-teaser r">↓ Le système vient de détecter plusieurs opportunités — voici comment elles arrivent jusqu'à toi</p>
   <div class="scue"><span>scroll</span><div class="sline"></div></div>
@@ -652,7 +610,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <!-- ALERTES -->
 <section class="section alt" id="alertes">
   <div class="wrap">
-    <p class="stag r">exemples réels</p>
+    <p class="stag r">activité récente</p>
     <h2 class="r">Deals détectés récemment</h2>
     <div class="agrid" id="agrid"></div>
   </div>
@@ -919,40 +877,9 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       <div class="ps"><div class="pn">04</div><p class="pt">Alerte Telegram</p><p class="pd">Tu reçois : marge réaliste, worst-case, score IA et un message de négociation prêt à copier-coller.</p></div>
     </div>
 
-    <div class="term r">
-      <div class="tbar"><div class="dd dr"></div><div class="dd dy"></div><div class="dd dg"></div><span class="tlb">flipradar — exemple_alerte.log</span></div>
-      <div class="tbody">
-        <span class="tg"> DEAL DÉTECTÉ</span> <span class="td">— il y a 6 min</span><br>
-        <span class="tw">iPhone 16 Pro Max 256Go — Or, état neuf</span><br>
-        <span class="td">Paris (75) · LBC · Particulier · aucun signal suspect</span><br><br>
-        <span class="td">Prix affiché ·········· </span><span class="tw">350 €</span><br>
-        <span class="td">Rachat CC (estimé) ···· </span><span class="tw">min 527 € · max 643 €</span><br>
-        <span class="td">Revente LBC (estimée) · </span><span class="tw">~800 €</span><br><br>
-        <span class="tg">Marge réaliste ········ +450 €</span> <span class="td">← revente LBC</span><br>
-        <span class="ta">Worst-case ············ +177 €</span> <span class="td">← rachat CC minimum estimé </span><br>
-        <span class="td">Score IA ·············· </span><span class="tw">9 / 10</span><br><br>
-        <span class="td">Analyse IA : </span><span class="tw">Coloris or, état neuf annoncé, photos cohérentes. Prix 56% sous le prix moyen LBC (812€). Point d'attention : vérifier la batterie et la désactivation iCloud avant le RDV.</span><br><br>
-        <span class="td">Message vendeur : </span><span class="tw">"Bonjour, votre iPhone 16 Pro Max en or, état neuf, m'intéresse. Pourriez-vous confirmer l'état de la batterie et que le verrouillage iCloud est bien désactivé ? Si c'est ok, je peux passer aujourd'hui avec 320€ en cash."</span>
-      </div>
-    </div>
-
     <div class="wc-box r">
       <div class="wc-title">Risque contrôlé — le worst-case expliqué</div>
       <div class="wc-text"><strong>Aucune alerte n'est envoyée sans validation du pire scénario.</strong> Le <strong>worst-case</strong> répond à une seule question : <em>"Combien je gagne minimum si je n'arrive pas à revendre sur LBC ?"</em> Dans ce scénario, tu te retournes vers Cash Converters au prix de rachat pro estimé à partir des référentiels disponibles. Si ce chiffre est <strong>positif, tu es rentable même dans le pire scénario</strong> — c'est ton filet de sécurité. FLIPRADAR ne t'envoie une alerte que si le worst-case est acceptable. C'est ça, le risque contrôlé.</div>
-    </div>
-  </div>
-</section>
-
-<!-- POURQUOI TELEGRAM -->
-<section class="section alt">
-  <div class="wrap">
-    <p class="stag r">canal de transmission</p>
-    <h2 class="r">L'outil le plus rapide pour des deals sous pression</h2>
-    <div class="tg-why r">
-      <div class="tgw reveal"><span class="tgw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span><div class="tgw-t">Notification instantanée</div><div class="tgw-d">Les bonnes annonces partent en minutes. Telegram est le seul canal avec des push fiables, sans algorithme. Tu vois le deal dès qu'il est détecté.</div></div>
-      <div class="tgw reveal"><span class="tgw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span><div class="tgw-t">Message vendeur inclus</div><div class="tgw-d">Chaque alerte contient un message de négociation personnalisé. Un copier-coller et tu es le premier — pendant que les autres cherchent encore l'annonce.</div></div>
-      <div class="tgw reveal"><span class="tgw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span><div class="tgw-t">Groupes privés par ville</div><div class="tgw-d">Tes alertes arrivent dans un groupe fermé, uniquement pour les abonnés de ta ville. Pas de concurrence croisée entre régions.</div></div>
-      <div class="tgw reveal"><span class="tgw-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 010 8.49M7.76 16.24a6 6 0 010-8.49M19.07 4.93a10 10 0 010 14.14M4.93 19.07a10 10 0 010-14.14"/></svg></span><div class="tgw-t">Opérationnel en 30 secondes</div><div class="tgw-d">Pas d'app supplémentaire. Si tu as Telegram sur iOS, Android ou desktop, tu es prêt. Paiement → accès immédiat au groupe de ta ville.</div></div>
     </div>
   </div>
 </section>
@@ -961,7 +888,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <section class="section alt" id="fondateur">
   <div class="wrap">
     <p class="stag r">poste de commandement</p>
-    <h2 class="r">Construit par quelqu'un qui fait ça depuis des années</h2>
+    <h2 class="r">Un seul opérateur, pas une plateforme ouverte à tous</h2>
     <div class="founder-card r reveal">
       <div class="founder-avatar">
         <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
@@ -972,8 +899,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         </svg>
       </div>
       <div class="founder-text">
-        <p class="founder-lead">Ancien revendeur Amazon, devenu développeur. Avant FlipRadar, je passais des heures chaque semaine à fouiller Leboncoin à la main — repérer les annonces sous-cotées, calculer les marges, négocier, revendre. FlipRadar, c'est cette méthode transformée en système qui ne s'arrête jamais.</p>
-        <p class="founder-sub">L'accès est volontairement limité : un opérateur qui surveille la qualité des alertes et ajuste les seuils en continu, plutôt qu'une plateforme ouverte à tous sans contrôle.</p>
+        <p class="founder-lead">Ancien revendeur Amazon, devenu développeur. FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre. <strong>Je m'en sers encore aujourd'hui pour mes propres flips</strong> — c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
+        <p class="founder-sub">Accès volontairement limité : un seul opérateur qui surveille la qualité des alertes en continu, pas une plateforme ouverte à tous sans contrôle.</p>
       </div>
     </div>
   </div>
@@ -1050,10 +977,11 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
           <li>Score IA de 7 à 10/10 par deal</li>
           <li class="off">Offre Fondateur fermée (20 places)</li>
         </ul>
-        <a href="#" class="bg" rel="noopener noreferrer" style="width:100%;justify-content:center" data-open-city-modal>Choisir l'accès standard →</a>
+        <a href="#" class="bg" rel="noopener noreferrer" style="width:100%;justify-content:center" data-open-city-modal>Rejoindre maintenant →</a>
       </div>
     </div>
     <div class="trust-row r">
+      <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><strong style="color:var(--text)">7 jours</strong>&nbsp;satisfait ou remboursé, sans condition</div>
       <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></span>Paiement sécurisé par Stripe — certifié PCI-DSS niveau 1</div>
       <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>Aucune carte bancaire stockée par FlipRadar</div>
       <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>Résiliable à tout moment, depuis Telegram</div>
@@ -1067,16 +995,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <p class="stag r">foire aux questions</p>
     <h2 class="r">Questions fréquentes</h2>
     <div class="faq r" id="faqlist"></div>
-  </div>
-</section>
-
-<!-- DISCLAIMER -->
-<section class="section alt" style="padding-top:0;padding-bottom:80px">
-  <div class="wrsm" style="margin:0 auto">
-    <div class="disc r" style="border:1px solid var(--bdr);border-left:3px solid var(--muted);border-radius:0 var(--r) var(--r) 0;padding:24px 32px;background:var(--bg2)">
-      <p style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px">Transparence</p>
-      <p style="font-size:13px;color:var(--muted);line-height:1.75">Les marges et worst-case sont des estimations basées sur des référentiels observés. FLIPRADAR ne garantit ni la disponibilité de l'annonce, ni la rentabilité finale de l'opération. L'état réel et la revente finale restent à vérifier par l'acheteur.</p>
-    </div>
   </div>
 </section>
 
@@ -1098,7 +1016,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <a href="https://facebook.com/profile.php?id=61590312890661" rel="noopener noreferrer" aria-label="Facebook" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.5-3.1h-3.2v-2c0-.9.4-1.6 1.7-1.6h1.7V4.5c-.3 0-1.5-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9v1.7H6.6V14h2.8v8h4.1Z"/></svg></a>
   </div>
   <p class="fcp"><span class="sdot"></span>Système actif · flipradar.fr · 2026</p>
-  <p style="font-size:10px;color:var(--muted);opacity:0.45;margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;text-align:center">FlipRadar est un outil de veille automatisée sur Leboncoin pour la détection de bonnes affaires tech — iPhone, Samsung Galaxy, iPad, MacBook, PS5, Xbox Series. Alertes Telegram en temps réel avec marge estimée, rachat Cash Converters et analyse IA.</p>
+  <p style="font-size:10px;color:var(--muted);opacity:0.45;margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;text-align:center">FlipRadar est un outil de veille automatisée sur Leboncoin pour la détection de bonnes affaires tech — iPhone, Samsung Galaxy, iPad, MacBook, PS5, Xbox Series. Alertes Telegram en temps réel avec marge estimée, rachat Cash Converters et analyse IA. Les marges et worst-case sont des estimations basées sur des référentiels observés — FlipRadar ne garantit ni la disponibilité de l'annonce ni la rentabilité finale de l'opération.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
@@ -1274,8 +1192,8 @@ setInterval(renderDeals, 90_000);
 
 //  FAQ 
 const FAQS = [
-  {q:'Comment les marges sont-elles calculées ?', a:'FLIPRADAR croise le prix de l\'annonce avec les prix de rachat Cash Converters et EasyCash, et les prix de revente médians observés sur LBC. La marge réaliste = revente LBC estimée − prix d\'achat. Le worst-case = rachat CC minimum estimé − prix d\'achat.'},
-  {q:'À quoi sert le worst-case exactement ?', a:'Le worst-case est ton filet de sécurité. Il répond à : "Combien je gagne minimum si je n\'arrive pas à revendre sur LBC ?" Si ce chiffre est positif, tu es rentable même dans le pire scénario — tu te retournes simplement vers Cash Converters. C\'est le risque réel chiffré, pas estimé à vue de nez.'},
+  {q:'Et si je ne suis pas convaincu ?', a:'Tu as 7 jours pour tester FLIPRADAR. Pas convaincu ? Tu es remboursé intégralement, sans justification à donner — écris simplement à @flipradarfr ou contact@flipradar.fr.'},
+  {q:'Comment sont calculées la marge et le worst-case ?', a:'La marge réaliste = prix de revente médian observé sur LBC − prix d\'achat. Le worst-case = prix de rachat minimum estimé chez Cash Converters/EasyCash − prix d\'achat. C\'est ton filet de sécurité : si le worst-case est positif, tu es rentable même si tu ne revends jamais sur LBC.'},
   {q:'FLIPRADAR couvre-t-il ma ville ?', a:'19 zones sont analysées en continu avec un rayon de 40 à 100km. La couverture intelligente prend en compte toute commune dans un rayon de 40 à 100km d\'une zone — plus de 3000 communes couvertes automatiquement, sans configuration de ta part.'},
   {q:'Quelles catégories sont détectées ?', a:'iPhone, iPad, Samsung Galaxy, PS5, PS4, Xbox Series X/S. FLIPRADAR filtre automatiquement les accessoires, clones, articles volés et annonces vagues.'},
   {q:'À quelle fréquence les alertes arrivent-elles ?', a:'FLIPRADAR surveille Leboncoin en continu, avec plusieurs passages par heure, jour et nuit. Le volume d\'alertes varie selon ta ville et l\'activité du marché — les grandes zones reçoivent généralement plus d\'alertes que les villes moyennes. Seules les annonces scorées ≥ 7/10 avec un worst-case positif sont envoyées.'},
@@ -1481,37 +1399,6 @@ async function fetchStats() {
 fetchStats();
 setInterval(fetchStats, 5 * 60 * 1000); // refresh toutes les 5 min
 
-//  LIVE TICKER — incréments simulés sur "annonces analysées" (détection en continu)
-(function() {
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  const el = document.getElementById('h-annonces');
-  const host = el ? el.closest('.hs') : null;
-  if (!el || !host) return;
-
-  function bump() {
-    const n = parseInt(el.textContent.replace(/[^\d]/g, ''), 10);
-    if (!isNaN(n)) {
-      const inc = 1 + Math.floor(Math.random() * 3);
-      el.textContent = (n + inc).toLocaleString('fr-FR') + '+';
-      el.classList.remove('hsv-pulse');
-      void el.offsetWidth;
-      el.classList.add('hsv-pulse');
-
-      const bumpEl = document.createElement('span');
-      bumpEl.className = 'hs-bump';
-      bumpEl.textContent = '+' + inc;
-      host.appendChild(bumpEl);
-      if (typeof gsap !== 'undefined') {
-        gsap.fromTo(bumpEl, { opacity: 1, y: 0 }, { opacity: 0, y: -18, duration: 1.3, ease: 'power2.out', onComplete: () => bumpEl.remove() });
-      } else {
-        setTimeout(() => bumpEl.remove(), 1300);
-      }
-    }
-    setTimeout(bump, 4000 + Math.random() * 5000);
-  }
-  setTimeout(bump, 5000);
-})();
-
 
 //  REVEAL — GSAP ScrollTrigger (titres, sections, grilles de cartes)
 (function() {
@@ -1530,7 +1417,6 @@ setInterval(fetchStats, 5 * 60 * 1000); // refresh toutes les 5 min
       ['.zgrid', '.zone'],
       ['.pgrid', '.plan'],
       ['.pipe', '.ps'],
-      ['.tg-why', '.tgw'],
     ];
     GROUPS.forEach(([parentSel, childSel]) => {
       document.querySelectorAll(parentSel).forEach(parent => {
