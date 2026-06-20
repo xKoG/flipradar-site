@@ -899,7 +899,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         </svg>
       </div>
       <div class="founder-text">
-        <p class="founder-lead">Ancien revendeur Amazon, devenu développeur. FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre. <strong>Je m'en sers encore aujourd'hui pour mes propres flips</strong> — c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
+        <p class="founder-lead">Ancien revendeur Amazon, devenu développeur. FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre. <strong>Je m'en sers encore aujourd'hui pour mes propres flips, sur des zones que je ne commercialise pas</strong> — je ne suis donc jamais en concurrence avec mes abonnés sur les mêmes annonces. Ça me rapporte plusieurs centaines d'euros par semaine, et c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
         <p class="founder-sub">Accès volontairement limité : un seul opérateur qui surveille la qualité des alertes en continu, pas une plateforme ouverte à tous sans contrôle.</p>
       </div>
     </div>
@@ -1332,20 +1332,14 @@ function renderStats(d) {
       ).join('');
     }
 
-    // Places fondateur restantes
-    if (d.early_adopter_restants !== undefined) {
-      const restants = d.early_adopter_restants;
-      const sub = document.getElementById('launch-sub');
+    // Places fondateur — disponible ou non, jamais le nombre exact restant
+    if (d.fondateur_disponible !== undefined && !d.fondateur_disponible) {
       const cta = document.getElementById('cta-fondateur');
-      if (restants > 0) {
-        sub.textContent = `Tarif bloqué à vie — ${restants} place${restants > 1 ? 's' : ''} fondateur restante${restants > 1 ? 's' : ''} sur 20`;
-      } else {
-        sub.textContent = 'Places fondateur épuisées — tarif standard 49€/mois';
-        if (cta) {
-          cta.textContent = 'Complet — passer au tarif standard';
-          cta.classList.remove('bp');
-          cta.classList.add('bg');
-        }
+      document.getElementById('launch-sub').textContent = 'Places fondateur épuisées — tarif standard 49€/mois';
+      if (cta) {
+        cta.textContent = 'Complet — passer au tarif standard';
+        cta.classList.remove('bp');
+        cta.classList.add('bg');
       }
     }
 
@@ -1353,12 +1347,12 @@ function renderStats(d) {
     if (d.recent_deals && d.recent_deals.length >= 4) {
       DEALS_POOL = d.recent_deals.map(rd => ({
         cat: rd.cat,
-        title: `${rd.cat} — annonce qualifiée`,
+        title: rd.modele || `${rd.cat} — annonce qualifiée`,
         prix: '***€',
         marge: '+' + rd.marge + '€',
         city: rd.ville,
         score: rd.score + '/10',
-        ago: 'récent',
+        ago: 'quelques instants',
       }));
       renderDeals();
       buildTicker(d.recent_deals.map(rd => ({ cat: rd.cat, city: rd.ville, m: '+' + rd.marge + '€' })));
