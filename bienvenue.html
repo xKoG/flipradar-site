@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement confirmé — FlipRadar</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzA1MDgwOSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGZmODgiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4yNSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwZmY4OCIgc3Ryb2tlLXdpZHRoPSIwLjciIG9wYWNpdHk9IjAuMTgiLz4KICA8bGluZSB4MT0iMTYiIHkxPSIxNiIgeDI9IjI1IiB5Mj0iOCIgc3Ryb2tlPSIjMDBmZjg4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSI5IiByPSIyLjUiIGZpbGw9IiMwMGZmODgiLz4KICA8cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjIiIGhlaWdodD0iMTIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSI3IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTUiIHdpZHRoPSI1IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPg==">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050809;--bg2:#080d10;
+  --green:#00ff88;--glo:rgba(0,255,136,.05);--glm:rgba(0,255,136,.14);
+  --gtx:#00e07a;
+  --text:#a8c0cc;--muted:#4a6575;
+  --bdr:rgba(255,255,255,.055);--bdg:rgba(0,255,136,.13);
+  --display:'Syne',sans-serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;
+  --r:8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(140px);width:700px;height:700px;background:rgba(0,255,136,.035);top:-200px;left:50%;transform:translateX(-50%)}
+
+header{padding:24px 40px;text-align:center;position:relative;z-index:1}
+.logo{font-family:var(--display);font-size:17px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}
+.logo em{color:var(--green);font-style:normal}
+
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 24px;position:relative;z-index:1}
+.card{max-width:520px;width:100%;text-align:center;background:var(--bg2);border:1px solid var(--bdr);border-radius:14px;padding:48px 36px}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--glo);border:1px solid var(--bdg);color:var(--gtx);font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;padding:7px 18px;border-radius:40px;margin-bottom:28px}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+h1{font-family:var(--display);font-size:clamp(24px,5vw,34px);font-weight:800;line-height:1.15;letter-spacing:-.02em;color:#fff;margin-bottom:18px}
+.lead{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:32px}
+.lead strong{color:var(--text);font-weight:600}
+.bp{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#000;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:15px 30px;border-radius:4px;text-decoration:none;transition:all .2s ease;width:100%;justify-content:center}
+.bp:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,255,136,.25)}
+.bp.disabled{opacity:.4;pointer-events:none}
+.note{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.05em;margin-top:24px;line-height:1.8}
+.note a{color:var(--gtx);text-decoration:none}
+
+footer{border-top:1px solid var(--bdr);padding:32px 24px;text-align:center;position:relative;z-index:1}
+.flogo{font-family:var(--display);font-size:15px;font-weight:800;color:#fff;letter-spacing:.02em;margin-bottom:10px}
+.flogo em{color:var(--green);font-style:normal}
+footer a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em}
+footer a:hover{color:var(--gtx)}
+</style>
+</head>
+<body>
+<div class="orb"></div>
+<header>
+  <a href="/" class="logo">FLIP<em>RADAR</em></a>
+</header>
+
+<main>
+  <div class="card">
+    <div class="badge"><span class="dot"></span>Paiement confirmé</div>
+    <h1>C'est presque prêt.</h1>
+    <p class="lead" id="lead-text">Ton paiement a bien été reçu. Il ne reste qu'une étape : <strong>active ton accès depuis Telegram</strong> pour rejoindre le groupe privé de ta ville et recevoir tes premières alertes.</p>
+    <a href="https://t.me/flipradart_bot" class="bp" id="tg-cta" rel="noopener noreferrer">Ouvrir Telegram pour activer ton accès →</a>
+    <p class="note" id="note-text">Le bot termine l'activation automatiquement et t'envoie un lien d'accès vers le groupe Telegram de ta ville.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="flogo">FLIP<em>RADAR</em></div>
+  <a href="mailto:contact@flipradar.fr">contact@flipradar.fr</a>
+</footer>
+
+<script>
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+  const cta = document.getElementById('tg-cta');
+  if (token && /^[A-Za-z0-9_-]{1,64}$/.test(token)) {
+    cta.href = 'https://t.me/flipradart_bot?start=' + encodeURIComponent(token);
+  } else {
+    document.getElementById('lead-text').textContent = 'Ton paiement a bien été reçu. Ouvre Telegram et lance /start sur @flipradart_bot pour activer ton accès — si besoin, contacte @flipradarfr avec ton email de paiement.';
+    document.getElementById('note-text').textContent = 'Lien d\'activation introuvable dans l\'URL — l\'activation manuelle via /start fonctionne aussi.';
+  }
+})();
+</script>
+</body>
+</html>
