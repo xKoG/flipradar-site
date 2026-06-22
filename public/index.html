@@ -509,7 +509,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <button class="modal-close" id="city-modal-close" aria-label="Fermer">✕</button>
     <p class="stag" style="margin-bottom:8px">accès opérateur</p>
     <h3 class="modal-title">Choisis ta zone de couverture</h3>
-    <p class="modal-sub">Les alertes de ta ville arrivent dans un groupe Telegram privé et dédié. Le paiement est géré directement par Stripe — ton tarif (fondateur ou standard) est attribué automatiquement selon les places restantes.</p>
+    <p class="modal-sub">Les alertes de ta ville arrivent dans un groupe Telegram privé et dédié. Le paiement est géré directement par Stripe.</p>
     <div class="city-grid" id="city-grid"></div>
     <p class="modal-status" id="city-modal-status"></p>
   </div>
@@ -548,7 +548,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   </div>
   <h1>FLIP<span class="g">RADAR</span><span class="d">.</span></h1>
   <p class="hero-slogan">Repéré.<br>Négocié.<br>Encaissé.<span class="scan-sweep" aria-hidden="true"></span></p>
-  <p class="hp">Chaque annonce sous-cotée sur Leboncoin est repérée, analysée par IA et qualifiée — tu reçois sur Telegram la marge, le worst-case CC et le message de négociation prêt à envoyer. <strong><span id="hero-marge">+182€</span> de marge par deal, en moyenne.</strong></p>
+  <p class="hp">Chaque annonce sous-cotée sur Leboncoin est repérée, analysée par IA et qualifiée. Tu reçois sur Telegram la marge, <strong style="color:var(--amber)">le worst-case — ton filet de sécurité si la revente traîne</strong> — et le message de négociation prêt à envoyer. <strong><span id="hero-marge">+182€</span> de marge par deal, en moyenne.</strong></p>
   <div class="hstats">
     <div class="hs"><span class="hsv" id="h-annonces">79 000+</span><span class="hsl">annonces analysées</span></div>
     <div class="hs"><span class="hsv" id="h-alertes">3 347</span><span class="hsl">alertes qualifiées</span></div>
@@ -879,7 +879,11 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 
     <div class="wc-box r">
       <div class="wc-title">Risque contrôlé — le worst-case expliqué</div>
-      <div class="wc-text"><strong>Aucune alerte n'est envoyée sans validation du pire scénario.</strong> Le <strong>worst-case</strong> répond à une seule question : <em>"Combien je gagne minimum si je n'arrive pas à revendre sur LBC ?"</em> Dans ce scénario, tu te retournes vers Cash Converters au prix de rachat pro estimé à partir des référentiels disponibles. Si ce chiffre est <strong>positif, tu es rentable même dans le pire scénario</strong> — c'est ton filet de sécurité. FLIPRADAR ne t'envoie une alerte que si le worst-case est acceptable. C'est ça, le risque contrôlé.</div>
+      <div class="wc-text">
+        <p style="margin-bottom:12px"><strong>Chaque alerte intègre une validation du pire scénario.</strong> Le <strong>worst-case</strong> répond à une seule question : <em>"Combien je gagne minimum si je n'arrive pas à revendre sur LBC ?"</em></p>
+        <p style="margin-bottom:12px">Dans ce scénario, tu te retournes vers Cash Converters au prix de rachat pro estimé à partir des référentiels disponibles. Si ce chiffre est <strong>positif, tu es rentable même dans le pire scénario</strong> — c'est ton filet de sécurité.</p>
+        <p>Un worst-case trop dégradé par rapport au prix fait déjà chuter le score sous la barre des 7/10 avant l'envoi. C'est ça, le risque contrôlé.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -899,7 +903,10 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         </svg>
       </div>
       <div class="founder-text">
-        <p class="founder-lead">Ancien revendeur Amazon, devenu développeur. FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre. <strong>Je m'en sers encore aujourd'hui pour mes propres flips, sur des zones que je ne commercialise pas</strong> — je ne suis donc jamais en concurrence avec mes abonnés sur les mêmes annonces. Ça me rapporte plusieurs centaines d'euros par semaine, et c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
+        <p class="founder-lead">Ancien revendeur Amazon, je me suis spécialisé depuis dans la conception d'outils de détection pour l'e-commerce — des systèmes qui repèrent automatiquement les meilleures opportunités avant tout le monde.</p>
+        <p class="founder-lead">FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre.</p>
+        <p class="founder-lead">Je suis basé à La Réunion, en dehors des 19 zones commercialisées par FlipRadar. <strong>Je continue d'utiliser cette méthode pour mes propres flips, sur ma zone — jamais sur celles de mes abonnés</strong> : je ne suis donc jamais en concurrence avec toi sur les mêmes annonces.</p>
+        <p class="founder-lead">Ça me rapporte encore plusieurs centaines d'euros par semaine, et c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
         <p class="founder-sub">Accès volontairement limité : un seul opérateur qui surveille la qualité des alertes en continu, pas une plateforme ouverte à tous sans contrôle.</p>
       </div>
     </div>
@@ -942,7 +949,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <p class="stag r">accès opérateur</p>
     <h2 class="r">Accès FLIPRADAR</h2>
     <p class="r" style="font-size:14px;color:var(--muted);margin-top:-44px;margin-bottom:52px">Breakeven en <strong style="color:var(--text)">1 seul deal</strong>. Le premier deal couvre l'abonnement du mois.</p>
-    <div class="pgrid r reveal">
+    <div class="pgrid r reveal" style="max-width:380px;margin:0 auto">
       <div class="plan ft">
         <div class="ptag">Membre Fondateur</div>
         <p class="pname" style="margin-top:10px">Accès Fondateur</p>
@@ -964,20 +971,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
           <li>Tarif bloqué à vie — 20 places max</li>
         </ul>
         <a href="#" class="bp" rel="noopener noreferrer" style="width:100%;justify-content:center" id="cta-fondateur" data-open-city-modal>Rejoindre maintenant →</a>
-      </div>
-      <div class="plan">
-        <p class="pname">Standard</p>
-        <p class="pprice"><sup>€</sup>49</p>
-        <p class="pper">par mois · sans engagement</p>
-        <ul class="feats" style="margin-top:8px">
-          <li>Alertes Telegram — ville de ton choix</li>
-          <li>Message de négociation IA inclus</li>
-          <li>Marge réaliste + worst-case estimé</li>
-          <li>Analyse vendeur et red flags</li>
-          <li>Score IA de 7 à 10/10 par deal</li>
-          <li class="off">Offre Fondateur fermée (20 places)</li>
-        </ul>
-        <a href="#" class="bg" rel="noopener noreferrer" style="width:100%;justify-content:center" data-open-city-modal>Rejoindre maintenant →</a>
       </div>
     </div>
     <div class="trust-row r">
@@ -1196,8 +1189,8 @@ const FAQS = [
   {q:'Comment sont calculées la marge et le worst-case ?', a:'La marge réaliste = prix de revente médian observé sur LBC − prix d\'achat. Le worst-case = prix de rachat minimum estimé chez Cash Converters/EasyCash − prix d\'achat. C\'est ton filet de sécurité : si le worst-case est positif, tu es rentable même si tu ne revends jamais sur LBC.'},
   {q:'FLIPRADAR couvre-t-il ma ville ?', a:'19 zones sont analysées en continu avec un rayon de 40 à 100km. La couverture intelligente prend en compte toute commune dans un rayon de 40 à 100km d\'une zone — plus de 3000 communes couvertes automatiquement, sans configuration de ta part.'},
   {q:'Quelles catégories sont détectées ?', a:'iPhone, iPad, Samsung Galaxy, PS5, PS4, Xbox Series X/S. FLIPRADAR filtre automatiquement les accessoires, clones, articles volés et annonces vagues.'},
-  {q:'À quelle fréquence les alertes arrivent-elles ?', a:'FLIPRADAR surveille Leboncoin en continu, avec plusieurs passages par heure, jour et nuit. Le volume d\'alertes varie selon ta ville et l\'activité du marché — les grandes zones reçoivent généralement plus d\'alertes que les villes moyennes. Seules les annonces scorées ≥ 7/10 avec un worst-case positif sont envoyées.'},
-  {q:'Puis-je annuler à tout moment ?', a:'Oui, sans engagement ni préavis. Le tarif standard à 49€/mois est résiliable quand tu veux. Le tarif membre fondateur à 29€ est bloqué à vie — tu gardes ce tarif tant que tu restes abonné.'},
+  {q:'À quelle fréquence les alertes arrivent-elles ?', a:'FLIPRADAR surveille Leboncoin en continu, avec plusieurs passages par heure, jour et nuit. Le volume d\'alertes varie selon ta ville et l\'activité du marché — les grandes zones reçoivent généralement plus d\'alertes que les villes moyennes. Seules les annonces scorées ≥ 7/10 sont envoyées ; un worst-case trop dégradé par rapport au prix fait déjà chuter le score sous ce seuil avant l\'envoi.'},
+  {q:'Puis-je annuler à tout moment ?', a:'Oui, sans engagement ni préavis. Le tarif membre fondateur à 29€ est bloqué à vie — tu gardes ce tarif tant que tu restes abonné.'},
   {q:'Le paiement est-il sécurisé ?', a:'Oui. Les paiements sont traités par Stripe, leader mondial du paiement en ligne. Tes données bancaires ne transitent jamais par FLIPRADAR — elles sont chiffrées et gérées directement par Stripe (certifié PCI DSS niveau 1). Dès ton paiement confirmé, tu reçois automatiquement un lien d\'accès au groupe Telegram de ta ville.'},
 ];
 const fl = document.getElementById('faqlist');
@@ -1335,9 +1328,9 @@ function renderStats(d) {
     // Places fondateur — disponible ou non, jamais le nombre exact restant
     if (d.fondateur_disponible !== undefined && !d.fondateur_disponible) {
       const cta = document.getElementById('cta-fondateur');
-      document.getElementById('launch-sub').textContent = 'Places fondateur épuisées — tarif standard 49€/mois';
+      document.getElementById('launch-sub').textContent = 'Places fondateur épuisées';
       if (cta) {
-        cta.textContent = 'Complet — passer au tarif standard';
+        cta.textContent = 'Complet pour le moment';
         cta.classList.remove('bp');
         cta.classList.add('bg');
       }
