@@ -21,7 +21,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzA1MDgwOSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGZmODgiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4yNSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwZmY4OCIgc3Ryb2tlLXdpZHRoPSIwLjciIG9wYWNpdHk9IjAuMTgiLz4KICA8bGluZSB4MT0iMTYiIHkxPSIxNiIgeDI9IjI1IiB5Mj0iOCIgc3Ryb2tlPSIjMDBmZjg4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSI5IiByPSIyLjUiIGZpbGw9IiMwMGZmODgiLz4KICA8cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjIiIGhlaWdodD0iMTIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSI3IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTUiIHdpZHRoPSI1IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#050809;--bg2:#080d10;--bg3:#0c1518;
@@ -29,7 +29,7 @@
   --gtx:#00e07a;--amber:#f5a623;--alo:rgba(245,166,35,.08);
   --text:#a8c0cc;--muted:#6c8ba1;--faint:#1e3040;
   --bdr:rgba(255,255,255,.055);--bdg:rgba(0,255,136,.13);
-  --display:'Syne',sans-serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;
+  --display:'Syne',sans-serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;--serif:'Fraunces',serif;
   --r:8px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -63,16 +63,19 @@ nav.sc{background:rgba(5,8,9,.92);backdrop-filter:blur(24px);border-bottom:1px s
 h1{font-family:var(--display);font-size:clamp(16px,2.4vw,22px);font-weight:800;line-height:1;letter-spacing:.08em;text-align:center;display:block;width:fit-content;max-width:calc(100vw - 32px);margin:0 auto 36px;padding:0;overflow:visible;white-space:nowrap;color:var(--muted);animation:up .6s ease .08s both}
 h1 .g{color:var(--gtx)}
 h1 .d{color:var(--green)}
-.hp{max-width:520px;font-size:clamp(13px,1.5vw,14px);font-weight:400;color:var(--muted);line-height:1.75;margin-bottom:56px;animation:up .8s ease .26s both;letter-spacing:.01em}
+.hp{max-width:560px;font-size:clamp(13px,1.5vw,14.5px);font-weight:400;color:var(--muted);line-height:1.9;margin-bottom:56px;animation:up .8s ease .26s both;letter-spacing:.01em}
 .hp strong{color:var(--text);font-weight:600}
+.hp-line{display:block;margin-bottom:16px}
+.hp-marge{display:block;font-size:15px;color:var(--text)}
 
 .hero-slogan{
   position:relative;
-  font-family:var(--display);
-  font-size:clamp(46px,10vw,116px);
-  font-weight:800;
-  line-height:1.04;
-  letter-spacing:-.035em;
+  font-family:var(--serif);
+  font-style:italic;
+  font-size:clamp(44px,9.6vw,108px);
+  font-weight:600;
+  line-height:1.08;
+  letter-spacing:-.01em;
   color:#fff;
   margin:0 auto 40px;
   text-align:center;
@@ -166,7 +169,7 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .pipe{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
 .ps{background:var(--bg2);padding:40px 32px;position:relative;transition:background .2s}
 .ps:hover{background:var(--bg3)}
-.pn{font-family:var(--display);font-size:72px;font-weight:800;color:rgba(255,255,255,.03);line-height:1;margin-bottom:20px;letter-spacing:-.02em}
+.pn{font-family:var(--display);font-size:72px;font-weight:800;color:rgba(255,255,255,.92);line-height:1;margin-bottom:20px;letter-spacing:-.02em}
 .pi{position:absolute;top:32px;right:32px;font-size:20px;opacity:.6}
 .pt{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;margin-bottom:10px;letter-spacing:.04em}
 .pd{font-size:13px;color:var(--muted);line-height:1.7}
@@ -176,6 +179,7 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .wc-title{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px}
 .wc-text{font-size:14px;color:var(--text);line-height:1.75}
 .wc-text strong{color:#fff;font-weight:600}
+.wc-text em{font-family:var(--serif);font-style:italic;color:#fff}
 
 /* COVERAGE */
 .zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:32px}
@@ -197,11 +201,6 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .pprice{font-family:var(--display);font-size:64px;font-weight:800;color:#fff;line-height:1;letter-spacing:-.02em;margin-bottom:4px}
 .pprice sup{font-size:22px;vertical-align:super;color:var(--muted);font-weight:700;font-family:var(--mono)}
 .pper{font-size:12px;color:var(--muted);margin-bottom:24px}
-.launch-row{display:flex;align-items:center;gap:14px;background:var(--alo);border:1px solid rgba(245,166,35,.18);border-radius:8px;padding:16px 18px;margin-bottom:28px}
-.launch-icon{font-size:13px;color:var(--amber);flex-shrink:0;animation:pl 2.4s ease-in-out infinite}
-.launch-text{display:flex;flex-direction:column;gap:3px}
-.launch-title{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-.launch-sub{font-family:var(--mono);font-size:10px;color:rgba(245,166,35,.55);letter-spacing:.04em}
 .feats{list-style:none;margin-bottom:36px;flex:1}
 .feats li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.04);font-size:13px;color:var(--text);line-height:1.5}
 .feats li::before{content:'';display:block;width:16px;height:16px;border-radius:50%;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.25);flex-shrink:0;margin-top:1px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.5 8l3 3 6-6' stroke='%2300ff88' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:contain}
@@ -450,9 +449,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 /* FONDATEUR */
 .founder-card{display:flex;gap:32px;align-items:flex-start;background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:36px}
 .founder-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0a2a1a,#0d3d24);border:1px solid rgba(0,255,136,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden}
-.founder-avatar svg{animation:foundersweep 4s linear infinite;transform-origin:16px 16px}
-@keyframes foundersweep{to{transform:rotate(360deg)}}
-@media(prefers-reduced-motion:reduce){.founder-avatar svg{animation:none}}
 .founder-lead{font-size:15px;color:var(--text);line-height:1.75;margin-bottom:14px}
 .founder-sub{font-size:13px;color:var(--muted);line-height:1.7}
 @media(max-width:640px){.founder-card{flex-direction:column;padding:28px}}
@@ -548,7 +544,11 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   </div>
   <h1>FLIP<span class="g">RADAR</span><span class="d">.</span></h1>
   <p class="hero-slogan">Repéré.<br>Négocié.<br>Encaissé.<span class="scan-sweep" aria-hidden="true"></span></p>
-  <p class="hp">Chaque annonce sous-cotée sur Leboncoin est repérée, analysée par IA et qualifiée. Tu reçois sur Telegram la marge, <strong style="color:var(--amber)">le worst-case — ton filet de sécurité si la revente traîne</strong> — et le message de négociation prêt à envoyer. <strong><span id="hero-marge">+182€</span> de marge par deal, en moyenne.</strong></p>
+  <p class="hp">
+    <span class="hp-line">Chaque annonce sous-cotée sur Leboncoin est repérée, analysée par IA et qualifiée.</span>
+    <span class="hp-line">Tu reçois sur Telegram la marge réaliste, <strong style="color:var(--amber)">le worst-case — ton filet de sécurité si la revente traîne</strong> — et le message de négociation prêt à envoyer.</span>
+    <span class="hp-marge"><strong><span id="hero-marge">+182€</span> de marge par deal, en moyenne.</strong></span>
+  </p>
   <div class="hstats">
     <div class="hs"><span class="hsv" id="h-annonces">79 000+</span><span class="hsl">annonces analysées</span></div>
     <div class="hs"><span class="hsv" id="h-alertes">3 347</span><span class="hsl">alertes qualifiées</span></div>
@@ -558,6 +558,9 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="ctas">
     <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Rejoindre maintenant →</a>
     <a href="#comment" class="bg">Voir comment ça marche ↓</a>
+  </div>
+  <div class="trust-row" style="margin-top:24px;animation:up .7s ease .38s both">
+    <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><strong style="color:var(--text)">7 jours</strong>&nbsp;satisfait ou remboursé, sans condition</div>
   </div>
   <p class="scroll-teaser r">↓ Le système vient de détecter plusieurs opportunités — voici comment elles arrivent jusqu'à toi</p>
   <div class="scue"><span>scroll</span><div class="sline"></div></div>
@@ -579,6 +582,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       <div class="lcard"><div class="ltag"><span class="ldot"></span>Moy. hebdomadaire</div><div class="lv" id="s-7j">630</div><div class="ls">alertes envoyées</div></div>
       <div class="lcard"><div class="ltag"><span class="ldot"></span>Total depuis lancement</div><div class="lv" id="s-total">3 347</div><div class="ls">alertes qualifiées ≥ 7/10</div></div>
       <div class="lcard"><div class="ltag"><span class="ldot"></span>Red flags détectés</div><div class="lv" id="s-redflags">384</div><div class="ls">annonces suspectes filtrées par l'IA</div></div>
+      <div class="lcard"><div class="ltag"><span class="ldot"></span>Sélectivité IA</div><div class="lv" id="s-selectivite">95,8%</div><div class="ls">des annonces analysées sont écartées avant l'envoi</div></div>
+      <div class="lcard"><div class="ltag"><span class="ldot"></span>Couverture</div><div class="lv">19 villes</div><div class="ls">3 000+ communes surveillées en continu</div></div>
     </div>
 
     <div class="stats2 r">
@@ -955,13 +960,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         <p class="pname" style="margin-top:10px">Accès Fondateur</p>
         <p class="pprice"><sup>€</sup>29</p>
         <p class="pper">par mois · à vie · sans engagement</p>
-        <div class="launch-row" id="launch-row">
-          <span class="launch-icon">◆</span>
-          <div class="launch-text">
-            <span class="launch-title">Offre de lancement</span>
-            <span class="launch-sub" id="launch-sub">Tarif bloqué à vie — 20 places fondateur</span>
-          </div>
-        </div>
         <ul class="feats">
           <li>Alertes Telegram — ville de ton choix</li>
           <li>Message de négociation IA inclus</li>
@@ -999,7 +997,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <a href="#tarifs">Tarifs</a>
     <a href="#faq">FAQ</a>
     <a href="mailto:contact@flipradar.fr">contact@flipradar.fr</a>
-    <a href="/mentions-legales.html">Mentions légales</a>
+    <!-- Masqué temporairement : <a href="/mentions-legales.html">Mentions légales</a> -->
     <a href="/cgv.html">CGV</a>
     <a href="/confidentialite.html">Confidentialité</a>
   </div>
@@ -1309,6 +1307,10 @@ function renderStats(d) {
     if (d.alertes_7j !== undefined)          countUp(document.getElementById('s-7j'), d.alertes_7j, v => String(v));
     if (d.alertes_total !== undefined)       countUp(document.getElementById('s-total'), d.alertes_total, v => v.toLocaleString('fr-FR'));
     if (d.red_flags_total !== undefined)     countUp(document.getElementById('s-redflags'), d.red_flags_total, v => v.toLocaleString('fr-FR'), 1600);
+    if (d.annonces_total && d.alertes_total) {
+      const elSel = document.getElementById('s-selectivite');
+      if (elSel) elSel.textContent = (100 - (d.alertes_total / d.annonces_total * 100)).toFixed(1).replace('.', ',') + '%';
+    }
 
     // Top villes
     if (d.top_villes && d.top_villes.length) {
@@ -1328,7 +1330,6 @@ function renderStats(d) {
     // Places fondateur — disponible ou non, jamais le nombre exact restant
     if (d.fondateur_disponible !== undefined && !d.fondateur_disponible) {
       const cta = document.getElementById('cta-fondateur');
-      document.getElementById('launch-sub').textContent = 'Places fondateur épuisées';
       if (cta) {
         cta.textContent = 'Complet pour le moment';
         cta.classList.remove('bp');
