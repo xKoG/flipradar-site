@@ -121,16 +121,20 @@ h1 .d{color:var(--green)}
 h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;color:#fff;line-height:1.05;letter-spacing:-.02em;margin-bottom:64px;max-width:680px}
 
 /* LIVE BADGE */
-.live-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gtx);background:var(--glo);border:1px solid var(--bdg);padding:4px 12px;border-radius:40px;margin-left:14px;vertical-align:middle}
+.live-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gtx);background:var(--glo);border:1px solid var(--bdg);padding:4px 12px;border-radius:40px;margin-left:14px;vertical-align:middle;transition:all .3s ease}
 .live-badge .ldot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pl 1.8s ease-in-out infinite}
+.live-badge.loading,.live-badge.offline{color:var(--muted);background:rgba(255,255,255,.02);border-color:var(--bdr)}
+.live-badge.loading .ldot,.live-badge.offline .ldot{background:var(--muted);animation:none}
 
-/* LIVE STATS */
-.lgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
-.lcard{background:var(--bg2);padding:28px 26px;position:relative;overflow:hidden}
-.ltag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+/* MISSION STATS — bande de lecture continue, pas de cards */
+.mstats{display:flex;flex-wrap:wrap;border:1px solid var(--bdr);border-radius:var(--r);background:rgba(255,255,255,.014);overflow:hidden}
+.mstat{flex:1 1 200px;padding:26px 30px;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr)}
+.mtag{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .ldot{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pl 2s ease-in-out infinite;flex-shrink:0}
-.lv{font-family:var(--display);font-size:32px;font-weight:800;color:#fff;letter-spacing:-.01em;margin-bottom:4px;line-height:1;transition:all .4s ease}
-.ls{font-family:var(--mono);font-size:10px;color:var(--muted)}
+.mval{font-family:var(--display);font-size:30px;font-weight:800;color:#fff;letter-spacing:-.01em;margin-bottom:4px;line-height:1;transition:all .4s ease}
+.msub{font-family:var(--mono);font-size:10px;color:var(--muted)}
+@media(max-width:760px){.mstat{flex:1 1 50%}}
+@media(max-width:480px){.mstat{flex:1 1 100%}}
 
 /* STATS 2 COL */
 .stats2{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:64px}
@@ -142,6 +146,9 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .sname{font-size:13px;color:var(--text);font-weight:500;flex:1}
 .sval{font-family:var(--mono);font-size:11px;color:var(--gtx);flex-shrink:0}
 .smrg{font-family:var(--mono);font-size:10px;color:var(--muted);width:64px;text-align:right;flex-shrink:0}
+.srow.sk{opacity:.4;animation:skpulse 1.6s ease-in-out infinite}
+.srow.sk:nth-child(2){animation-delay:.15s}.srow.sk:nth-child(3){animation-delay:.3s}.srow.sk:nth-child(4){animation-delay:.45s}
+@keyframes skpulse{0%,100%{opacity:.22}50%{opacity:.5}}
 
 /* CAT BARS */
 .cbars{display:flex;flex-direction:column;gap:14px}
@@ -151,19 +158,18 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .cfill{height:100%;border-radius:2px;background:var(--green);transition:width 1.1s ease}
 .cpct{font-family:var(--mono);font-size:10px;color:var(--muted);width:30px;text-align:right;flex-shrink:0}
 
-/* ALERT CARDS */
-.agrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
-.ac{background:var(--bg2);padding:24px;position:relative;cursor:default;transition:background .2s}
-.ac::after{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--green);opacity:0;transition:opacity .2s}
-.ac:hover{background:var(--bg3)}.ac:hover::after{opacity:1}
-.atop{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
-.acat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.04);padding:4px 10px;border-radius:2px}
-.ascr{font-family:var(--mono);font-size:10px;color:var(--gtx)}
-.atit{font-size:14px;font-weight:600;color:#fff;margin-bottom:6px;line-height:1.4}
-.acit{font-family:var(--mono);font-size:10px;color:var(--muted);margin-bottom:20px;letter-spacing:.05em}
-.abot{display:flex;justify-content:space-between;align-items:flex-end;border-top:1px solid var(--bdr);padding-top:14px}
-.apri{font-family:var(--mono);font-size:11px;color:var(--muted)}
-.amrg{font-family:var(--display);font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.01em}
+/* DEALS LOG — liste continue, pas de cards */
+.dlog-caption{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:16px;display:block}
+.dlog{border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;background:rgba(255,255,255,.012)}
+.drow{display:flex;align-items:center;gap:18px;padding:15px 22px;border-bottom:1px solid var(--bdr);transition:background .2s}
+.drow:last-child{border-bottom:none}
+.drow:hover{background:rgba(255,255,255,.025)}
+.dcat{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.04);padding:4px 10px;border-radius:2px;flex-shrink:0;width:74px;text-align:center}
+.dtit{flex:1;min-width:0;font-size:13px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dmeta{font-family:var(--mono);font-size:10px;color:var(--muted);flex-shrink:0;width:140px}
+.dscr{font-family:var(--mono);font-size:10px;color:var(--gtx);flex-shrink:0;width:38px;text-align:center}
+.dmrg{font-family:var(--display);font-size:16px;font-weight:800;color:var(--green);flex-shrink:0;width:72px;text-align:right}
+@media(max-width:680px){.drow{flex-wrap:wrap;gap:6px 14px}.dtit{flex:1 1 100%;order:1;white-space:normal}.dcat{order:0}.dmeta{order:2}.dscr{order:3}.dmrg{order:4;margin-left:auto}}
 
 /* PIPELINE */
 .pipe{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
@@ -181,13 +187,26 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .wc-text strong{color:#fff;font-weight:600}
 .wc-text em{font-family:var(--serif);font-style:italic;color:#fff}
 
-/* COVERAGE */
-.zgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:1px;background:var(--bdr);border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:32px}
-.zone{background:var(--bg2);padding:22px;transition:background .2s}
-.zone:hover{background:var(--bg3)}
-.zn{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px}
-.zr{font-family:var(--mono);font-size:10px;color:var(--gtx);margin-bottom:5px}
-.zc{font-size:11px;color:var(--muted);line-height:1.6}
+/* COVERAGE — carte interactive, pas de cards */
+.frmap-layout{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;margin-bottom:32px}
+@media(max-width:860px){.frmap-layout{grid-template-columns:1fr;gap:24px}}
+.frmap-wrap{border:1px solid var(--bdr);border-radius:var(--r);background:rgba(255,255,255,.012);padding:20px}
+.frmap{width:100%;height:auto;display:block;overflow:visible}
+.frmap-outline{fill:rgba(0,255,136,.035);stroke:var(--bdg);stroke-width:1.2}
+.frmap-radius{fill:rgba(0,255,136,.09);stroke:rgba(0,255,136,.32);stroke-width:.8;opacity:0;transition:opacity .3s ease}
+.frmap-zone.active .frmap-radius{opacity:1}
+.frmap-dot{fill:var(--green);stroke:#050809;stroke-width:1.4;transition:r .15s ease}
+.frmap-zone:hover .frmap-dot,.frmap-zone.active .frmap-dot{r:4.4}
+.frmap-hit{fill:transparent;cursor:pointer}
+.frmap-zone text{font-family:var(--mono);font-size:6.4px;fill:var(--muted);pointer-events:none;letter-spacing:.01em;transition:fill .15s ease}
+.frmap-zone:hover text,.frmap-zone.active text{fill:#fff;font-weight:700}
+.frmap-zone:focus{outline:none}
+.frmap-zone:focus .frmap-dot{stroke:var(--green);stroke-width:2.5}
+.frmap-info{border:1px solid var(--bdr);border-radius:var(--r);background:var(--bg2);padding:28px;min-height:180px}
+.frmap-info .zn{font-size:18px;margin-bottom:10px;font-family:var(--display);color:#fff;font-weight:800}
+.frmap-info .zr{margin-bottom:16px;display:inline-block;background:var(--glo);border:1px solid var(--bdg);color:var(--gtx);padding:5px 14px;border-radius:40px;font-family:var(--mono);font-size:10px}
+.frmap-info .zc{font-size:12px;line-height:1.7;color:var(--muted)}
+.frmap-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;margin-top:18px;display:block;line-height:1.6}
 .cnote{background:var(--glo);border:1px solid var(--bdg);border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;gap:16px;font-size:13px;color:var(--text);font-weight:500}
 
 /* PRICING */
@@ -575,36 +594,34 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <p class="stag r">rapport de mission</p>
     <h2 class="r">
       Depuis le lancement
-      <span class="live-badge"><span class="ldot"></span>live</span>
+      <span class="live-badge loading" id="live-badge"><span class="ldot" id="live-dot"></span><span id="live-label">synchronisation…</span></span>
     </h2>
-    <div class="lgrid r reveal">
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Alertes aujourd'hui</div><div class="lv" id="s-today">85</div><div class="ls">alertes qualifiées détectées</div></div>
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Moy. hebdomadaire</div><div class="lv" id="s-7j">630</div><div class="ls">alertes envoyées</div></div>
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Total depuis lancement</div><div class="lv" id="s-total">3 347</div><div class="ls">alertes qualifiées ≥ 7/10</div></div>
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Red flags détectés</div><div class="lv" id="s-redflags">384</div><div class="ls">annonces suspectes filtrées par l'IA</div></div>
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Sélectivité IA</div><div class="lv" id="s-selectivite">95,8%</div><div class="ls">des annonces analysées sont écartées avant l'envoi</div></div>
-      <div class="lcard"><div class="ltag"><span class="ldot"></span>Couverture</div><div class="lv">19 villes</div><div class="ls">3 000+ communes surveillées en continu</div></div>
+    <div class="mstats r reveal">
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Alertes aujourd'hui</div><div class="mval" id="s-today">—</div><div class="msub">alertes qualifiées détectées</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Moy. hebdomadaire</div><div class="mval" id="s-7j">—</div><div class="msub">alertes envoyées</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Total depuis lancement</div><div class="mval" id="s-total">—</div><div class="msub">alertes qualifiées ≥ 7/10</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Red flags détectés</div><div class="mval" id="s-redflags">—</div><div class="msub">annonces suspectes filtrées par l'IA</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Sélectivité IA</div><div class="mval" id="s-selectivite">—</div><div class="msub">des annonces analysées sont écartées avant l'envoi</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Couverture</div><div class="mval">19 villes</div><div class="msub">3 000+ communes surveillées en continu</div></div>
     </div>
 
     <div class="stats2 r">
       <div>
         <span class="stit">Top villes — 30 DERNIERS JOURS</span>
         <div id="top-villes">
-          <div class="srow"><span class="srank">1</span><span class="sname">Paris</span><span class="sval">42 alertes</span><span class="smrg">+187€ moy</span></div>
-          <div class="srow"><span class="srank">2</span><span class="sname">Marseille</span><span class="sval">20 alertes</span><span class="smrg">+175€ moy</span></div>
-          <div class="srow"><span class="srank">3</span><span class="sname">Lille</span><span class="sval">14 alertes</span><span class="smrg">+181€ moy</span></div>
-          <div class="srow"><span class="srank">4</span><span class="sname">Strasbourg</span><span class="sval">12 alertes</span><span class="smrg">+164€ moy</span></div>
-          <div class="srow"><span class="srank">5</span><span class="sname">Montpellier</span><span class="sval">12 alertes</span><span class="smrg">+149€ moy</span></div>
+          <div class="srow sk"><span class="srank">1</span><span class="sname">···</span><span class="sval">···</span><span class="smrg">···</span></div>
+          <div class="srow sk"><span class="srank">2</span><span class="sname">···</span><span class="sval">···</span><span class="smrg">···</span></div>
+          <div class="srow sk"><span class="srank">3</span><span class="sname">···</span><span class="sval">···</span><span class="smrg">···</span></div>
         </div>
       </div>
       <div>
         <span class="stit">Répartition par catégorie</span>
         <div class="cbars" id="catbars" style="margin-top:4px">
-          <div class="crow"><span class="cname">iPhone</span><div class="cbar"><div class="cfill" data-w="100" style="width:0%"></div></div><span class="cpct">73%</span></div>
+          <div class="crow"><span class="cname">iPhone</span><div class="cbar"><div class="cfill" data-w="100" style="width:0%"></div></div><span class="cpct">74%</span></div>
           <div class="crow"><span class="cname">iPad</span><div class="cbar"><div class="cfill" data-w="18" style="width:0%"></div></div><span class="cpct">13%</span></div>
-          <div class="crow"><span class="cname">PS5</span><div class="cbar"><div class="cfill" data-w="10" style="width:0%"></div></div><span class="cpct">7%</span></div>
-          <div class="crow"><span class="cname">Samsung</span><div class="cbar"><div class="cfill" data-w="10" style="width:0%"></div></div><span class="cpct">7%</span></div>
-          <div class="crow"><span class="cname">Autres</span><div class="cbar"><div class="cfill" data-w="2" style="width:0%;background:var(--muted)"></div></div><span class="cpct">1%</span></div>
+          <div class="crow"><span class="cname">PS5</span><div class="cbar"><div class="cfill" data-w="9" style="width:0%"></div></div><span class="cpct">7%</span></div>
+          <div class="crow"><span class="cname">Samsung</span><div class="cbar"><div class="cfill" data-w="7" style="width:0%"></div></div><span class="cpct">5%</span></div>
+          <div class="crow"><span class="cname">Autres</span><div class="cbar"><div class="cfill" data-w="1" style="width:0%;background:var(--muted)"></div></div><span class="cpct">1%</span></div>
         </div>
       </div>
     </div>
@@ -617,7 +634,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="wrap">
     <p class="stag r">activité récente</p>
     <h2 class="r">Deals détectés récemment</h2>
-    <div class="agrid" id="agrid"></div>
+    <span class="dlog-caption r" id="dlog-caption">Exemples représentatifs du type d'alertes envoyées</span>
+    <div class="dlog" id="agrid"></div>
   </div>
 </section>
 
@@ -923,26 +941,14 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="wrap">
     <p class="stag r">zone de couverture radar</p>
     <h2 class="r">19 zones · 3000+ communes</h2>
-    <div class="zgrid r reveal">
-      <div class="zone"><div class="zn">Paris</div><div class="zr">Rayon 80km</div><div class="zc">Versailles, Meaux, Cergy, Argenteuil, Vincennes…</div></div>
-      <div class="zone"><div class="zn">Lyon</div><div class="zr">Rayon 100km</div><div class="zc">Villeurbanne, Saint-Étienne, Roanne, Mâcon…</div></div>
-      <div class="zone"><div class="zn">Marseille</div><div class="zr">Rayon 50km</div><div class="zc">Aix-en-Provence, Toulon, Aubagne…</div></div>
-      <div class="zone"><div class="zn">Bordeaux</div><div class="zr">Rayon 50km</div><div class="zc">Mérignac, Eysines, périphérie…</div></div>
-      <div class="zone"><div class="zn">Lille</div><div class="zr">Rayon 55km</div><div class="zc">Roubaix, Tourcoing, Lens…</div></div>
-      <div class="zone"><div class="zn">Metz</div><div class="zr">Rayon 80km</div><div class="zc">Nancy, Thionville, Forbach…</div></div>
-      <div class="zone"><div class="zn">Strasbourg</div><div class="zr">Rayon 40km</div><div class="zc">Alsace et périphérie rhénane</div></div>
-      <div class="zone"><div class="zn">Rouen</div><div class="zr">Rayon 50km</div><div class="zc">Le Havre, Elbeuf…</div></div>
-      <div class="zone"><div class="zn">Nice</div><div class="zr">Rayon 40km</div><div class="zc">Antibes, Menton, Cannes…</div></div>
-      <div class="zone"><div class="zn">Toulouse</div><div class="zr">Rayon 40km</div><div class="zc">Muret, périphérie toulousaine</div></div>
-      <div class="zone"><div class="zn">Montpellier</div><div class="zr">Rayon 40km</div><div class="zc">Juvignac, Mauguio…</div></div>
-      <div class="zone"><div class="zn">Nantes</div><div class="zr">Rayon 40km</div><div class="zc">Carquefou, Saint-Herblain…</div></div>
-      <div class="zone"><div class="zn">Rennes</div><div class="zr">Rayon 40km</div><div class="zc">Bretagne et périphérie</div></div>
-      <div class="zone"><div class="zn">Grenoble</div><div class="zr">Rayon 40km</div><div class="zc">Échirolles, Voiron…</div></div>
-      <div class="zone"><div class="zn">Angers</div><div class="zr">Rayon 60km</div><div class="zc">Cholet, Saumur…</div></div>
-      <div class="zone"><div class="zn">Tours</div><div class="zr">Rayon 65km</div><div class="zc">Joué-lès-Tours…</div></div>
-      <div class="zone"><div class="zn">Caen</div><div class="zr">Rayon 60km</div><div class="zc">Normandie occidentale</div></div>
-      <div class="zone"><div class="zn">Dijon</div><div class="zr">Rayon 70km</div><div class="zc">Bourgogne et périphérie</div></div>
-      <div class="zone"><div class="zn">Clermont-Fd</div><div class="zr">Rayon 100km</div><div class="zc">Auvergne et périphérie</div></div>
+    <div class="frmap-layout r reveal">
+      <div class="frmap-wrap">
+        <svg class="frmap" viewBox="0 0 400 396" role="img" aria-label="Carte des 19 zones de couverture FlipRadar en France">
+          <path class="frmap-outline" d="M216.0,18.0 L243.5,45.3 L382.3,106.2 L366.4,162.9 L344.7,200.7 L327.3,221.7 L350.5,236.4 L344.7,276.3 L364.9,324.6 L304.2,343.5 L260.9,335.1 L234.8,377.1 L177.0,368.7 L107.6,356.1 L104.7,335.1 L113.4,276.3 L84.5,179.7 L18.0,129.3 L46.9,116.7 L90.3,118.8 L101.8,76.8 L151.0,66.3 L201.6,22.2 Z"></path>
+          <g id="frmap-zones"></g>
+        </svg>
+      </div>
+      <div class="frmap-info" id="frmap-info"></div>
     </div>
     <div class="cnote r"><span>FLIPRADAR utilise une <strong>couverture intelligente</strong> : selon la zone, les communes situées jusqu’à 100 km autour du point de détection sont automatiquement prises en compte.</span></div>
   </div>
@@ -1121,20 +1127,22 @@ function buildTicker(ticks) {
 }
 buildTicker(TICKS);
 
-//  ALERT CARDS — pool rotatif, prix masqués 
+//  DEALS LOG — pool rotatif d'exemples, prix masqués
+// Pool d'exemples illustratifs (pas de fausse fraîcheur — pas de "il y a Xmin" sur des deals fictifs).
+// Remplacé par les vraies alertes récentes dès que l'API répond (voir renderStats → recent_deals).
 const ALL_DEALS = [
-  {cat:'iPhone',title:'iPhone 16 Pro Max 256Go — TBE',prix:'***€',marge:'+480€',city:'Paris',score:'8/10',ago:'3min'},
-  {cat:'iPad',title:'iPad Pro 11" M1 — Comme neuf',prix:'***€',marge:'+450€',city:'Lyon',score:'9/10',ago:'11min'},
-  {cat:'Samsung',title:'Samsung S24 Ultra 512Go — TBE',prix:'***€',marge:'+210€',city:'Bordeaux',score:'8/10',ago:'28min'},
-  {cat:'iPhone',title:'iPhone 15 Pro 256Go — Batterie 94%',prix:'***€',marge:'+180€',city:'Strasbourg',score:'7/10',ago:'44min'},
-  {cat:'PS5',title:'PS5 Slim — Boîte complète, manettes incluses',prix:'***€',marge:'+115€',city:'Toulouse',score:'7/10',ago:'1h'},
-  {cat:'Samsung',title:'Samsung Galaxy S24 Ultra — Comme neuf',prix:'***€',marge:'+95€',city:'Marseille',score:'7/10',ago:'1h23'},
-  {cat:'iPhone',title:'iPhone 17 Pro 128Go — Neuf déscellé',prix:'***€',marge:'+390€',city:'Metz',score:'9/10',ago:'7min'},
-  {cat:'iPad',title:'iPad Air M2 256Go Wifi — TBE',prix:'***€',marge:'+220€',city:'Lille',score:'8/10',ago:'19min'},
-  {cat:'Samsung',title:'Samsung S25 Ultra 256Go — Comme neuf',prix:'***€',marge:'+260€',city:'Rennes',score:'8/10',ago:'52min'},
-  {cat:'Xbox',title:'Xbox Series X — Boîte, 2 manettes',prix:'***€',marge:'+130€',city:'Nantes',score:'7/10',ago:'1h10'},
-  {cat:'iPhone',title:'iPhone 14 Pro Max 256Go — Batterie 89%',prix:'***€',marge:'+165€',city:'Nice',score:'7/10',ago:'2h'},
-  {cat:'PS5',title:'PS5 Digital + 3 jeux — Parfait état',prix:'***€',marge:'+140€',city:'Grenoble',score:'8/10',ago:'35min'},
+  {cat:'iPhone',title:'iPhone 16 Pro Max 256Go — TBE',marge:'+480€',city:'Paris',score:'8/10'},
+  {cat:'iPad',title:'iPad Pro 11" M1 — Comme neuf',marge:'+450€',city:'Lyon',score:'9/10'},
+  {cat:'Samsung',title:'Samsung S24 Ultra 512Go — TBE',marge:'+210€',city:'Bordeaux',score:'8/10'},
+  {cat:'iPhone',title:'iPhone 15 Pro 256Go — Batterie 94%',marge:'+180€',city:'Strasbourg',score:'7/10'},
+  {cat:'PS5',title:'PS5 Slim — Boîte complète, manettes incluses',marge:'+115€',city:'Toulouse',score:'7/10'},
+  {cat:'Samsung',title:'Samsung Galaxy S24 Ultra — Comme neuf',marge:'+95€',city:'Marseille',score:'7/10'},
+  {cat:'iPhone',title:'iPhone 17 Pro 128Go — Neuf déscellé',marge:'+390€',city:'Metz',score:'9/10'},
+  {cat:'iPad',title:'iPad Air M2 256Go Wifi — TBE',marge:'+220€',city:'Lille',score:'8/10'},
+  {cat:'Samsung',title:'Samsung S25 Ultra 256Go — Comme neuf',marge:'+260€',city:'Rennes',score:'8/10'},
+  {cat:'Xbox',title:'Xbox Series X — Boîte, 2 manettes',marge:'+130€',city:'Nantes',score:'7/10'},
+  {cat:'iPhone',title:'iPhone 14 Pro Max 256Go — Batterie 89%',marge:'+165€',city:'Nice',score:'7/10'},
+  {cat:'PS5',title:'PS5 Digital + 3 jeux — Parfait état',marge:'+140€',city:'Grenoble',score:'8/10'},
 ];
 
 function shuffle(arr) {
@@ -1153,26 +1161,20 @@ function renderDeals() {
   const shown = shuffle(DEALS_POOL).slice(0, Math.min(6, DEALS_POOL.length));
   grid.innerHTML = '';
   shown.forEach((d, i) => {
-    const c = document.createElement('div');
-    c.className = 'ac';
-    c.style.opacity = '0';
-    c.style.transform = 'translateY(16px)';
-    c.innerHTML = `
-      <div class="atop"><span class="acat">${safe(d.cat)}</span><span class="ascr"> ${safe(d.score)}</span></div>
-      <p class="atit">${safe(d.title)}</p>
-      <p class="acit">${safe(d.city)} · il y a ${safe(d.ago)}</p>
-      <div class="abot">
-        <span class="apri" style="display:flex;align-items:center;gap:6px;font-size:10px;color:var(--muted)">
-          Prix · <span style="background:rgba(0,255,136,0.07);border:1px solid rgba(0,255,136,0.15);border-radius:3px;padding:2px 8px;color:var(--gtx);letter-spacing:.08em">abonnés</span>
-        </span>
-        <span class="amrg">${safe(d.marge)}</span>
-      </div>`;
-    grid.appendChild(c);
+    const row = document.createElement('div');
+    row.className = 'drow';
+    row.style.opacity = '0';
+    row.innerHTML = `
+      <span class="dcat">${safe(d.cat)}</span>
+      <span class="dtit">${safe(d.title)}</span>
+      <span class="dmeta">${safe(d.city)}${d.ago ? ' · ' + safe(d.ago) : ''}</span>
+      <span class="dscr">${safe(d.score)}</span>
+      <span class="dmrg">${safe(d.marge)}</span>`;
+    grid.appendChild(row);
     setTimeout(() => {
-      c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-      c.style.transitionDelay = (i * 60) + 'ms';
-      c.style.opacity = '1';
-      c.style.transform = 'translateY(0)';
+      row.style.transition = 'opacity 0.45s ease';
+      row.style.transitionDelay = (i * 50) + 'ms';
+      row.style.opacity = '1';
     }, 50);
   });
 }
@@ -1181,7 +1183,70 @@ renderDeals();
 // Rotation toutes les 90 secondes
 setInterval(renderDeals, 90_000);
 
-//  FAQ 
+//  CARTE DE COUVERTURE — 19 zones cliquables sur une carte stylisée de la France
+// Coordonnées projetées (lat/lng → xy) à la même échelle que le contour SVG ci-dessus.
+const FR_ZONES = [
+  {ville:'Paris',       x:216.1, y:110.1, lx:220, ly:108, rayon:80,  communes:'Versailles, Meaux, Cergy, Argenteuil, Vincennes…'},
+  {ville:'Lyon',        x:287.9, y:240.0, lx:292, ly:238, rayon:100, communes:'Villeurbanne, Saint-Étienne, Roanne, Mâcon…'},
+  {ville:'Marseille',   x:303.3, y:343.6, lx:307, ly:341, rayon:50,  communes:'Aix-en-Provence, Toulon, Aubagne…'},
+  {ville:'Bordeaux',    x:131.4, y:278.9, lx:135, ly:277, rayon:50,  communes:'Mérignac, Eysines, périphérie…'},
+  {ville:'Lille',       x:236.5, y:35.7,  lx:240, ly:34,  rayon:55,  communes:'Roubaix, Tourcoing, Lens…'},
+  {ville:'Metz',        x:326.6, y:99.1,  lx:330, ly:97,  rayon:80,  communes:'Nancy, Thionville, Forbach…'},
+  {ville:'Strasbourg',  x:372.2, y:122.0, lx:303, ly:120, rayon:40,  communes:'Alsace et périphérie rhénane'},
+  {ville:'Rouen',       x:179.9, y:85.5,  lx:184, ly:84,  rayon:50,  communes:'Le Havre, Elbeuf…'},
+  {ville:'Nice',        x:358.0, y:326.3, lx:300, ly:324, rayon:40,  communes:'Antibes, Menton, Cannes…'},
+  {ville:'Toulouse',    x:189.9, y:330.7, lx:138, ly:328, rayon:40,  communes:'Muret, périphérie toulousaine'},
+  {ville:'Montpellier', x:260.2, y:330.4, lx:195, ly:328, rayon:40,  communes:'Juvignac, Mauguio…'},
+  {ville:'Nantes',      x:103.2, y:178.9, lx:48,  ly:177, rayon:40,  communes:'Carquefou, Saint-Herblain…'},
+  {ville:'Rennes',      x:99.6,  y:141.2, lx:52,  ly:139, rayon:40,  communes:'Bretagne et périphérie'},
+  {ville:'Grenoble',    x:313.6, y:264.2, lx:318, ly:262, rayon:40,  communes:'Échirolles, Voiron…'},
+  {ville:'Clermont-Fd', x:237.3, y:239.5, lx:178, ly:237, rayon:100, communes:'Auvergne et périphérie'},
+  {ville:'Angers',      x:131.8, y:168.0, lx:80,  ly:166, rayon:60,  communes:'Cholet, Saumur…'},
+  {ville:'Tours',       x:167.9, y:171.5, lx:172, ly:170, rayon:65,  communes:'Joué-lès-Tours…'},
+  {ville:'Caen',        x:137.4, y:96.4,  lx:90,  ly:94,  rayon:60,  communes:'Normandie occidentale'},
+  {ville:'Dijon',       x:293.9, y:174.6, lx:298, ly:173, rayon:70,  communes:'Bourgogne et périphérie'},
+];
+const FRMAP_PX_PER_KM = 42 / 111; // même échelle que la projection du contour
+
+(function() {
+  const zonesLayer = document.getElementById('frmap-zones');
+  const info = document.getElementById('frmap-info');
+  if (!zonesLayer || !info) return;
+
+  function renderInfo(z) {
+    info.innerHTML = `<div class="zn">${safe(z.ville)}</div><div class="zr">Rayon ${z.rayon}km</div><div class="zc">${safe(z.communes)}</div><span class="frmap-hint">Couverture intelligente : toute commune dans le rayon est automatiquement incluse, sans configuration de ta part.</span>`;
+  }
+
+  let activeEl = null;
+  function selectZone(g, z) {
+    if (activeEl) activeEl.classList.remove('active');
+    g.classList.add('active');
+    activeEl = g;
+    renderInfo(z);
+  }
+
+  FR_ZONES.forEach((z, i) => {
+    const r = Math.max(z.rayon * FRMAP_PX_PER_KM, 9);
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('class', 'frmap-zone');
+    g.setAttribute('tabindex', '0');
+    g.setAttribute('role', 'button');
+    g.setAttribute('aria-label', `${z.ville} — rayon ${z.rayon}km`);
+    g.innerHTML = `
+      <circle class="frmap-radius" cx="${z.x}" cy="${z.y}" r="${r}"></circle>
+      <circle class="frmap-dot" cx="${z.x}" cy="${z.y}" r="3.2"></circle>
+      <text x="${z.lx}" y="${z.ly}">${safe(z.ville)}</text>
+      <circle class="frmap-hit" cx="${z.x}" cy="${z.y}" r="11"></circle>`;
+    g.addEventListener('click', () => selectZone(g, z));
+    g.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectZone(g, z); }
+    });
+    zonesLayer.appendChild(g);
+    if (i === 0) selectZone(g, z);
+  });
+})();
+
+//  FAQ
 const FAQS = [
   {q:'Et si je ne suis pas convaincu ?', a:'Tu as 7 jours pour tester FLIPRADAR. Pas convaincu ? Tu es remboursé intégralement, sans justification à donner — écris simplement à @flipradarfr ou contact@flipradar.fr.'},
   {q:'Comment sont calculées la marge et le worst-case ?', a:'La marge réaliste = prix de revente médian observé sur LBC − prix d\'achat. Le worst-case = prix de rachat minimum estimé chez Cash Converters/EasyCash − prix d\'achat. C\'est ton filet de sécurité : si le worst-case est positif, tu es rentable même si tu ne revends jamais sur LBC.'},
@@ -1292,6 +1357,26 @@ function countUp(el, end, formatter, duration = 1300) {
   requestAnimationFrame(step);
 }
 
+//  ÉTAT LIVE — le badge "live" et les zones dépendantes ne doivent jamais prétendre être
+// à jour si l'API n'a pas répondu (cas observé : navigateur in-app Instagram).
+function setLiveState(ok) {
+  const badge = document.getElementById('live-badge');
+  const label = document.getElementById('live-label');
+  if (!badge) return;
+  badge.classList.remove('loading', 'offline');
+  if (ok) {
+    if (label) label.textContent = 'live';
+  } else {
+    badge.classList.add('offline');
+    if (label) label.textContent = 'exemple';
+  }
+}
+
+function showTopVillesUnavailable() {
+  const el = document.getElementById('top-villes');
+  if (el) el.innerHTML = `<p style="font-size:12px;color:var(--muted);line-height:1.7;padding:6px 0">Classement temporairement indisponible. <a href="https://t.me/flip_radar" rel="noopener noreferrer" style="color:var(--gtx)">Voir les alertes en direct sur Telegram →</a></p>`;
+}
+
 function renderStats(d) {
     if (typeof d !== 'object' || d.error) return;
 
@@ -1342,14 +1427,15 @@ function renderStats(d) {
       DEALS_POOL = d.recent_deals.map(rd => ({
         cat: rd.cat,
         title: rd.modele || `${rd.cat} — annonce qualifiée`,
-        prix: '***€',
         marge: '+' + rd.marge + '€',
         city: rd.ville,
         score: rd.score + '/10',
-        ago: 'quelques instants',
+        ago: 'récemment',
       }));
       renderDeals();
       buildTicker(d.recent_deals.map(rd => ({ cat: rd.cat, city: rd.ville, m: '+' + rd.marge + '€' })));
+      const cap = document.getElementById('dlog-caption');
+      if (cap) cap.textContent = 'Alertes réelles les plus récentes détectées';
     }
 
     // Last update
@@ -1357,6 +1443,7 @@ function renderStats(d) {
       const t = new Date(d.updated_at);
       document.getElementById('last-update').textContent = '↻ Mis à jour à ' + t.toLocaleTimeString('fr-FR', {hour:'2-digit',minute:'2-digit'});
     }
+    setLiveState(true);
 }
 
 // fetch avec timeout via AbortController (plus compatible que AbortSignal.timeout
@@ -1381,7 +1468,12 @@ async function fetchStatsOnce(timeoutMs) {
 
 async function fetchStats() {
   const d = await fetchStatsOnce(8000) || await fetchStatsOnce(8000);
-  if (d) renderStats(d);
+  if (d) {
+    renderStats(d);
+  } else {
+    setLiveState(false);
+    showTopVillesUnavailable();
+  }
 }
 
 fetchStats();
@@ -1401,8 +1493,8 @@ setInterval(fetchStats, 5 * 60 * 1000); // refresh toutes les 5 min
 
     // Grilles / groupes de cartes : entrée en cascade
     const GROUPS = [
-      ['.lgrid', '.lcard'],
-      ['.zgrid', '.zone'],
+      ['.mstats', '.mstat'],
+      ['.dlog', '.drow'],
       ['.pgrid', '.plan'],
       ['.pipe', '.ps'],
     ];
