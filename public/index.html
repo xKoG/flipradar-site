@@ -21,7 +21,8 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iIzA1MDgwOSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjEyIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMGZmODgiIHN0cm9rZS13aWR0aD0iMSIgb3BhY2l0eT0iMC4yNSIvPgogIDxjaXJjbGUgY3g9IjE2IiBjeT0iMTYiIHI9IjciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwZmY4OCIgc3Ryb2tlLXdpZHRoPSIwLjciIG9wYWNpdHk9IjAuMTgiLz4KICA8bGluZSB4MT0iMTYiIHkxPSIxNiIgeDI9IjI1IiB5Mj0iOCIgc3Ryb2tlPSIjMDBmZjg4IiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSI5IiByPSIyLjUiIGZpbGw9IiMwMGZmODgiLz4KICA8cmVjdCB4PSI5IiB5PSIxMCIgd2lkdGg9IjIiIGhlaWdodD0iMTIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTAiIHdpZHRoPSI3IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iOSIgeT0iMTUiIHdpZHRoPSI1IiBoZWlnaHQ9IjIiIHJ4PSIxIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPg==">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500;1,9..144,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <style>
 :root{
   --bg:#050809;--bg2:#080d10;--bg3:#0c1518;
@@ -29,7 +30,7 @@
   --gtx:#00e07a;--amber:#f5a623;--alo:rgba(245,166,35,.08);
   --text:#a8c0cc;--muted:#6c8ba1;--faint:#1e3040;
   --bdr:rgba(255,255,255,.055);--bdg:rgba(0,255,136,.13);
-  --display:'Syne',sans-serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;--serif:'Fraunces',serif;
+  --display:'Syne',sans-serif;--sans:'Manrope',sans-serif;--mono:'JetBrains Mono',monospace;--serif:'DM Serif Display',serif;
   --r:8px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -73,7 +74,7 @@ h1 .d{color:var(--green)}
   font-family:var(--serif);
   font-style:italic;
   font-size:clamp(44px,9.6vw,108px);
-  font-weight:600;
+  font-weight:400;
   line-height:1.08;
   letter-spacing:-.01em;
   color:#fff;
@@ -187,26 +188,25 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .wc-text strong{color:#fff;font-weight:600}
 .wc-text em{font-family:var(--serif);font-style:italic;color:#fff}
 
-/* COVERAGE — carte interactive, pas de cards */
+/* COVERAGE — carte Leaflet interactive */
 .frmap-layout{display:grid;grid-template-columns:1fr 300px;gap:40px;align-items:start;margin-bottom:32px}
 @media(max-width:860px){.frmap-layout{grid-template-columns:1fr;gap:24px}}
-.frmap-wrap{border:1px solid var(--bdr);border-radius:var(--r);background:rgba(255,255,255,.012);padding:20px}
-.frmap{width:100%;height:auto;display:block;overflow:visible}
-.frmap-outline{fill:rgba(0,255,136,.035);stroke:var(--bdg);stroke-width:1.2}
-.frmap-radius{fill:rgba(0,255,136,.09);stroke:rgba(0,255,136,.32);stroke-width:.8;opacity:0;transition:opacity .3s ease}
-.frmap-zone.active .frmap-radius{opacity:1}
-.frmap-dot{fill:var(--green);stroke:#050809;stroke-width:1.4;transition:r .15s ease}
-.frmap-zone:hover .frmap-dot,.frmap-zone.active .frmap-dot{r:4.4}
-.frmap-hit{fill:transparent;cursor:pointer}
-.frmap-zone text{font-family:var(--mono);font-size:6.4px;fill:var(--muted);pointer-events:none;letter-spacing:.01em;transition:fill .15s ease}
-.frmap-zone:hover text,.frmap-zone.active text{fill:#fff;font-weight:700}
-.frmap-zone:focus{outline:none}
-.frmap-zone:focus .frmap-dot{stroke:var(--green);stroke-width:2.5}
+.frmap-wrap{border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden}
+#frmap-leaflet{width:100%;height:440px}
 .frmap-info{border:1px solid var(--bdr);border-radius:var(--r);background:var(--bg2);padding:28px;min-height:180px}
 .frmap-info .zn{font-size:18px;margin-bottom:10px;font-family:var(--display);color:#fff;font-weight:800}
 .frmap-info .zr{margin-bottom:16px;display:inline-block;background:var(--glo);border:1px solid var(--bdg);color:var(--gtx);padding:5px 14px;border-radius:40px;font-family:var(--mono);font-size:10px}
 .frmap-info .zc{font-size:12px;line-height:1.7;color:var(--muted)}
 .frmap-hint{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;margin-top:18px;display:block;line-height:1.6}
+/* Leaflet dark theme overrides */
+.leaflet-control-zoom{border:1px solid var(--bdr)!important;border-radius:var(--r)!important;overflow:hidden!important;margin:12px!important}
+.leaflet-control-zoom-in,.leaflet-control-zoom-out{background:rgba(5,8,9,.9)!important;color:var(--muted)!important;border:none!important;border-bottom:1px solid var(--bdr)!important}
+.leaflet-control-zoom-out{border-bottom:none!important}
+.leaflet-control-zoom-in:hover,.leaflet-control-zoom-out:hover{background:var(--bg3)!important;color:var(--gtx)!important}
+.leaflet-control-attribution{background:rgba(5,8,9,.75)!important;color:var(--muted)!important;font-size:9px!important}
+.leaflet-control-attribution a{color:var(--gtx)!important}
+.frmap-tooltip.leaflet-tooltip{background:rgba(5,8,9,.92)!important;border:1px solid rgba(0,255,136,.2)!important;color:#fff!important;font-family:var(--mono)!important;font-size:10px!important;letter-spacing:.08em!important;box-shadow:none!important;padding:4px 10px!important;border-radius:4px!important;white-space:nowrap}
+.frmap-tooltip.leaflet-tooltip::before{display:none!important}
 .cnote{background:var(--glo);border:1px solid var(--bdg);border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;gap:16px;font-size:13px;color:var(--text);font-weight:500}
 
 /* PRICING */
@@ -602,7 +602,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Total depuis lancement</div><div class="mval" id="s-total">—</div><div class="msub">alertes qualifiées ≥ 7/10</div></div>
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Red flags détectés</div><div class="mval" id="s-redflags">—</div><div class="msub">annonces suspectes filtrées par l'IA</div></div>
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Sélectivité IA</div><div class="mval" id="s-selectivite">—</div><div class="msub">des annonces analysées sont écartées avant l'envoi</div></div>
-      <div class="mstat"><div class="mtag"><span class="ldot"></span>Couverture</div><div class="mval">19 villes</div><div class="msub">3 000+ communes surveillées en continu</div></div>
     </div>
 
     <div class="stats2 r">
@@ -943,10 +942,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <h2 class="r">19 zones · 3000+ communes</h2>
     <div class="frmap-layout r reveal">
       <div class="frmap-wrap">
-        <svg class="frmap" viewBox="0 0 400 396" role="img" aria-label="Carte des 19 zones de couverture FlipRadar en France">
-          <path class="frmap-outline" d="M216.0,18.0 L243.5,45.3 L382.3,106.2 L366.4,162.9 L344.7,200.7 L327.3,221.7 L350.5,236.4 L344.7,276.3 L364.9,324.6 L304.2,343.5 L260.9,335.1 L234.8,377.1 L177.0,368.7 L107.6,356.1 L104.7,335.1 L113.4,276.3 L84.5,179.7 L18.0,129.3 L46.9,116.7 L90.3,118.8 L101.8,76.8 L151.0,66.3 L201.6,22.2 Z"></path>
-          <g id="frmap-zones"></g>
-        </svg>
+        <div id="frmap-leaflet" aria-label="Carte des 19 zones de couverture FlipRadar en France"></div>
       </div>
       <div class="frmap-info" id="frmap-info"></div>
     </div>
@@ -1018,6 +1014,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 //  CONFIG 
 const API = 'https://api.flipradar.fr/stats';
@@ -1183,66 +1180,72 @@ renderDeals();
 // Rotation toutes les 90 secondes
 setInterval(renderDeals, 90_000);
 
-//  CARTE DE COUVERTURE — 19 zones cliquables sur une carte stylisée de la France
-// Coordonnées projetées (lat/lng → xy) à la même échelle que le contour SVG ci-dessus.
+//  CARTE DE COUVERTURE — 19 zones sur carte Leaflet (OpenStreetMap / Carto Dark)
 const FR_ZONES = [
-  {ville:'Paris',       x:216.1, y:110.1, lx:220, ly:108, rayon:80,  communes:'Versailles, Meaux, Cergy, Argenteuil, Vincennes…'},
-  {ville:'Lyon',        x:287.9, y:240.0, lx:292, ly:238, rayon:100, communes:'Villeurbanne, Saint-Étienne, Roanne, Mâcon…'},
-  {ville:'Marseille',   x:303.3, y:343.6, lx:307, ly:341, rayon:50,  communes:'Aix-en-Provence, Toulon, Aubagne…'},
-  {ville:'Bordeaux',    x:131.4, y:278.9, lx:135, ly:277, rayon:50,  communes:'Mérignac, Eysines, périphérie…'},
-  {ville:'Lille',       x:236.5, y:35.7,  lx:240, ly:34,  rayon:55,  communes:'Roubaix, Tourcoing, Lens…'},
-  {ville:'Metz',        x:326.6, y:99.1,  lx:330, ly:97,  rayon:80,  communes:'Nancy, Thionville, Forbach…'},
-  {ville:'Strasbourg',  x:372.2, y:122.0, lx:303, ly:120, rayon:40,  communes:'Alsace et périphérie rhénane'},
-  {ville:'Rouen',       x:179.9, y:85.5,  lx:184, ly:84,  rayon:50,  communes:'Le Havre, Elbeuf…'},
-  {ville:'Nice',        x:358.0, y:326.3, lx:300, ly:324, rayon:40,  communes:'Antibes, Menton, Cannes…'},
-  {ville:'Toulouse',    x:189.9, y:330.7, lx:138, ly:328, rayon:40,  communes:'Muret, périphérie toulousaine'},
-  {ville:'Montpellier', x:260.2, y:330.4, lx:195, ly:328, rayon:40,  communes:'Juvignac, Mauguio…'},
-  {ville:'Nantes',      x:103.2, y:178.9, lx:48,  ly:177, rayon:40,  communes:'Carquefou, Saint-Herblain…'},
-  {ville:'Rennes',      x:99.6,  y:141.2, lx:52,  ly:139, rayon:40,  communes:'Bretagne et périphérie'},
-  {ville:'Grenoble',    x:313.6, y:264.2, lx:318, ly:262, rayon:40,  communes:'Échirolles, Voiron…'},
-  {ville:'Clermont-Fd', x:237.3, y:239.5, lx:178, ly:237, rayon:100, communes:'Auvergne et périphérie'},
-  {ville:'Angers',      x:131.8, y:168.0, lx:80,  ly:166, rayon:60,  communes:'Cholet, Saumur…'},
-  {ville:'Tours',       x:167.9, y:171.5, lx:172, ly:170, rayon:65,  communes:'Joué-lès-Tours…'},
-  {ville:'Caen',        x:137.4, y:96.4,  lx:90,  ly:94,  rayon:60,  communes:'Normandie occidentale'},
-  {ville:'Dijon',       x:293.9, y:174.6, lx:298, ly:173, rayon:70,  communes:'Bourgogne et périphérie'},
+  {ville:'Paris',        lat:48.8566, lng: 2.3522, rayon:80,  communes:'Versailles, Meaux, Cergy, Argenteuil, Vincennes…'},
+  {ville:'Lyon',         lat:45.7640, lng: 4.8357, rayon:100, communes:'Villeurbanne, Saint-Étienne, Roanne, Mâcon…'},
+  {ville:'Marseille',    lat:43.2965, lng: 5.3698, rayon:50,  communes:'Aix-en-Provence, Toulon, Aubagne…'},
+  {ville:'Bordeaux',     lat:44.8378, lng:-0.5792, rayon:50,  communes:'Mérignac, Eysines, périphérie…'},
+  {ville:'Lille',        lat:50.6292, lng: 3.0573, rayon:55,  communes:'Roubaix, Tourcoing, Lens…'},
+  {ville:'Metz',         lat:49.1193, lng: 6.1757, rayon:80,  communes:'Nancy, Thionville, Forbach…'},
+  {ville:'Strasbourg',   lat:48.5734, lng: 7.7521, rayon:40,  communes:'Alsace et périphérie rhénane'},
+  {ville:'Rouen',        lat:49.4432, lng: 1.0999, rayon:50,  communes:'Le Havre, Elbeuf…'},
+  {ville:'Nice',         lat:43.7102, lng: 7.2620, rayon:40,  communes:'Antibes, Menton, Cannes…'},
+  {ville:'Toulouse',     lat:43.6047, lng: 1.4442, rayon:40,  communes:'Muret, périphérie toulousaine'},
+  {ville:'Montpellier',  lat:43.6108, lng: 3.8767, rayon:40,  communes:'Juvignac, Mauguio…'},
+  {ville:'Nantes',       lat:47.2184, lng:-1.5536, rayon:40,  communes:'Carquefou, Saint-Herblain…'},
+  {ville:'Rennes',       lat:48.1173, lng:-1.6778, rayon:40,  communes:'Bretagne et périphérie'},
+  {ville:'Grenoble',     lat:45.1885, lng: 5.7245, rayon:40,  communes:'Échirolles, Voiron…'},
+  {ville:'Clermont-Fd',  lat:45.7772, lng: 3.0870, rayon:100, communes:'Auvergne et périphérie'},
+  {ville:'Angers',       lat:47.4784, lng:-0.5632, rayon:60,  communes:'Cholet, Saumur…'},
+  {ville:'Tours',        lat:47.3941, lng: 0.6848, rayon:65,  communes:'Joué-lès-Tours…'},
+  {ville:'Caen',         lat:49.1829, lng:-0.3707, rayon:60,  communes:'Normandie occidentale'},
+  {ville:'Dijon',        lat:47.3220, lng: 5.0415, rayon:70,  communes:'Bourgogne et périphérie'},
 ];
-const FRMAP_PX_PER_KM = 42 / 111; // même échelle que la projection du contour
 
 (function() {
-  const zonesLayer = document.getElementById('frmap-zones');
   const info = document.getElementById('frmap-info');
-  if (!zonesLayer || !info) return;
+  const container = document.getElementById('frmap-leaflet');
+  if (!container || !info) return;
+
+  const map = L.map('frmap-leaflet', {
+    center: [46.6, 2.2],
+    zoom: 5,
+    scrollWheelZoom: false,
+    zoomControl: true,
+    attributionControl: true,
+    minZoom: 4,
+    maxZoom: 12,
+  });
+
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+  }).addTo(map);
 
   function renderInfo(z) {
     info.innerHTML = `<div class="zn">${safe(z.ville)}</div><div class="zr">Rayon ${z.rayon}km</div><div class="zc">${safe(z.communes)}</div><span class="frmap-hint">Couverture intelligente : toute commune dans le rayon est automatiquement incluse, sans configuration de ta part.</span>`;
   }
 
-  let activeEl = null;
-  function selectZone(g, z) {
-    if (activeEl) activeEl.classList.remove('active');
-    g.classList.add('active');
-    activeEl = g;
-    renderInfo(z);
-  }
+  const styleDefault = { radius:7, fillColor:'#00ff88', color:'#050809', weight:2, fillOpacity:0.88, className:'' };
+  const styleActive  = { radius:10, fillColor:'#00ff88', color:'#ffffff', weight:2.5, fillOpacity:1 };
+  let activeMarker = null;
 
   FR_ZONES.forEach((z, i) => {
-    const r = Math.max(z.rayon * FRMAP_PX_PER_KM, 9);
-    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    g.setAttribute('class', 'frmap-zone');
-    g.setAttribute('tabindex', '0');
-    g.setAttribute('role', 'button');
-    g.setAttribute('aria-label', `${z.ville} — rayon ${z.rayon}km`);
-    g.innerHTML = `
-      <circle class="frmap-radius" cx="${z.x}" cy="${z.y}" r="${r}"></circle>
-      <circle class="frmap-dot" cx="${z.x}" cy="${z.y}" r="3.2"></circle>
-      <text x="${z.lx}" y="${z.ly}">${safe(z.ville)}</text>
-      <circle class="frmap-hit" cx="${z.x}" cy="${z.y}" r="11"></circle>`;
-    g.addEventListener('click', () => selectZone(g, z));
-    g.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectZone(g, z); }
+    const marker = L.circleMarker([z.lat, z.lng], { ...styleDefault }).addTo(map);
+    marker.bindTooltip(z.ville, { permanent:false, direction:'top', className:'frmap-tooltip' });
+    marker.on('click', () => {
+      if (activeMarker) activeMarker.setStyle(styleDefault);
+      marker.setStyle(styleActive);
+      activeMarker = marker;
+      renderInfo(z);
     });
-    zonesLayer.appendChild(g);
-    if (i === 0) selectZone(g, z);
+    if (i === 0) {
+      marker.setStyle(styleActive);
+      activeMarker = marker;
+      renderInfo(z);
+    }
   });
 })();
 
