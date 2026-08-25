@@ -58,9 +58,9 @@ footer a:hover{color:var(--gtx)}
 
 <main>
   <div class="card">
-    <div class="badge"><span class="dot"></span>Essai gratuit activé</div>
+    <div class="badge"><span class="dot"></span>Paiement confirmé</div>
     <h1>C'est presque prêt.</h1>
-    <p class="lead" id="lead-text">Ta carte est enregistrée — <strong>0€ prélevé aujourd'hui</strong>, ton essai gratuit de 7 jours démarre maintenant. Il ne reste qu'une étape : <strong>active ton accès depuis Telegram</strong> pour rejoindre le groupe privé de ta ville et recevoir tes premières alertes.</p>
+    <p class="lead" id="lead-text">Ton paiement est confirmé. Il ne reste qu'une étape : <strong>active ton accès depuis Telegram</strong> pour rejoindre le groupe privé de ta ville et recevoir tes premières alertes.</p>
     <a href="https://t.me/flipradart_bot" class="bp" id="tg-cta" rel="noopener noreferrer">Ouvrir Telegram pour activer ton accès →</a>
     <p class="note" id="note-text">Le bot termine l'activation automatiquement et t'envoie un lien d'accès vers le groupe Telegram de ta ville.</p>
   </div>
@@ -79,7 +79,7 @@ footer a:hover{color:var(--gtx)}
   if (token && /^[A-Za-z0-9_-]{1,64}$/.test(token)) {
     cta.href = 'https://t.me/flipradart_bot?start=' + encodeURIComponent(token);
   } else {
-    document.getElementById('lead-text').textContent = 'Ton essai est activé. Ouvre Telegram et lance /start sur @flipradart_bot pour activer ton accès — si besoin, contacte @flipradarfr avec ton email d'inscription.';
+    document.getElementById('lead-text').textContent = 'Ton paiement est confirmé. Ouvre Telegram et lance /start sur @flipradart_bot pour activer ton accès — si besoin, contacte @flipradarfr avec ton email d'inscription.';
     document.getElementById('note-text').textContent = 'Lien d\'activation introuvable dans l\'URL — l\'activation manuelle via /start fonctionne aussi.';
   }
 })();
