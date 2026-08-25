@@ -553,7 +553,7 @@ document.getElementById('promo-banner-close').addEventListener('click', function
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <span class="sticky-cta-text">FLIPRADAR · <strong>7 jours gratuits</strong> · puis 29€/mois à vie</span>
+  <span class="sticky-cta-text">FLIPRADAR · <strong>7 jours gratuits</strong> · puis 10€/mois à vie</span>
   <a href="#" class="bp" rel="noopener noreferrer" style="padding:10px 20px;font-size:10px" data-open-city-modal>Essayer gratuitement →</a>
 </div>
 
@@ -989,7 +989,7 @@ document.getElementById('promo-banner-close').addEventListener('click', function
         <div class="ptag">Membre Fondateur</div>
         <p class="pname" style="margin-top:10px">Accès Fondateur</p>
         <p style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gtx);margin-top:14px">7 PREMIERS JOURS : 0€</p>
-        <p class="pprice"><sup>€</sup>29</p>
+        <p class="pprice"><sup>€</sup>10</p>
         <p class="pper">par mois après l'essai · à vie · sans engagement</p>
         <ul class="feats">
           <li>7 jours d'essai gratuit — prélèvement uniquement après</li>
@@ -1281,13 +1281,13 @@ const FR_ZONES = [
 
 //  FAQ
 const FAQS = [
-  {q:'Comment fonctionne l\'essai gratuit ?', a:'Tu enregistres ta carte via Stripe mais rien n\'est prélevé pendant 7 jours : tu reçois toutes les alertes de ta ville, comme un membre normal. Si FLIPRADAR ne te convient pas, tu annules avant la fin de l\'essai (un message à @flipradarfr ou depuis Stripe suffit) et tu ne paies rien. Si tu restes, le premier prélèvement de 29€ a lieu à la fin des 7 jours.'},
+  {q:'Comment fonctionne l\'essai gratuit ?', a:'Tu enregistres ta carte via Stripe mais rien n\'est prélevé pendant 7 jours : tu reçois toutes les alertes de ta ville, comme un membre normal. Si FLIPRADAR ne te convient pas, tu annules avant la fin de l\'essai (un message à @flipradarfr ou depuis Stripe suffit) et tu ne paies rien. Si tu restes, le premier prélèvement de 10€ (tarif de lancement) a lieu à la fin des 7 jours.'},
   {q:'Pourquoi demander ma carte si c\'est gratuit ?', a:'Pour réserver ta place : les alertes sont limitées à 20 membres fondateurs, et l\'enregistrement de la carte évite les inscriptions fantômes qui bloqueraient une place sans jamais l\'utiliser. Tant que tu es en essai, aucun débit — Stripe t\'envoie d\'ailleurs un rappel avant le premier prélèvement.'},
   {q:'Comment sont calculées la marge et le worst-case ?', a:'La marge réaliste = prix de revente médian observé sur LBC − prix d\'achat. Le worst-case = prix de rachat minimum estimé chez Cash Converters/EasyCash − prix d\'achat. C\'est ton filet de sécurité : si le worst-case est positif, tu es rentable même si tu ne revends jamais sur LBC.'},
   {q:'FLIPRADAR couvre-t-il ma ville ?', a:'19 zones sont analysées en continu avec un rayon de 40 à 100km. La couverture intelligente prend en compte toute commune dans un rayon de 40 à 100km d\'une zone — plus de 3000 communes couvertes automatiquement, sans configuration de ta part.'},
   {q:'Quelles catégories sont détectées ?', a:'iPhone, iPad, Samsung Galaxy, PS5, PS4, Xbox Series X/S. FLIPRADAR filtre automatiquement les accessoires, clones, articles volés et annonces vagues.'},
   {q:'À quelle fréquence les alertes arrivent-elles ?', a:'FLIPRADAR surveille Leboncoin en continu, avec plusieurs passages par heure, jour et nuit. Le volume d\'alertes varie selon ta ville et l\'activité du marché — les grandes zones reçoivent généralement plus d\'alertes que les villes moyennes. Seules les annonces scorées ≥ 7/10 sont envoyées ; un worst-case trop dégradé par rapport au prix fait déjà chuter le score sous ce seuil avant l\'envoi.'},
-  {q:'Puis-je annuler à tout moment ?', a:'Oui, sans engagement ni préavis — y compris pendant l\'essai gratuit, auquel cas tu n\'es jamais prélevé. Le tarif membre fondateur à 29€ est bloqué à vie — tu gardes ce tarif tant que tu restes abonné.'},
+  {q:'Puis-je annuler à tout moment ?', a:'Oui, sans engagement ni préavis — y compris pendant l\'essai gratuit, auquel cas tu n\'es jamais prélevé. Le tarif de lancement à 10€ est bloqué à vie — tu gardes ce tarif tant que tu restes abonné.'},
   {q:'Le paiement est-il sécurisé ?', a:'Oui. Les paiements sont traités par Stripe, leader mondial du paiement en ligne. Tes données bancaires ne transitent jamais par FLIPRADAR — elles sont chiffrées et gérées directement par Stripe (certifié PCI DSS niveau 1). Dès ton paiement confirmé, tu reçois automatiquement un lien d\'accès au groupe Telegram de ta ville.'},
 ];
 const fl = document.getElementById('faqlist');
