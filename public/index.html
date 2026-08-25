@@ -44,6 +44,15 @@ body::before{content:'';position:fixed;inset:0;background-image:url("data:image/
 #radar{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.26;pointer-events:none;z-index:0}
 
 /* NAV */
+/* PROMO BANNER */
+:root{--banner-h:40px}
+.promo-banner{position:fixed;top:0;left:0;right:0;z-index:310;height:var(--banner-h);background:var(--green);color:#000;display:flex;align-items:center;justify-content:center;gap:14px;padding:0 44px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.03em;text-align:center}
+.promo-banner.hidden{display:none}
+.promo-banner-close{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:#000;opacity:.6;font-size:14px;cursor:pointer;line-height:1;padding:4px}
+.promo-banner-close:hover{opacity:1}
+@media(max-width:640px){.promo-banner{font-size:10px;padding:0 38px;gap:8px}}
+body.promo-active nav{top:var(--banner-h)}
+
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s ease}
 nav.sc{background:rgba(5,8,9,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--bdr);padding:13px 40px}
 .logo{font-family:var(--display);font-size:17px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}
@@ -504,15 +513,27 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   "operatingSystem": "Web, Telegram",
   "offers": {
     "@type": "Offer",
-    "price": "29",
+    "price": "10",
     "priceCurrency": "EUR",
     "priceValidUntil": "2026-12-31",
-    "description": "7 jours d'essai gratuit, puis accès Membre Fondateur — 29€/mois à vie"
+    "description": "7 jours d'essai gratuit, puis accès Membre Fondateur — 10€/mois à vie (offre de lancement)"
   }
 }
 </script>
 </head>
-<body>
+<body class="promo-active">
+<div class="promo-banner" id="promo-banner"><span>🚀 Offre de lancement : <strong>10€/mois</strong> — places limitées</span><button class="promo-banner-close" id="promo-banner-close" aria-label="Fermer la promo">✕</button></div>
+<script>
+if (sessionStorage.getItem('promoDismissed')) {
+  document.body.classList.remove('promo-active');
+  document.getElementById('promo-banner').classList.add('hidden');
+}
+document.getElementById('promo-banner-close').addEventListener('click', function() {
+  sessionStorage.setItem('promoDismissed', '1');
+  document.body.classList.remove('promo-active');
+  document.getElementById('promo-banner').classList.add('hidden');
+});
+</script>
 <div class="orb o1"></div><div class="orb o2"></div>
 
 <!-- SCROLL RADAR -->
