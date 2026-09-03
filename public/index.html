@@ -91,6 +91,12 @@ h1 .d{color:var(--green)}
 .hsl{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase}
 @media(max-width:640px){.hstats{flex-direction:column}.hs{border-right:none;border-bottom:1px solid var(--bdr)}.hs:last-child{border-bottom:none}}
 
+/* Référentiel prix — bloc secondaire hero, accent ambre pour se distinguer des hstats (activité) */
+.ref-tag{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--amber);text-align:center;margin:40px 0 14px;animation:up .7s ease .42s both}
+.hstats.ref{border-color:var(--alo);background:rgba(245,166,35,.03);margin-bottom:20px;animation:up .7s ease .46s both}
+.hstats.ref .hsv{color:var(--amber);text-shadow:0 0 24px rgba(245,166,35,.16)}
+.ref-note{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.04em;text-align:center;margin-bottom:8px}
+
 /* CTA */
 .ctas{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;animation:up .7s ease .34s both}
 .bp{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:#000;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:15px 30px;border-radius:4px;text-decoration:none;transition:all .2s ease}
@@ -581,6 +587,15 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="trust-row" style="margin-top:24px;animation:up .7s ease .38s both">
     <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><strong style="color:var(--text)">Résiliable à tout moment</strong>&nbsp;— sans engagement</div>
   </div>
+
+  <p class="ref-tag">Nos prix de référence · <span id="ref-nb-modeles">255</span> modèles suivis · mis à jour aujourd'hui</p>
+  <div class="hstats ref">
+    <div class="hs"><span class="hsv" id="h-prix-marche">350€</span><span class="hsl">prix moyen observé (Leboncoin)</span></div>
+    <div class="hs"><span class="hsv" id="h-revente-ref">234€</span><span class="hsl">prix de revente moyen</span></div>
+    <div class="hs"><span class="hsv" id="h-rachat-ref">195€</span><span class="hsl">rachat pro moyen (CashConverters/EasyCash)</span></div>
+  </div>
+  <p class="ref-note">Calculé sur notre référentiel de prix de rachat pro, actualisé quotidiennement — pas des estimations.</p>
+
   <p class="scroll-teaser r">↓ Le système vient de détecter plusieurs opportunités — voici comment elles arrivent jusqu'à toi</p>
   <div class="scue"><span>scroll</span><div class="sline"></div></div>
 </section>
@@ -1396,6 +1411,15 @@ function renderStats(d) {
     if (d.marge_moyenne)  countUp(document.getElementById('h-marge'), d.marge_moyenne, v => '+' + v + '€');
     if (d.marge_moyenne)  document.getElementById('hero-marge').textContent  = '+' + d.marge_moyenne + '€';
     if (d.marge_max)      countUp(document.getElementById('h-best'), d.marge_max, v => '+' + v + '€');
+
+    // Prix de référence — count-up
+    if (d.prix_moyen_marche)             countUp(document.getElementById('h-prix-marche'), d.prix_moyen_marche, v => v + '€');
+    if (d.revente_moyenne_referentiel)   countUp(document.getElementById('h-revente-ref'), d.revente_moyenne_referentiel, v => v + '€');
+    if (d.rachat_moyen_referentiel)      countUp(document.getElementById('h-rachat-ref'), d.rachat_moyen_referentiel, v => v + '€');
+    if (d.nb_modeles_suivis) {
+      const elNb = document.getElementById('ref-nb-modeles');
+      if (elNb) elNb.textContent = d.nb_modeles_suivis;
+    }
 
     // Live cards — count-up
     if (d.alertes_aujourd_hui !== undefined) countUp(document.getElementById('s-today'), d.alertes_aujourd_hui, v => String(v));
