@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Pages de conversion servies par l'API (rendu dynamique, indexables)
+Allow: /villes
+Allow: /ville/
+
+Sitemap: https://flipradar.fr/sitemap.xml
