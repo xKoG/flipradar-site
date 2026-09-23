@@ -453,6 +453,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 .city-btn{background:rgba(255,255,255,.02);border:1px solid var(--bdr);color:var(--text);font-family:var(--mono);font-size:11px;letter-spacing:.04em;padding:13px 10px;border-radius:6px;cursor:pointer;transition:all .2s;text-align:center}
 .city-btn:hover{border-color:var(--bdg);color:var(--gtx);background:var(--glo)}
 .city-btn:disabled{opacity:.4;cursor:wait}
+.city-btn-fr{grid-column:1/-1;border-color:var(--bdg);color:#fff;background:rgba(0,255,136,.05);margin-bottom:8px}
+.city-btn-fr strong{color:var(--gtx)}
 .modal-status{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;margin-top:18px;min-height:14px}
 
 /* HERO — bouton démo (secondaire) */
@@ -554,13 +556,22 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   "description": "Bot d'alerte Leboncoin pour l'achat-revente tech : alertes Telegram sur les annonces iPhone, Samsung, iPad, PS5 et Xbox sous-cotées, avec marge et prix de reprise magasin calculés automatiquement.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web, Telegram",
-  "offers": {
-    "@type": "Offer",
-    "price": "29",
-    "priceCurrency": "EUR",
-    "priceValidUntil": "2026-12-31",
-    "description": "Accès Membre Fondateur — 29€/mois à vie"
-  }
+  "offers": [
+    {
+      "@type": "Offer",
+      "price": "29",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "description": "Une zone, Accès Membre Fondateur — 29€/mois à vie"
+    },
+    {
+      "@type": "Offer",
+      "price": "59",
+      "priceCurrency": "EUR",
+      "priceValidUntil": "2026-12-31",
+      "description": "France entière, alertes des 19 zones — 59€/mois"
+    }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -621,7 +632,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       "name": "FlipRadar couvre-t-il ma ville ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner."
+        "text": "19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones."
       }
     }
   ]
@@ -636,7 +647,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <button class="modal-close" id="city-modal-close" aria-label="Fermer">✕</button>
     <p class="stag" style="margin-bottom:8px">abonnement</p>
     <h3 class="modal-title">Choisis ta zone de couverture</h3>
-    <p class="modal-sub">Les alertes de ta ville arrivent dans un groupe Telegram privé et dédié. <strong style="color:var(--gtx)">29€/mois</strong> — paiement sécurisé par Stripe. Annulable à tout moment.</p>
+    <p class="modal-sub">Une zone : <strong style="color:var(--gtx)">29 €/mois</strong>, les alertes de ta ville dans un groupe Telegram privé. Toute la France : <strong style="color:var(--gtx)">59 €/mois</strong>, les 19 zones dans un seul groupe. Paiement par Stripe, sans engagement.</p>
     <div class="city-grid" id="city-grid"></div>
     <p class="modal-status" id="city-modal-status"></p>
   </div>
@@ -730,7 +741,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
           <tr><th scope="row">Prix de revente</th><td>À chercher toi-même</td><td class="cmpt-us">Prix médian sur Leboncoin pour le même modèle et la même capacité</td></tr>
           <tr><th scope="row">Si la revente traîne</th><td>Aucune indication</td><td class="cmpt-us">Prix de reprise Cash Converters et EasyCash, et ta marge dans ce cas</td></tr>
           <tr><th scope="row">Annonces piège</th><td>À repérer toi-même</td><td class="cmpt-us">Écartées avant l'envoi : défaut majeur, batterie sous 80 %, prix d'appât, contrefaçons</td></tr>
-          <tr><th scope="row">Réglages</th><td>Mots-clés, prix maximum, filtres à entretenir</td><td class="cmpt-us">Aucun. Tu choisis ta zone</td></tr>
+          <tr><th scope="row">Réglages</th><td>Mots-clés, prix maximum, filtres à entretenir</td><td class="cmpt-us">Aucun. Tu choisis ta zone, ou toute la France</td></tr>
           <tr><th scope="row">Ce qui est surveillé</th><td>Ce que tu veux</td><td class="cmpt-us">Uniquement la tech sur Leboncoin : iPhone, iPad, Samsung Galaxy, PS5, PS4, Xbox Series</td></tr>
         </tbody>
       </table>
@@ -1134,12 +1145,12 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <section class="section alt" id="tarifs">
   <div class="wrap">
     <p class="stag r">tarif</p>
-    <h2 class="r">Un seul abonnement : 29 € par mois</h2>
-    <p class="r" style="font-size:14px;color:var(--muted);margin-top:-44px;margin-bottom:52px">L'abonnement coûte 29€/mois ; la marge estimée médiane d'une alerte est de <strong style="color:var(--text)"><span id="tarif-mediane">+180€</span></strong>. Chaque chiffre reste une estimation : à toi de vérifier l'annonce avant d'acheter.</p>
-    <div class="pgrid r reveal" style="max-width:380px;margin:0 auto">
+    <h2 class="r">Une zone ou toute la France</h2>
+    <p class="r" style="font-size:14px;color:var(--muted);margin-top:-44px;margin-bottom:52px">La marge estimée médiane d'une alerte est de <strong style="color:var(--text)"><span id="tarif-mediane">+180€</span></strong>. Chaque chiffre reste une estimation : à toi de vérifier l'annonce avant d'acheter.</p>
+    <div class="pgrid r reveal" style="max-width:800px;margin:0 auto">
       <div class="plan ft">
         <div class="ptag">Membre Fondateur</div>
-        <p class="pname" style="margin-top:10px">Accès Fondateur</p>
+        <p class="pname" style="margin-top:10px">Une zone · Accès Fondateur</p>
         <p class="pprice"><sup>€</sup>29</p>
         <p class="pper">par mois · à vie · sans engagement</p>
         <ul class="feats">
@@ -1150,7 +1161,20 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
           <li>Score IA de 7 à 10/10 par deal</li>
           <li>Tarif bloqué à vie — 20 places max</li>
         </ul>
-        <a href="#" class="bp" rel="noopener noreferrer" style="width:100%;justify-content:center" id="cta-fondateur" data-open-city-modal>S'abonner — 29€/mois →</a>
+        <a href="#" class="bp" rel="noopener noreferrer" style="width:100%;justify-content:center" id="cta-fondateur" data-open-city-modal>Choisir ma zone · 29 €/mois</a>
+      </div>
+      <div class="plan">
+        <p class="pname" style="margin-top:10px">France entière</p>
+        <p class="pprice"><sup>€</sup>59</p>
+        <p class="pper">par mois · sans engagement</p>
+        <ul class="feats">
+          <li>Les alertes des 19 zones, dans un seul groupe</li>
+          <li>Un sujet par ville : tu coupes celles qui ne t'intéressent pas</li>
+          <li>Pour acheter avec livraison ou te déplacer entre plusieurs villes</li>
+          <li>Marge réaliste + worst-case estimé</li>
+          <li>Analyse vendeur et message de contact</li>
+        </ul>
+        <a href="#" class="bg" rel="noopener noreferrer" style="width:100%;justify-content:center" data-open-city-modal>Choisir France entière</a>
       </div>
     </div>
     <div class="trust-row r">
@@ -1167,7 +1191,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="wrap">
     <p class="stag r">19 zones d'arbitrage local</p>
     <h2 class="r">La vitesse est une affaire locale</h2>
-    <p class="zones-txt r">Sur Leboncoin, une bonne affaire se joue à quelques kilomètres près : l'acheteur qui gagne est celui qui peut <strong>contacter le vendeur et passer récupérer l'appareil</strong> avant les autres. L'arbitrage dépend donc de ton secteur géographique. Un iPhone sous-coté à Lille ne sert à rien si tu vis à Bordeaux. C'est pour ça que FlipRadar découpe la France en 19 zones et envoie chaque alerte dans le groupe Telegram de sa ville : tu ne reçois que des deals que tu peux réellement aller chercher, sans concurrence avec les abonnés des autres zones.</p>
+    <p class="zones-txt r">Sur Leboncoin, une bonne affaire se joue à quelques kilomètres près : l'acheteur qui gagne est celui qui peut <strong>contacter le vendeur et passer récupérer l'appareil</strong> avant les autres. L'arbitrage dépend donc de ton secteur géographique. Un iPhone sous-coté à Lille ne sert à rien si tu vis à Bordeaux. C'est pour ça que FlipRadar découpe la France en 19 zones et envoie chaque alerte dans le groupe Telegram de sa ville : tu ne reçois que des deals que tu peux réellement aller chercher. Si tu achètes avec livraison ou couvres plusieurs villes, l'offre France entière regroupe les 19 zones.</p>
     <ul class="zbadges r" aria-label="Zones couvertes par FlipRadar">
         <li><a href="/ville/paris">Paris &amp; Île-de-France</a></li>
         <li><a href="/ville/lyon">Lyon / Saint-Étienne</a></li>
@@ -1225,7 +1249,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">FlipRadar couvre-t-il ma ville ?</h3><span class="farr" aria-hidden="true">+</span></button>
-        <div class="fa"><p class="fai">19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner.</p></div>
+        <div class="fa"><p class="fai">19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones.</p></div>
       </div>
     </div>
   </div>
@@ -1470,6 +1494,12 @@ const CITY_LIST = [
   const cityGrid = document.getElementById('city-grid');
   const status = document.getElementById('city-modal-status');
   if (!modal || !cityGrid) return;
+
+  const fr = document.createElement('button');
+  fr.className = 'city-btn city-btn-fr';
+  fr.innerHTML = '<strong>France entière</strong> · 59 €/mois';
+  fr.addEventListener('click', () => startCheckout('france'));
+  cityGrid.appendChild(fr);
 
   CITY_LIST.forEach(c => {
     const b = document.createElement('button');
