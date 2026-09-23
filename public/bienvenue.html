@@ -79,12 +79,44 @@ footer a:hover{color:var(--gtx)}
   const params = new URLSearchParams(window.location.search);
   const token = params.get('token');
   const cta = document.getElementById('tg-cta');
-  if (token && /^[A-Za-z0-9_-]{1,64}$/.test(token)) {
-    cta.href = 'https://t.me/flipradart_bot?start=' + encodeURIComponent(token);
-  } else {
-    document.getElementById('lead-text').textContent = 'Ton paiement est confirmé. Ouvre Telegram et lance /start sur @flipradart_bot pour activer ton accès — si besoin, contacte @flipradarfr avec ton email d'inscription.';
-    document.getElementById('note-text').textContent = 'Lien d\'activation introuvable dans l\'URL — l\'activation manuelle via /start fonctionne aussi.';
+  const lead = document.getElementById('lead-text');
+  const note = document.getElementById('note-text');
+  if (!(token && /^[A-Za-z0-9_-]{1,64}$/.test(token))) {
+    lead.textContent = 'Ton paiement est confirmé. Ouvre Telegram et lance /start sur @flipradart_bot pour activer ton accès — si besoin, contacte @flipradarfr avec ton email d\'inscription.';
+    note.textContent = 'Lien d\'activation introuvable dans l\'URL — l\'activation manuelle via /start fonctionne aussi.';
+    return;
   }
+  // Secours immédiat : activation via le bot (toujours valable)
+  cta.href = 'https://t.me/flipradart_bot?start=' + encodeURIComponent(token);
+
+  // Dès que Stripe a confirmé le paiement, l'API expose le lien direct vers le groupe
+  // (demande d'adhésion acceptée automatiquement par le bot).
+  let essais = 0;
+  function verifier() {
+    essais++;
+    fetch('https://api.flipradar.fr/site-acces?token=' + encodeURIComponent(token), { headers: { 'Accept': 'application/json' } })
+      .then(r => r.json())
+      .then(d => {
+        if (d.status === 'active') {
+          lead.textContent = 'Ton accès est déjà activé : retrouve le groupe FlipRadar dans ta liste de discussions Telegram.';
+          cta.textContent = 'Ouvrir Telegram →';
+          cta.href = 'https://t.me/';
+          note.textContent = 'Un souci ? Contacte @flipradarfr sur Telegram.';
+        } else if (d.status === 'paye' && d.invite_link) {
+          lead.innerHTML = '';
+          lead.append('Ton paiement est confirmé. Rejoins maintenant le groupe privé ',
+            Object.assign(document.createElement('strong'), { textContent: 'FlipRadar ' + (d.ville || '') }),
+            ' : ton accès est validé automatiquement en quelques secondes.');
+          cta.textContent = 'Rejoindre mon groupe Telegram →';
+          cta.href = d.invite_link;
+          note.textContent = 'Appuie sur « Demander à rejoindre » dans Telegram. Le même lien t\'a été envoyé par e-mail ; il ne fonctionne que pour un seul compte.';
+        } else if (essais < 15) {
+          setTimeout(verifier, 2000);
+        }
+      })
+      .catch(() => { if (essais < 15) setTimeout(verifier, 3000); });
+  }
+  verifier();
 })();
 </script>
 </body>
