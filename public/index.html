@@ -562,7 +562,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       "price": "29",
       "priceCurrency": "EUR",
       "priceValidUntil": "2026-12-31",
-      "description": "Une zone, Accès Membre Fondateur — 29€/mois à vie"
+      "description": "Une zone — 29€/mois, sans engagement"
     },
     {
       "@type": "Offer",
@@ -655,7 +655,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 
 <!-- STICKY CTA -->
 <div class="sticky-cta" id="sticky-cta">
-  <span class="sticky-cta-text">FLIPRADAR · <strong>29€/mois</strong> à vie · sans engagement</span>
+  <span class="sticky-cta-text">FLIPRADAR · <strong>29€/mois</strong> par ville · sans engagement</span>
   <a href="#" class="bp" rel="noopener noreferrer" style="padding:10px 20px;font-size:10px" data-open-city-modal>S'abonner →</a>
 </div>
 
@@ -1149,19 +1149,17 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <p class="r" style="font-size:14px;color:var(--muted);margin-top:-44px;margin-bottom:52px">La marge estimée médiane d'une alerte est de <strong style="color:var(--text)"><span id="tarif-mediane">+180€</span></strong>. Chaque chiffre reste une estimation : à toi de vérifier l'annonce avant d'acheter.</p>
     <div class="pgrid r reveal" style="max-width:800px;margin:0 auto">
       <div class="plan ft">
-        <div class="ptag">Membre Fondateur</div>
-        <p class="pname" style="margin-top:10px">Une zone · Accès Fondateur</p>
+        <p class="pname" style="margin-top:10px">Une zone</p>
         <p class="pprice"><sup>€</sup>29</p>
-        <p class="pper">par mois · à vie · sans engagement</p>
+        <p class="pper">par mois · sans engagement</p>
         <ul class="feats">
           <li>Alertes Telegram — ville de ton choix</li>
           <li>Message de négociation IA inclus</li>
           <li>Marge réaliste + worst-case estimé</li>
           <li>Analyse vendeur et red flags</li>
           <li>Score IA de 7 à 10/10 par deal</li>
-          <li>Tarif bloqué à vie — 20 places max</li>
         </ul>
-        <a href="#" class="bp" rel="noopener noreferrer" style="width:100%;justify-content:center" id="cta-fondateur" data-open-city-modal>Choisir ma zone · 29 €/mois</a>
+        <a href="#" class="bp" rel="noopener noreferrer" style="width:100%;justify-content:center" data-open-city-modal>Choisir ma zone · 29 €/mois</a>
       </div>
       <div class="plan">
         <p class="pname" style="margin-top:10px">France entière</p>
@@ -1643,15 +1641,6 @@ function renderStats(d) {
       ).join('');
     }
 
-    // Places fondateur — disponible ou non, jamais le nombre exact restant
-    if (d.fondateur_disponible !== undefined && !d.fondateur_disponible) {
-      const cta = document.getElementById('cta-fondateur');
-      if (cta) {
-        cta.textContent = 'Complet pour le moment';
-        cta.classList.remove('bp');
-        cta.classList.add('bg');
-      }
-    }
 
     // Deals récents (anonymisés, données réelles)
     if (d.recent_deals && d.recent_deals.length >= 4) {
