@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternative Minit bot : FlipRadar, bot Leboncoin achat-revente</title>
+<meta name="description" content="Alternative à Minit pour l&#x27;achat-revente tech sur Leboncoin : alertes Telegram avec marge et prix de reprise magasin calculés, sans configuration. 29€/mois sans engagement.">
+<link rel="canonical" href="https://flipradar.fr/alternative-minit">
+<meta property="og:title" content="Alternative Minit bot : FlipRadar, bot Leboncoin achat-revente">
+<meta property="og:description" content="Alternative à Minit pour l&#x27;achat-revente tech sur Leboncoin : alertes Telegram avec marge et prix de reprise magasin calculés, sans configuration. 29€/mois sans engagement.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://flipradar.fr/alternative-minit">
+<meta property="og:site_name" content="FlipRadar">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://flipradar.fr/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050809;--bg2:#080d10;--bg3:#0c1518;--green:#00ff88;--gtx:#00e07a;--amber:#f5a623;--text:#a8c0cc;--muted:#6c8ba1;--bdr:rgba(255,255,255,.055);--bdg:rgba(0,255,136,.13);--display:'Syne',system-ui,sans-serif;--sans:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.75}
+a{color:var(--gtx)}
+nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:rgba(5,8,9,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr)}
+.logo{font-family:var(--display);font-size:17px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}.logo em{color:var(--green);font-style:normal}
+.nr{display:flex;align-items:center;gap:24px}.nr a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em}.nr a:hover{color:var(--gtx)}
+.nb{background:var(--green);color:#000!important;font-weight:700;padding:9px 16px;border-radius:4px;white-space:nowrap}
+@media(max-width:640px){.nr a:not(.nb){display:none}nav{padding:14px 18px}}
+main{max-width:780px;margin:0 auto;padding:56px 20px 80px}
+.bc{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted);margin-bottom:22px}.bc a{color:var(--muted)}
+h1{font-family:var(--display);font-size:clamp(30px,5.6vw,50px);font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px}
+h2{font-family:var(--display);font-size:clamp(22px,3.4vw,30px);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.01em;margin:56px 0 16px}
+h3{font-size:17px;font-weight:700;color:#fff;margin:30px 0 8px}
+p{margin-bottom:14px;font-size:15.5px}
+strong{color:#fff}
+.lead{font-size:17px;color:var(--text)}
+ul.l{margin:0 0 16px 0;list-style:none}ul.l li{position:relative;padding-left:22px;margin-bottom:9px;font-size:15px}
+ul.l li::before{content:'→';position:absolute;left:0;font-family:var(--mono);font-size:12px;color:var(--gtx);top:2px}
+.box{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:24px 26px;margin:24px 0}
+.box.g{border-color:var(--bdg);background:linear-gradient(165deg,rgba(0,255,136,.05) 0%,var(--bg2) 55%)}
+.box.a{border-left:3px solid var(--amber);border-radius:0 12px 12px 0}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--bdr);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--bdr);vertical-align:top}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg2)}
+tr:last-child td{border-bottom:none}td:first-child{color:#fff;font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.bp,.bg{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;padding:15px 24px;border-radius:4px;text-decoration:none;text-align:center}
+.bp{background:var(--green);color:#000;text-transform:uppercase}.bp:hover{box-shadow:0 10px 36px rgba(0,255,136,.25)}
+.bg{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.14);font-weight:500}.bg:hover{border-color:var(--bdg);color:var(--gtx)}
+@media(max-width:640px){.ctas a{width:100%}}
+.ctas+.src{margin-top:14px}
+.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);line-height:1.6}
+footer{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}.flinks a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em}.flinks a:hover{color:var(--gtx)}
+.fcp{font-family:var(--mono);font-size:10px;color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "FlipRadar", "item": "https://flipradar.fr/"}, {"@type": "ListItem", "position": 2, "name": "Alternative Minit", "item": "https://flipradar.fr/alternative-minit"}]}</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "FlipRadar est-il une alternative à Minit pour Leboncoin ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui, si ton activité est l'achat-revente tech (smartphones, iPad, consoles). FlipRadar t'envoie sur Telegram des annonces Leboncoin déjà qualifiées, avec la marge et le prix de reprise magasin calculés."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Quel est le meilleur bot Leboncoin pour l'achat-revente ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Celui qui te fait gagner le plus de temps pour ton type de produits. Pour la tech, un bot qui calcule la marge et la reprise en magasin (comme FlipRadar) évite de vérifier chaque annonce à la main. Pour d'autres catégories, un bot à mots-clés libres sera plus adapté."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Puis-je tester FlipRadar gratuitement ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui, via le canal Telegram de démo, gratuit : il publie une sélection des deals détectés. L'accès Premium à 29€/mois donne toutes les alertes qualifiées de ta ville."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "L'abonnement est-il sans engagement ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui. Paiement par Stripe, résiliation en ligne à tout moment sur flipradar.fr/resilier ; l'accès reste actif jusqu'à la fin de la période payée."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<nav><a href="/" class="logo">FLIP<em>RADAR</em></a><div class="nr"><a href="/#apercu">Alertes</a><a href="/#zones">Villes</a><a href="/estimation/">Estimations</a><a href="/#tarifs">Tarifs</a><a href="/#faq">FAQ</a><a href="/#tarifs" class="nb">Accès Premium →</a></div></nav>
+<main>
+<p class="bc"><a href="/">FlipRadar</a> / Alternative Minit</p>
+<h1>Alternative à Minit : FlipRadar, le bot Leboncoin pensé pour l'achat-revente tech</h1>
+<p class="lead">Tu compares les bots Leboncoin avant de t'abonner ? Voici ce que FlipRadar apporte, les critères pour choisir le meilleur bot Leboncoin achat-revente, et comment tester gratuitement avant de payer.</p>
+<div class="ctas"><a href="/#tarifs" class="bp">Accès Premium — 29€/mois →</a><a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a></div>
+
+<h2>Pourquoi chercher une alternative à Minit ?</h2>
+<p>Les bots Leboncoin se ressemblent en surface : tous promettent de te prévenir avant les autres. En pratique, ils diffèrent sur trois points qui changent ta rentabilité : <strong>ce que l'alerte contient</strong>, <strong>le temps que tu passes à configurer l'outil</strong> et <strong>ce que tu paies réellement chaque mois</strong>. Avant de choisir, compare ces trois points plutôt que la seule promesse de vitesse.</p>
+
+<h2>Meilleur bot Leboncoin achat revente : la grille de comparaison</h2>
+<h3>Le contenu de l'alerte</h3>
+<p>Une notification « nouvelle annonce » te laisse tout le travail : chercher le prix de revente, vérifier la cote en magasin, estimer ta marge. Une alerte FlipRadar arrive avec ces calculs déjà faits : revente médiane sur Leboncoin, prix de reprise Cash Converters / EasyCash, marge estimée et worst-case.</p>
+<h3>Le temps de configuration</h3>
+<p>Certains outils demandent de régler des mots-clés, des fourchettes de prix, parfois d'héberger un script. FlipRadar ne demande rien : les recherches, les prix de référence et les filtres sont maintenus pour toi. Tu choisis ta ville, c'est tout.</p>
+<h3>Le coût réel</h3>
+<p>Regarde le prix mensuel, mais aussi ce qui est inclus : nombre d'alertes, zones, options payantes. FlipRadar, c'est 29€/mois, tout compris, sans engagement.</p>
+
+<h2>Ce que FlipRadar propose</h2>
+<h3>Un tarif clair : 29€/mois, sans engagement ni frais cachés</h3>
+<p>Un seul abonnement, payé via Stripe, résiliable en ligne à tout moment. Aucune option à débloquer.</p>
+<h3>Zéro script, zéro VPS, zéro réglage</h3>
+<p>Tout tourne sur l'infrastructure FlipRadar. Tu reçois les alertes dans un groupe Telegram privé dédié à ta ville.</p>
+<h3>L'indicateur de reprise pro, livré immédiatement sur Telegram</h3>
+<p>Le prix de reprise en magasin est l'information qui sécurise un achat : il te dit combien tu récupères au minimum si la revente traîne. Chez FlipRadar, il est calculé automatiquement et affiché dans chaque alerte, à côté de la marge réaliste.</p>
+<h3>Un filtre anti-arnaque intégré</h3>
+<p>Prix d'appât, appareils avec défaut majeur, accessoires et contrefaçons sont écartés avant l'envoi. L'analyse IA signale en plus les red flags du texte de l'annonce.</p>
+<div class="tbl"><table>
+<thead><tr><th>Critère</th><th>FlipRadar</th></tr></thead>
+<tbody>
+<tr><td>Tarif</td><td>29€/mois, prix fixe, sans engagement ni frais cachés</td></tr>
+<tr><td>Installation</td><td>Aucune : pas de script, pas de VPS, pas de mots-clés à régler. Tu choisis ta ville, tu rejoins le groupe Telegram.</td></tr>
+<tr><td>Canal</td><td>Telegram (groupe privé par ville)</td></tr>
+<tr><td>Calcul de marge</td><td>Automatique : revente médiane Leboncoin + prix de reprise Cash Converters / EasyCash + worst-case</td></tr>
+<tr><td>Filtre anti-arnaque</td><td>Prix d'appât, défauts majeurs, accessoires et contrefaçons écartés ; red flags signalés par l'IA</td></tr>
+<tr><td>Catégories</td><td>iPhone, Samsung Galaxy, iPad, PS5, PS4, Xbox Series</td></tr>
+<tr><td>Couverture</td><td>19 zones en France métropolitaine, rayon de 40 à 100 km</td></tr>
+<tr><td>Essayer avant de payer</td><td>Canal Telegram de démo gratuit (sélection partielle des deals)</td></tr>
+</tbody></table></div>
+<h2>Ce que FlipRadar ne fait pas</h2>
+<p>Pour choisir en connaissance de cause :</p>
+<ul class="l">
+<li><strong>Pas de recherche libre.</strong> FlipRadar ne surveille que la tech d'occasion (smartphones, iPad, consoles). Pour des vêtements, des meubles ou des voitures, un bot à mots-clés est plus adapté.</li>
+<li><strong>Pas d'achat automatique.</strong> Tu gardes la main : c'est toi qui contactes le vendeur et qui décides d'acheter.</li>
+<li><strong>Pas de course à la seconde.</strong> Le radar vérifie les iPhone toutes les 10 minutes dans les 8 plus grandes zones, le reste plusieurs fois par heure. Chaque annonce est ensuite enrichie et analysée avant l'envoi. FlipRadar mise sur la qualité du tri et le calcul de marge plutôt que sur la notification la plus rapide possible.</li>
+</ul>
+<p class="src">FlipRadar n'est pas affilié à Minit. Cette page décrit FlipRadar ; pour les caractéristiques et tarifs de Minit, reporte-toi à son site officiel.</p>
+
+<h2>Questions fréquentes</h2>
+<h3>FlipRadar est-il une alternative à Minit pour Leboncoin ?</h3>
+<p>Oui, si ton activité est l'achat-revente tech (smartphones, iPad, consoles). FlipRadar t'envoie sur Telegram des annonces Leboncoin déjà qualifiées, avec la marge et le prix de reprise magasin calculés.</p>
+<h3>Quel est le meilleur bot Leboncoin pour l'achat-revente ?</h3>
+<p>Celui qui te fait gagner le plus de temps pour ton type de produits. Pour la tech, un bot qui calcule la marge et la reprise en magasin (comme FlipRadar) évite de vérifier chaque annonce à la main. Pour d'autres catégories, un bot à mots-clés libres sera plus adapté.</p>
+<h3>Puis-je tester FlipRadar gratuitement ?</h3>
+<p>Oui, via le canal Telegram de démo, gratuit : il publie une sélection des deals détectés. L'accès Premium à 29€/mois donne toutes les alertes qualifiées de ta ville.</p>
+<h3>L'abonnement est-il sans engagement ?</h3>
+<p>Oui. Paiement par Stripe, résiliation en ligne à tout moment sur flipradar.fr/resilier ; l'accès reste actif jusqu'à la fin de la période payée.</p>
+<div class="box g">
+<p><strong>Juge sur pièce avant de payer.</strong> Le canal de démo publie gratuitement une sélection des deals détectés : même format, mêmes calculs que l'accès Premium.</p>
+<div class="ctas"><a href="/#tarifs" class="bp">Accès Premium — 29€/mois →</a><a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a></div>
+</div>
+</main>
+<footer>
+  <div class="flinks">
+    <a href="/">Accueil</a><a href="https://t.me/flip_radar" rel="noopener noreferrer">Canal Telegram de démo</a><a href="/estimation/">Estimations de prix</a><a href="/alternative-minit">Alternative Minit</a><a href="/alternative-botlbc">Alternative BOT LBC</a><a href="/cgv">CGV</a><a href="/confidentialite">Confidentialité</a><a href="/resilier" rel="noopener noreferrer">Résilier</a>
+  </div>
+  <p class="fcp">flipradar.fr · 2026 · Marges et worst-case sont des estimations, sans garantie de rentabilité.</p>
+</footer>
+</body>
+</html>

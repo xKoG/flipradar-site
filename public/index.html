@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlipRadar — Alertes deals iPhone Samsung iPad sur Leboncoin | Marge + Analyse IA</title>
-<meta name="description" content="FlipRadar scanne Leboncoin en continu et envoie des alertes Telegram sur les meilleures affaires iPhone, Samsung, iPad, PS5 sous-cotées. Marge estimée, rachat Cash Converters, analyse IA. 19 villes françaises couvertes.">
-<meta property="og:title" content="FlipRadar — Alertes iPhone Samsung iPad sur Leboncoin | Marge + IA">
-<meta property="og:description" content="Alertes Telegram sur les annonces Leboncoin sous-cotées : iPhone, iPad, Samsung, PS5. Marge estimée, worst-case et message de négociation. 19 villes couvertes.">
+<title>FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram</title>
+<meta name="description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Telegram avec calcul automatique de la marge et du prix de reprise magasin (Cash Converters, EasyCash). 29€/mois, sans engagement.">
+<meta property="og:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram">
+<meta property="og:description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Telegram avec calcul automatique de la marge et du prix de reprise magasin. 29€/mois, sans engagement.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flipradar.fr/">
+<meta property="og:site_name" content="FlipRadar">
+<meta property="og:locale" content="fr_FR">
 <meta property="og:image" content="https://flipradar.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta name="twitter:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram">
+<meta name="twitter:description" content="Alertes Leboncoin sur Telegram avec marge et prix de reprise magasin calculés automatiquement. 29€/mois, sans engagement.">
 <meta name="twitter:image" content="https://flipradar.fr/og.png">
-<meta name="keywords" content="leboncoin alerte iphone, bonne affaire samsung leboncoin, arbitrage tech france, flipper leboncoin telegram, deal iphone pas cher, revente iphone leboncoin, flipradar, alerte telegram iphone, meilleure affaire ipad leboncoin, ps5 occasion leboncoin, achat revente smartphone, revente tech france, sous-coté leboncoin, cash converters rachat iphone">
+<meta name="keywords" content="bot alerte leboncoin telegram, bot alerte leboncoin, achat revente leboncoin, veille automatique leboncoin, alerte leboncoin iphone, achat revente tech, calcul marge revente, prix rachat cash converters, flipradar">
 <link rel="canonical" href="https://flipradar.fr/">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -243,12 +247,12 @@ h2{font-family:var(--display);font-size:clamp(28px,4.4vw,48px);font-weight:800;c
 .faq{border:1px solid var(--bdr);border-radius:12px;overflow:hidden}.fi{border-bottom:1px solid var(--bdr);background:var(--bg2)}.fi:last-child{border-bottom:none}.fi:hover{background:rgba(255,255,255,.02)}
 .fq{width:100%;background:none;border:none;cursor:pointer;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;transition:background .2s}
 .fq:hover{background:var(--bg3)}
-.fqt{font-size:14px;font-weight:600;color:#fff}
+.fqt{font-size:14px;font-weight:600;color:#fff;font-family:var(--sans);line-height:1.45}
 .farr{font-family:var(--mono);font-size:16px;color:var(--muted);flex-shrink:0;transition:transform .3s ease}
 .fi.open .farr{transform:rotate(45deg);color:var(--gtx)}
 .fa{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .fai{padding:0 28px 24px;font-size:13px;color:var(--muted);line-height:1.75}
-.fi.open .fa{max-height:300px}
+.fi.open .fa{max-height:900px}
 
 /* FOOTER */
 footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;position:relative;z-index:1}
@@ -505,6 +509,55 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 .city-btn:hover{border-color:var(--bdg);color:var(--gtx);background:var(--glo)}
 .city-btn:disabled{opacity:.4;cursor:wait}
 .modal-status{font-family:var(--mono);font-size:10px;color:var(--muted);text-align:center;margin-top:18px;min-height:14px}
+
+/* HERO — bouton démo (secondaire) */
+.bg-demo{text-transform:none;letter-spacing:.02em;border-color:rgba(255,255,255,.14);color:var(--text)}
+@media(max-width:640px){.ctas .bp,.ctas .bg{width:100%;justify-content:center;text-align:center}}
+
+/* APERÇU ALERTE — bulle Telegram (thème sombre officiel) */
+.apercu{padding-top:40px}
+.apercu-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:48px;align-items:start}
+@media(max-width:860px){.apercu-grid{grid-template-columns:1fr;gap:32px}}
+.tgdemo{margin:0;padding:22px;border-radius:16px;background:#0e1621;border:1px solid var(--bdr)}
+.tgdemo-bubble{background:#182533;border-radius:14px 14px 14px 4px;padding:14px 16px 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e4ecf2;font-size:14px;line-height:1.45}
+.tgdemo-sender{font-size:13px;font-weight:700;color:#6ab3f3;margin-bottom:6px}
+.tgdemo-head{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:700;color:#4dce7a;letter-spacing:.04em}
+.tgdemo-score{color:#708fa0;font-weight:500}
+.tgdemo-name{font-size:16px;font-weight:700;color:#fff;margin-top:6px}
+.tgdemo-loc{font-size:12px;color:#708fa0}
+.tgdemo hr{border:none;border-top:1px solid rgba(255,255,255,.08);margin:9px 0}
+.tgdemo-row{display:flex;justify-content:space-between;gap:12px;font-size:13px;padding:2px 0;color:#b7c7d3}
+.tgdemo-row span:last-child,.tgdemo-row strong{color:#fff;font-variant-numeric:tabular-nums}
+.tgdemo-row strong{color:#4dce7a}
+.tgdemo-big{font-size:15px}.tgdemo-big strong{font-size:18px}
+.tgdemo-row .tgdemo-amber{color:#f0a732}
+.tgdemo-ia{font-size:12.5px;color:#9fb3c2;font-style:italic}
+.tgdemo-nego{margin-top:8px;font-size:12.5px;color:#a8c0d4;background:rgba(91,164,230,.08);border-left:2px solid rgba(91,164,230,.4);border-radius:0 6px 6px 0;padding:6px 9px}
+.tgdemo-foot{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:#5ba4e6}
+.tgdemo-foot span:last-child{color:#708fa0}
+.tgdemo figcaption{font-family:var(--mono);font-size:10px;color:var(--muted);line-height:1.6;margin-top:14px}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:640px){.cmp{grid-template-columns:1fr}}
+.cmp-col{display:flex;flex-direction:column;gap:16px;padding:26px 24px;border:1px solid var(--bdr);border-radius:12px;background:var(--bg2)}
+.cmp-premium{border-color:var(--bdg);background:linear-gradient(165deg,rgba(0,255,136,.05) 0%,var(--bg2) 55%)}
+.cmp-tag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.cmp-premium .cmp-tag{color:var(--gtx)}
+.cmp ul{list-style:none;flex:1;display:flex;flex-direction:column;gap:10px}
+.cmp li{font-size:13.5px;line-height:1.55;color:var(--text);padding-left:18px;position:relative}
+.cmp li::before{content:'→';position:absolute;left:0;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.cmp-premium li::before{color:var(--gtx)}
+.cmp li strong{color:#fff}
+.cmp .bp,.cmp .bg{justify-content:center;text-align:center;padding:13px 16px}
+
+/* ZONES LOCALES */
+.zones-txt{font-size:15px;line-height:1.85;color:var(--text);max-width:720px;margin-bottom:32px}
+.zones-txt strong{color:#fff}
+.zbadges{display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+.zbadges a{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--text);text-decoration:none;background:rgba(0,255,136,.035);border:1px solid var(--bdg);border-radius:40px;padding:8px 15px;transition:border-color .2s,color .2s,background .2s}
+.zbadges a::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);flex-shrink:0}
+.zbadges a:hover{border-color:var(--green);color:#fff;background:rgba(0,255,136,.08)}
+.zones-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:20px;line-height:1.6}
+.fai strong{color:var(--text)}
 </style>
 
 <script type="application/ld+json">
@@ -513,7 +566,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   "@type": "SoftwareApplication",
   "name": "FlipRadar",
   "url": "https://flipradar.fr",
-  "description": "FlipRadar scanne Leboncoin en continu et envoie des alertes Telegram sur les meilleures affaires tech sous-cotées — iPhone, Samsung, iPad, PS5. Marge estimée, rachat Cash Converters, analyse IA incluse.",
+  "description": "Bot d'alerte Leboncoin pour l'achat-revente tech : alertes Telegram sur les annonces iPhone, Samsung, iPad, PS5 et Xbox sous-cotées, avec marge et prix de reprise magasin calculés automatiquement.",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web, Telegram",
   "offers": {
@@ -523,6 +576,70 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     "priceValidUntil": "2026-12-31",
     "description": "Accès Membre Fondateur — 29€/mois à vie"
   }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un bot alerte Leboncoin comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois des notifications Telegram instantanées, avec la marge et le prix de reprise déjà calculés."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment le bot calcule-t-il la marge d'achat-revente en direct ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque annonce est croisée automatiquement avec deux références. D'abord le prix de revente médian observé sur Leboncoin pour le même modèle et la même capacité, ce qui donne la marge réaliste. Ensuite le prix de reprise minimum pratiqué par Cash Converters et EasyCash, ce qui donne le worst-case : ce que tu gagnes au minimum si tu revends en magasin plutôt que sur Leboncoin. Ce calcul de marge automatique est la base de l'achat revente tech rentable : si le worst-case est positif, tu es couvert même si la revente traîne. Les chiffres sont des estimations avant frais."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Peut-on utiliser FlipRadar gratuitement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, pour découvrir l'outil : le canal Telegram de démo est 100 % gratuit. Il publie une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans un groupe Telegram privé dédié à ta ville."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que le bot filtre les arnaques Leboncoin ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, FlipRadar intègre un filtre anti-bruit qui écarte automatiquement plusieurs types d'annonces suspectes : les prix d'appât (un iPhone récent affiché très en dessous de son prix de reprise en magasin), les appareils avec un défaut majeur (écran cassé, batterie sous 80 %, compte bloqué), les accessoires, pièces détachées et contrefaçons. L'analyse IA signale aussi les red flags du texte, comme une demande de paiement inhabituelle. Le filtre réduit fortement le risque sans le supprimer : vérifie toujours l'appareil et le vendeur avant d'acheter."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quelles catégories de produits tech sont surveillées par le radar ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le radar surveille les smartphones (iPhone, Samsung Galaxy), les tablettes (iPad) et les consoles (PS5, PS4, Xbox Series X et S). Ce sont les catégories où les prix de reprise en magasin sont assez fiables pour calculer une marge. Les PC portables ne sont pas surveillés pour l'instant."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'abonnement FlipRadar est-il avec ou sans engagement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sans engagement. Le paiement de 29€/mois est géré de manière sécurisée par Stripe (certifié PCI DSS niveau 1) : FlipRadar ne voit ni ne stocke jamais ta carte bancaire. Tu résilies en ligne, à tout moment et sans frais, sur flipradar.fr/resilier ; l'accès reste actif jusqu'à la fin de la période déjà payée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "FlipRadar couvre-t-il ma ville ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner."
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -590,8 +707,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <div class="hs"><span class="hsv" id="h-mediane">+180€</span><span class="hsl">marge estimée médiane / alerte</span></div>
   </div>
   <div class="ctas">
-    <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>S'abonner — 29€/mois →</a>
-    <a href="#comment" class="bg">Voir comment ça marche ↓</a>
+    <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Accès Premium — 29€/mois →</a>
+    <a href="https://t.me/flip_radar" class="bg bg-demo" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a>
   </div>
   <div class="trust-row" style="margin-top:24px;animation:up .7s ease .38s both">
     <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><strong style="color:var(--text)">Résiliable à tout moment</strong>&nbsp;— sans engagement</div>
@@ -600,6 +717,57 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 
   <p class="scroll-teaser r">↓ Voici comment une alerte arrive jusqu'à toi</p>
   <div class="scue"><span>scroll</span><div class="sline"></div></div>
+</section>
+
+<!-- APERÇU ALERTE + GRATUIT VS PREMIUM -->
+<section class="section apercu" id="apercu">
+  <div class="wrap">
+    <p class="stag r">aperçu d'une alerte</p>
+    <h2 class="r">Voici ce qui arrive sur ton Telegram</h2>
+    <div class="apercu-grid">
+      <figure class="tgdemo r" aria-label="Exemple d'alerte FlipRadar sur Telegram">
+        <div class="tgdemo-bubble">
+          <div class="tgdemo-sender">FlipRadar · Paris</div>
+          <div class="tgdemo-head"><span>🟢 DEAL DÉTECTÉ</span><span class="tgdemo-score">Score 8/10</span></div>
+          <div class="tgdemo-name">iPhone 15 Pro 256 Go</div>
+          <div class="tgdemo-loc">Paris (75) · Particulier</div>
+          <hr>
+          <div class="tgdemo-row"><span>Prix Leboncoin</span><span>315 €</span></div>
+          <div class="tgdemo-row"><span>Revente LBC (médiane)</span><span>~580 €</span></div>
+          <div class="tgdemo-row"><span>Reprise magasin (EasyCash)</span><span>412 €</span></div>
+          <hr>
+          <div class="tgdemo-row tgdemo-big"><span>Marge estimée</span><strong>+265 €</strong></div>
+          <div class="tgdemo-row"><span>Worst-case (revente en magasin)</span><strong class="tgdemo-amber">+97 €</strong></div>
+          <hr>
+          <p class="tgdemo-ia">Photos cohérentes, boîte présente. Vérifie l'absence de blocage iCloud avant achat.</p>
+          <p class="tgdemo-nego">« Bonjour, votre iPhone 15 Pro est-il toujours disponible ? Je peux passer aujourd'hui. »</p>
+          <div class="tgdemo-foot"><span>leboncoin.fr ↗</span><span>14:07 ✓✓</span></div>
+        </div>
+        <figcaption>Chiffres repris d'une alerte envoyée en septembre 2026. La marge est une estimation avant frais : vérifie toujours l'annonce avant d'acheter.</figcaption>
+      </figure>
+      <div class="cmp r">
+        <div class="cmp-col">
+          <p class="cmp-tag">Canal de démo · gratuit</p>
+          <ul>
+            <li>Une <strong>sélection partielle</strong> des deals détectés, toutes villes confondues</li>
+            <li>De quoi juger la qualité du radar et le format des alertes</li>
+            <li>Pas de flux dédié à ta ville</li>
+          </ul>
+          <a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">Rejoindre le canal de démo →</a>
+        </div>
+        <div class="cmp-col cmp-premium">
+          <p class="cmp-tag">Premium · 29€/mois</p>
+          <ul>
+            <li><strong>Toutes</strong> les alertes qualifiées (score ≥ 7/10) de ta zone, dans un groupe Telegram privé</li>
+            <li>Filtre par ville : 19 zones, rayon de 40 à 100 km</li>
+            <li><strong>Calcul de marge automatique</strong> : revente médiane, reprise magasin et worst-case</li>
+            <li>Message de négociation prêt à envoyer, red flags signalés</li>
+          </ul>
+          <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Activer mon accès Premium →</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- TICKER -->
@@ -997,12 +1165,72 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   </div>
 </section>
 
+<!-- ZONES LOCALES -->
+<section class="section alt" id="zones">
+  <div class="wrap">
+    <p class="stag r">19 zones d'arbitrage local</p>
+    <h2 class="r">La vitesse est une affaire locale</h2>
+    <p class="zones-txt r">Sur Leboncoin, une bonne affaire se joue à quelques kilomètres près : l'acheteur qui gagne est celui qui peut <strong>contacter le vendeur et passer récupérer l'appareil</strong> avant les autres. L'arbitrage dépend donc de ton secteur géographique. Un iPhone sous-coté à Lille ne sert à rien si tu vis à Bordeaux. C'est pour ça que FlipRadar découpe la France en 19 zones et envoie chaque alerte dans le groupe Telegram de sa ville : tu ne reçois que des deals que tu peux réellement aller chercher, sans concurrence avec les abonnés des autres zones.</p>
+    <ul class="zbadges r" aria-label="Zones couvertes par FlipRadar">
+        <li><a href="/ville/paris">Paris &amp; Île-de-France</a></li>
+        <li><a href="/ville/lyon">Lyon / Saint-Étienne</a></li>
+        <li><a href="/ville/marseille">Marseille / Aix / Toulon</a></li>
+        <li><a href="/ville/lille">Lille / Nord</a></li>
+        <li><a href="/ville/bordeaux">Bordeaux / Gironde</a></li>
+        <li><a href="/ville/nantes">Nantes / Loire-Atlantique</a></li>
+        <li><a href="/ville/toulouse">Toulouse / Haute-Garonne</a></li>
+        <li><a href="/ville/nice">Nice / Côte d'Azur</a></li>
+        <li><a href="/ville/strasbourg">Strasbourg / Alsace</a></li>
+        <li><a href="/ville/montpellier">Montpellier / Hérault</a></li>
+        <li><a href="/ville/rennes">Rennes / Bretagne</a></li>
+        <li><a href="/ville/grenoble">Grenoble / Isère</a></li>
+        <li><a href="/ville/rouen">Rouen / Le Havre</a></li>
+        <li><a href="/ville/metz">Metz / Nancy</a></li>
+        <li><a href="/ville/tours">Tours / Touraine</a></li>
+        <li><a href="/ville/angers">Angers / Cholet</a></li>
+        <li><a href="/ville/dijon">Dijon / Bourgogne</a></li>
+        <li><a href="/ville/caen">Caen / Normandie</a></li>
+        <li><a href="/ville/clermont-ferrand">Clermont-Ferrand / Auvergne</a></li>
+    </ul>
+    <p class="zones-note r">Chaque zone couvre un rayon de 40 à 100 km autour de la ville principale.</p>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="wrsm" style="margin:0 auto">
     <p class="stag r">foire aux questions</p>
-    <h2 class="r">Questions fréquentes</h2>
-    <div class="faq r" id="faqlist"></div>
+    <h2 class="r">Questions fréquentes sur le bot alerte Leboncoin</h2>
+    <div class="faq r" id="faqlist">
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un <strong>bot alerte Leboncoin</strong> comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois des <strong>notifications Telegram instantanées</strong>, avec la marge et le prix de reprise déjà calculés.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Comment le bot calcule-t-il la marge d'achat-revente en direct ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Chaque annonce est croisée automatiquement avec deux références. D'abord le prix de revente médian observé sur Leboncoin pour le même modèle et la même capacité, ce qui donne la marge réaliste. Ensuite le prix de reprise minimum pratiqué par Cash Converters et EasyCash, ce qui donne le worst-case : ce que tu gagnes au minimum si tu revends en magasin plutôt que sur Leboncoin. Ce <strong>calcul de marge automatique</strong> est la base de l'<strong>achat revente tech</strong> rentable : si le worst-case est positif, tu es couvert même si la revente traîne. Les chiffres sont des estimations avant frais.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Peut-on utiliser FlipRadar gratuitement ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Oui, pour découvrir l'outil : le canal Telegram de démo est 100 % gratuit. Il publie une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans un groupe Telegram privé dédié à ta ville.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Est-ce que le bot filtre les arnaques Leboncoin ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Oui, FlipRadar intègre un filtre anti-bruit qui écarte automatiquement plusieurs types d'annonces suspectes : les prix d'appât (un iPhone récent affiché très en dessous de son prix de reprise en magasin), les appareils avec un défaut majeur (écran cassé, batterie sous 80 %, compte bloqué), les accessoires, pièces détachées et contrefaçons. L'analyse IA signale aussi les red flags du texte, comme une demande de paiement inhabituelle. Le filtre réduit fortement le risque sans le supprimer : vérifie toujours l'appareil et le vendeur avant d'acheter.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Quelles catégories de produits tech sont surveillées par le radar ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Le radar surveille les smartphones (iPhone, Samsung Galaxy), les tablettes (iPad) et les consoles (PS5, PS4, Xbox Series X et S). Ce sont les catégories où les prix de reprise en magasin sont assez fiables pour calculer une marge. Les PC portables ne sont pas surveillés pour l'instant.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">L'abonnement FlipRadar est-il avec ou sans engagement ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Sans engagement. Le paiement de 29€/mois est géré de manière sécurisée par Stripe (certifié PCI DSS niveau 1) : FlipRadar ne voit ni ne stocke jamais ta carte bancaire. Tu résilies en ligne, à tout moment et sans frais, sur flipradar.fr/resilier ; l'accès reste actif jusqu'à la fin de la période déjà payée.</p></div>
+      </div>
+      <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">FlipRadar couvre-t-il ma ville ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1288,33 +1516,14 @@ function initMap() {
   } else { loadLeaflet(); }
 })();
 
-//  FAQ
-const FAQS = [
-  {q:'Comment fonctionne l\'abonnement ?', a:'Tu paies 29€/mois via Stripe dès l\'inscription et tu reçois immédiatement toutes les alertes de ta ville. Sans engagement : tu peux résilier à tout moment (voir « Puis-je annuler à tout moment ? »).'},
-  {q:'Comment sont calculées la marge et le worst-case ?', a:'La marge réaliste = prix de revente médian observé sur LBC − prix d\'achat. Le worst-case = prix de rachat minimum estimé chez Cash Converters/EasyCash − prix d\'achat. C\'est ton filet de sécurité : si le worst-case est positif, tu es rentable même si tu ne revends jamais sur LBC.'},
-  {q:'FLIPRADAR couvre-t-il ma ville ?', a:'19 zones sont analysées en continu avec un rayon de 40 à 100km. La couverture intelligente prend en compte toute commune dans un rayon de 40 à 100km d\'une zone — plus de 3000 communes couvertes automatiquement, sans configuration de ta part.'},
-  {q:'Quelles catégories sont détectées ?', a:'iPhone, iPad, Samsung Galaxy, PS5, Xbox Series X/S. FLIPRADAR filtre automatiquement les accessoires, clones et annonces vagues, et signale les annonces suspectes.'},
-  {q:'À quelle fréquence les alertes arrivent-elles ?', a:'FLIPRADAR surveille Leboncoin en continu, avec plusieurs passages par heure, jour et nuit. Le volume d\'alertes varie selon ta ville et l\'activité du marché — les grandes zones reçoivent généralement plus d\'alertes que les villes moyennes. Seules les annonces scorées ≥ 7/10 sont envoyées ; un worst-case trop dégradé par rapport au prix fait déjà chuter le score sous ce seuil avant l\'envoi.'},
-  {q:'Puis-je annuler à tout moment ?', a:'Oui, sans engagement ni préavis. Résiliation en ligne, à tout moment et sans frais, sur flipradar.fr/resilier : saisis l\'e-mail utilisé lors du paiement, puis résilie en un clic depuis l\'espace client Stripe. L\'accès reste actif jusqu\'à la fin de la période déjà payée. Le tarif membre fondateur à 29€ est bloqué à vie — tu gardes ce tarif tant que tu restes abonné.'},
-  {q:'Le paiement est-il sécurisé ?', a:'Oui. Les paiements sont traités par Stripe, leader mondial du paiement en ligne. Tes données bancaires ne transitent jamais par FLIPRADAR — elles sont chiffrées et gérées directement par Stripe (certifié PCI DSS niveau 1). Dès ton paiement confirmé, tu reçois automatiquement un lien d\'accès au groupe Telegram de ta ville.'},
-];
-const fl = document.getElementById('faqlist');
-FAQS.forEach(f => {
-  const item = document.createElement('div');
-  item.className = 'fi';
-  const q = document.createElement('button');
-  q.className = 'fq';
-  q.innerHTML = `<span class="fqt">${safe(f.q)}</span><span class="farr">+</span>`;
-  const a = document.createElement('div');
-  a.className = 'fa';
-  a.innerHTML = `<div class="fai">${safe(f.a)}</div>`;
+//  FAQ — contenu statique dans le HTML (indexable, identique au FAQPage JSON-LD)
+document.querySelectorAll('#faqlist .fi').forEach(item => {
+  const q = item.querySelector('.fq');
   q.addEventListener('click', () => {
     const open = item.classList.contains('open');
-    document.querySelectorAll('.fi').forEach(x => x.classList.remove('open'));
-    if (!open) item.classList.add('open');
+    document.querySelectorAll('#faqlist .fi').forEach(x => { x.classList.remove('open'); x.querySelector('.fq').setAttribute('aria-expanded', 'false'); });
+    if (!open) { item.classList.add('open'); q.setAttribute('aria-expanded', 'true'); }
   });
-  item.appendChild(q); item.appendChild(a);
-  fl.appendChild(item);
 });
 
 //  CITY MODAL — sélection de ville + Stripe Checkout

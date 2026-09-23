@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alternative BOT LBC : le bot Leboncoin achat-revente | FlipRadar</title>
+<meta name="description" content="BOT LBC a fermé. FlipRadar, l&#x27;alternative clé en main : alertes Leboncoin sur Telegram avec marge et prix de reprise magasin calculés. 29€/mois sans engagement.">
+<link rel="canonical" href="https://flipradar.fr/alternative-botlbc">
+<meta property="og:title" content="Alternative BOT LBC : le bot Leboncoin achat-revente | FlipRadar">
+<meta property="og:description" content="BOT LBC a fermé. FlipRadar, l&#x27;alternative clé en main : alertes Leboncoin sur Telegram avec marge et prix de reprise magasin calculés. 29€/mois sans engagement.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://flipradar.fr/alternative-botlbc">
+<meta property="og:site_name" content="FlipRadar">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://flipradar.fr/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#050809;--bg2:#080d10;--bg3:#0c1518;--green:#00ff88;--gtx:#00e07a;--amber:#f5a623;--text:#a8c0cc;--muted:#6c8ba1;--bdr:rgba(255,255,255,.055);--bdg:rgba(0,255,136,.13);--display:'Syne',system-ui,sans-serif;--sans:'Manrope',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:hidden}body{background:var(--bg);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.75}
+a{color:var(--gtx)}
+nav{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;background:rgba(5,8,9,.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--bdr)}
+.logo{font-family:var(--display);font-size:17px;font-weight:800;color:#fff;text-decoration:none;letter-spacing:.02em}.logo em{color:var(--green);font-style:normal}
+.nr{display:flex;align-items:center;gap:24px}.nr a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em}.nr a:hover{color:var(--gtx)}
+.nb{background:var(--green);color:#000!important;font-weight:700;padding:9px 16px;border-radius:4px;white-space:nowrap}
+@media(max-width:640px){.nr a:not(.nb){display:none}nav{padding:14px 18px}}
+main{max-width:780px;margin:0 auto;padding:56px 20px 80px}
+.bc{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted);margin-bottom:22px}.bc a{color:var(--muted)}
+h1{font-family:var(--display);font-size:clamp(30px,5.6vw,50px);font-weight:800;color:#fff;line-height:1.08;letter-spacing:-.02em;margin-bottom:22px}
+h2{font-family:var(--display);font-size:clamp(22px,3.4vw,30px);font-weight:800;color:#fff;line-height:1.2;letter-spacing:-.01em;margin:56px 0 16px}
+h3{font-size:17px;font-weight:700;color:#fff;margin:30px 0 8px}
+p{margin-bottom:14px;font-size:15.5px}
+strong{color:#fff}
+.lead{font-size:17px;color:var(--text)}
+ul.l{margin:0 0 16px 0;list-style:none}ul.l li{position:relative;padding-left:22px;margin-bottom:9px;font-size:15px}
+ul.l li::before{content:'→';position:absolute;left:0;font-family:var(--mono);font-size:12px;color:var(--gtx);top:2px}
+.box{background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:24px 26px;margin:24px 0}
+.box.g{border-color:var(--bdg);background:linear-gradient(165deg,rgba(0,255,136,.05) 0%,var(--bg2) 55%)}
+.box.a{border-left:3px solid var(--amber);border-radius:0 12px 12px 0}
+.tbl{overflow-x:auto;margin:20px 0;border:1px solid var(--bdr);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--bdr);vertical-align:top}
+th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg2)}
+tr:last-child td{border-bottom:none}td:first-child{color:#fff;font-weight:600}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.bp,.bg{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;padding:15px 24px;border-radius:4px;text-decoration:none;text-align:center}
+.bp{background:var(--green);color:#000;text-transform:uppercase}.bp:hover{box-shadow:0 10px 36px rgba(0,255,136,.25)}
+.bg{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.14);font-weight:500}.bg:hover{border-color:var(--bdg);color:var(--gtx)}
+@media(max-width:640px){.ctas a{width:100%}}
+.ctas+.src{margin-top:14px}
+.src{font-family:var(--mono);font-size:10.5px;color:var(--muted);line-height:1.6}
+footer{border-top:1px solid var(--bdr);padding:40px 24px;text-align:center}
+.flinks{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;margin-bottom:18px}.flinks a{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;letter-spacing:.08em}.flinks a:hover{color:var(--gtx)}
+.fcp{font-family:var(--mono);font-size:10px;color:var(--muted)}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "FlipRadar", "item": "https://flipradar.fr/"}, {"@type": "ListItem", "position": 2, "name": "Alternative BOT LBC", "item": "https://flipradar.fr/alternative-botlbc"}]}</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "BOT LBC fonctionne-t-il encore ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Non. BOT LBC a annoncé la fin définitive de son activité et n'accepte plus d'inscriptions, d'après son centre d'aide."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "FlipRadar est-il une bonne alternative à BOT LBC ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Oui si tu fais de l'achat-revente tech (smartphones, iPad, consoles) : FlipRadar calcule la marge et le prix de reprise magasin à ta place, sans configuration. Si tu cherches un bot à mots-clés libres pour d'autres catégories, FlipRadar n'est pas conçu pour ça."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Combien coûte FlipRadar ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "29€/mois, sans engagement. Le canal Telegram de démo est gratuit et permet de voir le format des alertes avant de t'abonner."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Faut-il installer quelque chose ?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Non. Il suffit d'avoir Telegram : après le paiement, tu reçois un lien d'accès au groupe privé de ta ville."
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body>
+<nav><a href="/" class="logo">FLIP<em>RADAR</em></a><div class="nr"><a href="/#apercu">Alertes</a><a href="/#zones">Villes</a><a href="/estimation/">Estimations</a><a href="/#tarifs">Tarifs</a><a href="/#faq">FAQ</a><a href="/#tarifs" class="nb">Accès Premium →</a></div></nav>
+<main>
+<p class="bc"><a href="/">FlipRadar</a> / Alternative BOT LBC</p>
+<h1>BOT LBC a fermé : quelle alternative pour l'achat-revente sur Leboncoin ?</h1>
+<p class="lead">BOT LBC a annoncé la fin définitive de son activité : les inscriptions sont fermées et le service ne fonctionne plus. Si tu l'utilisais pour repérer les bonnes affaires, voici comment choisir le meilleur bot Leboncoin pour l'achat-revente, et ce que FlipRadar propose à la place.</p>
+<div class="ctas"><a href="/#tarifs" class="bp">Accès Premium — 29€/mois →</a><a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a></div>
+<p class="src">Source : centre d'aide BOT LBC (botlbc.fr/aide), consulté le 23/09/2026.</p>
+
+<h2>Avis BOT LBC : ce que le service proposait</h2>
+<p>D'après sa propre présentation, BOT LBC combinait des alertes sur les nouvelles annonces, une estimation de la valeur marché à partir d'annonces similaires, un mode « Sniper » réglable (prix maximum, score minimum, marge minimum) et, dans son offre Pro, la gestion de plusieurs comptes Leboncoin. C'était un outil généraliste : tu configurais tes recherches, le service surveillait.</p>
+<p>Sa fermeture laisse ses utilisateurs devant la même question : <strong>quel outil reprend le travail de repérage, et avec quelles garanties ?</strong></p>
+
+<h2>Meilleur bot Leboncoin achat revente : les critères qui comptent</h2>
+<h3>1. Un prix clair et fixe</h3>
+<p>Un abonnement mensuel lisible, sans palier caché ni option indispensable vendue à part. Tu dois savoir ce que tu paies avant de t'inscrire, et pouvoir arrêter quand tu veux.</p>
+<h3>2. Rien à installer ni à maintenir</h3>
+<p>Un outil d'achat-revente doit te faire gagner du temps. Héberger un script sur un VPS, le mettre à jour quand Leboncoin change, régler des dizaines de mots-clés : autant de temps pris sur la recherche d'affaires.</p>
+<h3>3. Une marge calculée, pas seulement une notification</h3>
+<p>Être prévenu d'une nouvelle annonce ne suffit pas : il faut savoir, en quelques secondes de lecture, si elle vaut le déplacement. Le bon bot te donne le prix de revente probable et ce que tu récupères au pire en revendant en magasin.</p>
+<h3>4. Un tri des annonces piégées</h3>
+<p>Prix d'appât, appareils bloqués, écrans cassés, contrefaçons : sans filtre, les « affaires » les plus spectaculaires sont souvent les plus risquées.</p>
+
+<h2>FlipRadar : l'alternative clé en main à BOT LBC</h2>
+<p>FlipRadar est un <strong>bot alerte Leboncoin</strong> spécialisé dans l'achat-revente tech. Il ne te demande aucune configuration : le radar surveille en continu les iPhone, Samsung Galaxy, iPad et consoles sur 19 zones françaises et t'envoie sur Telegram les annonces qui ont passé son filtre.</p>
+<h3>Un tarif mensuel fixe : 29€, sans engagement</h3>
+<p>Un seul abonnement, 29€/mois, payé via Stripe. Pas de frais d'installation, pas d'option payante, résiliation en ligne à tout moment.</p>
+<h3>L'indicateur de reprise pro, directement dans l'alerte</h3>
+<p>Chaque alerte affiche le prix de revente médian sur Leboncoin, le <strong>prix de reprise en magasin</strong> (Cash Converters, EasyCash) et le worst-case, ce que tu gagnes au minimum si tu revends en magasin. Si ce worst-case est positif, l'achat est couvert même si la revente sur Leboncoin traîne.</p>
+<h3>Un groupe Telegram par ville</h3>
+<p>Tu choisis ta zone, tu rejoins son groupe privé. Tu ne reçois que des annonces que tu peux aller chercher, et tu n'es pas en concurrence avec les abonnés des 18 autres zones.</p>
+<div class="tbl"><table>
+<thead><tr><th>Critère</th><th>FlipRadar</th></tr></thead>
+<tbody>
+<tr><td>Tarif</td><td>29€/mois, prix fixe, sans engagement ni frais cachés</td></tr>
+<tr><td>Installation</td><td>Aucune : pas de script, pas de VPS, pas de mots-clés à régler. Tu choisis ta ville, tu rejoins le groupe Telegram.</td></tr>
+<tr><td>Canal</td><td>Telegram (groupe privé par ville)</td></tr>
+<tr><td>Calcul de marge</td><td>Automatique : revente médiane Leboncoin + prix de reprise Cash Converters / EasyCash + worst-case</td></tr>
+<tr><td>Filtre anti-arnaque</td><td>Prix d'appât, défauts majeurs, accessoires et contrefaçons écartés ; red flags signalés par l'IA</td></tr>
+<tr><td>Catégories</td><td>iPhone, Samsung Galaxy, iPad, PS5, PS4, Xbox Series</td></tr>
+<tr><td>Couverture</td><td>19 zones en France métropolitaine, rayon de 40 à 100 km</td></tr>
+<tr><td>Essayer avant de payer</td><td>Canal Telegram de démo gratuit (sélection partielle des deals)</td></tr>
+</tbody></table></div>
+<h2>Ce que FlipRadar ne fait pas</h2>
+<p>Pour choisir en connaissance de cause :</p>
+<ul class="l">
+<li><strong>Pas de recherche libre.</strong> FlipRadar ne surveille que la tech d'occasion (smartphones, iPad, consoles). Pour des vêtements, des meubles ou des voitures, un bot à mots-clés est plus adapté.</li>
+<li><strong>Pas d'achat automatique.</strong> Tu gardes la main : c'est toi qui contactes le vendeur et qui décides d'acheter.</li>
+<li><strong>Pas de course à la seconde.</strong> Le radar vérifie les iPhone toutes les 10 minutes dans les 8 plus grandes zones, le reste plusieurs fois par heure. Chaque annonce est ensuite enrichie et analysée avant l'envoi. FlipRadar mise sur la qualité du tri et le calcul de marge plutôt que sur la notification la plus rapide possible.</li>
+</ul>
+
+<h2>Questions fréquentes</h2>
+<h3>BOT LBC fonctionne-t-il encore ?</h3>
+<p>Non. BOT LBC a annoncé la fin définitive de son activité et n'accepte plus d'inscriptions, d'après son centre d'aide.</p>
+<h3>FlipRadar est-il une bonne alternative à BOT LBC ?</h3>
+<p>Oui si tu fais de l'achat-revente tech (smartphones, iPad, consoles) : FlipRadar calcule la marge et le prix de reprise magasin à ta place, sans configuration. Si tu cherches un bot à mots-clés libres pour d'autres catégories, FlipRadar n'est pas conçu pour ça.</p>
+<h3>Combien coûte FlipRadar ?</h3>
+<p>29€/mois, sans engagement. Le canal Telegram de démo est gratuit et permet de voir le format des alertes avant de t'abonner.</p>
+<h3>Faut-il installer quelque chose ?</h3>
+<p>Non. Il suffit d'avoir Telegram : après le paiement, tu reçois un lien d'accès au groupe privé de ta ville.</p>
+<div class="box g">
+<p><strong>Juge sur pièce avant de payer.</strong> Le canal de démo publie gratuitement une sélection des deals détectés : même format, mêmes calculs que l'accès Premium.</p>
+<div class="ctas"><a href="/#tarifs" class="bp">Accès Premium — 29€/mois →</a><a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a></div>
+</div>
+</main>
+<footer>
+  <div class="flinks">
+    <a href="/">Accueil</a><a href="https://t.me/flip_radar" rel="noopener noreferrer">Canal Telegram de démo</a><a href="/estimation/">Estimations de prix</a><a href="/alternative-minit">Alternative Minit</a><a href="/alternative-botlbc">Alternative BOT LBC</a><a href="/cgv">CGV</a><a href="/confidentialite">Confidentialité</a><a href="/resilier" rel="noopener noreferrer">Résilier</a>
+  </div>
+  <p class="fcp">flipradar.fr · 2026 · Marges et worst-case sont des estimations, sans garantie de rentabilité.</p>
+</footer>
+</body>
+</html>
