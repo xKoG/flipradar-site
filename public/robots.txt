@@ -4,5 +4,7 @@ Allow: /
 # Pages de conversion servies par l'API (rendu dynamique, indexables)
 Allow: /villes
 Allow: /ville/
+Allow: /estimation/
 
 Sitemap: https://flipradar.fr/sitemap.xml
+Sitemap: https://flipradar.fr/estimation/sitemap.xml
