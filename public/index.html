@@ -40,11 +40,6 @@
 img,svg,canvas,video{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
 html,body{width:100%;max-width:100%;overflow-x:hidden}body{background:var(--bg);color:var(--text);font-family:var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:9999}
-.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(140px)}
-.o1{width:700px;height:700px;background:rgba(0,255,136,.035);top:-200px;left:50%;transform:translateX(-50%)}
-.o2{width:500px;height:500px;background:rgba(0,100,255,.025);bottom:10%;right:-150px}
-#radar{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.26;pointer-events:none;z-index:0}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;transition:all .35s ease}
@@ -59,34 +54,9 @@ nav.sc{background:rgba(5,8,9,.92);backdrop-filter:blur(24px);border-bottom:1px s
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 110px;z-index:1}
-.hero-status{display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:60px}
-.badge{display:inline-flex;align-items:center;gap:10px;background:var(--glo);border:1px solid var(--bdg);color:var(--gtx);font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:7px 18px;border-radius:40px;animation:up .6s ease both}
 .pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pl 2.2s ease-in-out infinite}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
-.hpre{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;animation:up .6s ease .05s both}
-.hero-brand{font-family:var(--display);font-size:clamp(16px,2.4vw,22px);font-weight:800;line-height:1;letter-spacing:.08em;text-align:center;display:block;width:fit-content;max-width:calc(100vw - 32px);margin:0 auto 36px;padding:0;overflow:visible;white-space:nowrap;color:var(--muted);animation:up .6s ease .08s both}
-.hero-brand .g{color:var(--gtx)}
-.hero-brand .d{color:var(--green)}
-.hp{max-width:560px;font-size:clamp(13px,1.5vw,14.5px);font-weight:400;color:var(--muted);line-height:1.9;margin-bottom:56px;animation:up .8s ease .26s both;letter-spacing:.01em}
-.hp strong{color:var(--text);font-weight:600}
-.hp-line{display:block;margin-bottom:16px}
-.hp-marge{display:block;font-size:15px;color:var(--text)}
 
-.hero-slogan{
-  position:relative;
-  font-family:var(--display);
-  font-style:normal;
-  font-size:clamp(40px,8.8vw,100px);
-  font-weight:800;
-  line-height:1.08;
-  letter-spacing:-.02em;
-  color:#fff;
-  margin:0 auto 40px;
-  text-align:center;
-  animation:up .8s ease .14s both;
-}
-.hero-slogan br{display:block}
-#hero-marge{color:var(--green);text-shadow:0 0 30px rgba(0,255,136,.3)}
 .hstats{display:flex;border:1px solid var(--bdr);border-radius:var(--r);overflow:hidden;margin-bottom:52px;background:rgba(255,255,255,.018);backdrop-filter:blur(12px);animation:up .7s ease .32s both}
 .hs{padding:22px 36px;border-right:1px solid var(--bdr);text-align:center;flex:1;position:relative}
 .hs:last-child{border-right:none}
@@ -110,18 +80,7 @@ nav.sc{background:rgba(5,8,9,.92);backdrop-filter:blur(24px);border-bottom:1px s
 .bp:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,255,136,.25)}
 .bg{display:inline-flex;align-items:center;gap:10px;background:transparent;color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;padding:15px 30px;border:1px solid var(--bdr);border-radius:4px;text-decoration:none;transition:all .2s ease}
 .bg:hover{border-color:var(--bdg);color:var(--gtx)}
-.scue{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeIn 2s ease 2s both}
-.scue span{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.18em}
-.sline{width:1px;height:36px;background:linear-gradient(to bottom,transparent,var(--muted));animation:lp 2s ease-in-out infinite}
-@keyframes lp{0%,100%{opacity:.25;transform:scaleY(.4);transform-origin:top}50%{opacity:1;transform:scaleY(1);transform-origin:top}}
 
-/* TICKER */
-.tw{overflow:hidden;border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);background:rgba(255,255,255,.012);padding:11px 0;position:relative;z-index:1}
-.tt{display:flex;animation:ts 40s linear infinite;width:max-content}
-.tick{font-family:var(--mono);font-size:10px;padding:0 48px;color:var(--muted);white-space:nowrap;border-right:1px solid var(--bdr);letter-spacing:.05em}
-.tc{color:var(--amber)}.tu{color:var(--gtx)}
-@keyframes ts{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tw:hover .tt{animation-play-state:paused}
 
 /* SECTIONS */
 .section{padding:140px 24px;position:relative;z-index:1}
@@ -459,24 +418,10 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   .iphone-frame{width:240px}
 }
 
-/* SCROLL RADAR — indicateur de progression */
-.scroll-radar{position:fixed;top:0;right:0;width:3px;height:100vh;z-index:250;background:rgba(255,255,255,.03);pointer-events:none}
-.scroll-radar-fill{width:100%;height:0%;background:linear-gradient(to bottom,var(--green),rgba(0,255,136,.15));box-shadow:0 0 14px rgba(0,255,136,.55);transition:height .08s linear}
-@media(max-width:640px){.scroll-radar{display:none}}
 
-/* HERO — scan reveal */
-.scan-sweep{position:absolute;top:-20%;bottom:-20%;left:-8%;width:8px;background:linear-gradient(to bottom,transparent,var(--green) 50%,transparent);box-shadow:0 0 40px 12px rgba(0,255,136,.55);opacity:0;mix-blend-mode:screen;pointer-events:none;animation:scansweep 1.8s cubic-bezier(.4,0,.2,1) .5s 1;animation-delay:.9s}
-@keyframes scansweep{0%{left:-8%;opacity:1}8%{opacity:1}90%{opacity:1}100%{left:104%;opacity:0}}
-.scroll-teaser{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.08em;margin-top:28px;text-align:center;animation:fadeIn 1.5s ease 1.2s both}
 
 /* PIPELINE — connecteurs animés */
 .ps{overflow:hidden}
-.ps::before{content:'';position:absolute;top:0;left:-40%;width:40%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent);opacity:.85;animation:pipeflow 5s linear infinite;box-shadow:0 0 10px rgba(0,255,136,.6)}
-.ps:nth-child(2)::before{animation-delay:1.25s}
-.ps:nth-child(3)::before{animation-delay:2.5s}
-.ps:nth-child(4)::before{animation-delay:3.75s}
-@keyframes pipeflow{0%{left:-40%}100%{left:100%}}
-@media(prefers-reduced-motion:reduce){.ps::before,.scan-sweep{animation:none;display:none}}
 
 /* FONDATEUR */
 .founder-card{display:flex;gap:32px;align-items:flex-start;background:var(--bg2);border:1px solid var(--bdr);border-radius:12px;padding:36px}
@@ -515,9 +460,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 @media(max-width:640px){.ctas .bp,.ctas .bg{width:100%;justify-content:center;text-align:center}}
 
 /* APERÇU ALERTE — bulle Telegram (thème sombre officiel) */
-.apercu{padding-top:40px}
-.apercu-grid{display:grid;grid-template-columns:minmax(0,380px) minmax(0,1fr);gap:48px;align-items:start}
-@media(max-width:860px){.apercu-grid{grid-template-columns:1fr;gap:32px}}
+.apercu-grid{display:block}
 .tgdemo{margin:0;padding:22px;border-radius:16px;background:#0e1621;border:1px solid var(--bdr)}
 .tgdemo-bubble{background:#182533;border-radius:14px 14px 14px 4px;padding:14px 16px 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e4ecf2;font-size:14px;line-height:1.45}
 .tgdemo-sender{font-size:13px;font-weight:700;color:#6ab3f3;margin-bottom:6px}
@@ -558,6 +501,48 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 .zbadges a:hover{border-color:var(--green);color:#fff;background:rgba(0,255,136,.08)}
 .zones-note{font-family:var(--mono);font-size:10px;color:var(--muted);margin-top:20px;line-height:1.6}
 .fai strong{color:var(--text)}
+/* HERO v2 : proposition de valeur + alerte réelle */
+.hero{min-height:auto;display:block;text-align:left;padding:132px 24px 72px}
+.hero-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:64px;align-items:center}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+.hero-copy .est-pill{margin:0 0 28px}
+.hero-h1{font-family:var(--display);font-size:clamp(32px,4.6vw,52px);font-weight:800;line-height:1.08;letter-spacing:-.02em;color:#fff;margin-bottom:22px;max-width:620px}
+.hero-sub{font-size:16px;line-height:1.7;color:var(--text);max-width:580px;margin-bottom:26px}
+.hero-points{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:34px;max-width:580px}
+.hero-points li{position:relative;padding-left:26px;font-size:14.5px;line-height:1.6;color:var(--text)}
+.hero-points li::before{content:'';position:absolute;left:0;top:5px;width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,255,136,.35);background:rgba(0,255,136,.08) url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 8.2l2.6 2.6L12 5.4' stroke='%2300ff88' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.hero-points strong{color:#fff;font-weight:700}
+.hero .ctas{justify-content:flex-start}
+.hero-fine{font-size:12px;color:var(--muted);margin-top:16px}
+.hero-alert{box-shadow:0 30px 80px -40px rgba(0,0,0,.9)}
+.hero .hstats{max-width:1080px;margin:64px auto 0}
+@media(max-width:640px){.hero{padding-top:108px}.hero-h1{font-size:30px}.hero-sub{font-size:15px}}
+
+/* COMPARATIF */
+.sec-lead{font-size:15px;line-height:1.75;color:var(--text);max-width:680px;margin:-40px 0 40px}
+.cmpt-wrap{border:1px solid var(--bdr);border-radius:12px;overflow:hidden;background:var(--bg2)}
+.cmpt{width:100%;border-collapse:collapse;font-size:14px;line-height:1.55}
+.cmpt th,.cmpt td{padding:16px 20px;text-align:left;vertical-align:top;border-bottom:1px solid var(--bdr)}
+.cmpt tbody tr:last-child th,.cmpt tbody tr:last-child td{border-bottom:none}
+.cmpt thead th{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.cmpt thead th.cmpt-us{color:var(--gtx)}
+.cmpt tbody th{color:#fff;font-weight:600;width:26%}
+.cmpt td{color:var(--muted)}
+.cmpt td.cmpt-us{color:var(--text);background:rgba(0,255,136,.035)}
+.cmpt-note{font-size:13.5px;color:var(--muted);line-height:1.7;max-width:680px;margin-top:22px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media(max-width:700px){
+  .cmpt thead{display:none}
+  .cmpt tr{display:block;padding:16px 18px;border-bottom:1px solid var(--bdr)}
+  .cmpt tbody tr:last-child{border-bottom:none}
+  .cmpt th,.cmpt td{display:block;padding:0;border:none;width:auto}
+  .cmpt tbody th{margin-bottom:8px;width:auto}
+  .cmpt td{font-size:13px;margin-bottom:6px}
+  .cmpt td::before{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
+  .cmpt td:not(.cmpt-us)::before{content:"Bot classique"}
+  .cmpt td.cmpt-us{background:none;padding:10px 12px;border-left:2px solid var(--bdg);margin:8px 0 0}
+  .cmpt td.cmpt-us::before{content:"FlipRadar";color:var(--gtx)}
+}
 </style>
 
 <script type="application/ld+json">
@@ -588,7 +573,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       "name": "Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un bot alerte Leboncoin comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois des notifications Telegram instantanées, avec la marge et le prix de reprise déjà calculés."
+        "text": "L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un bot alerte Leboncoin comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une notification Telegram, avec la marge et le prix de reprise déjà calculés."
       }
     },
     {
@@ -644,16 +629,12 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 </script>
 </head>
 <body>
-<div class="orb o1"></div><div class="orb o2"></div>
-
-<!-- SCROLL RADAR -->
-<div class="scroll-radar"><div class="scroll-radar-fill" id="scroll-radar-fill"></div></div>
 
 <!-- CITY MODAL -->
 <div class="modal-overlay" id="city-modal" aria-hidden="true" inert>
   <div class="modal-box">
     <button class="modal-close" id="city-modal-close" aria-label="Fermer">✕</button>
-    <p class="stag" style="margin-bottom:8px">accès opérateur</p>
+    <p class="stag" style="margin-bottom:8px">abonnement</p>
     <h3 class="modal-title">Choisis ta zone de couverture</h3>
     <p class="modal-sub">Les alertes de ta ville arrivent dans un groupe Telegram privé et dédié. <strong style="color:var(--gtx)">29€/mois</strong> — paiement sécurisé par Stripe. Annulable à tout moment.</p>
     <div class="city-grid" id="city-grid"></div>
@@ -666,8 +647,6 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <span class="sticky-cta-text">FLIPRADAR · <strong>29€/mois</strong> à vie · sans engagement</span>
   <a href="#" class="bp" rel="noopener noreferrer" style="padding:10px 20px;font-size:10px" data-open-city-modal>S'abonner →</a>
 </div>
-
-<canvas id="radar" width="900" height="900"></canvas>
 
 <!-- NAV -->
 <nav id="nav">
@@ -689,62 +668,83 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-status">
-    <div class="badge"><span class="pulse"></span>Système actif — détection en cours</div>
-    <p class="hpre">Leboncoin · France métropolitaine · 19 zones</p>
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <a href="/estimation/" class="est-pill"><span class="est-new">Gratuit</span><span>Estimation de prix : ton annonce est-elle au bon prix ?</span><span class="est-go">→</span></a>
+      <h1 class="hero-h1">Les bonnes affaires tech de Leboncoin, avec la marge déjà calculée.</h1>
+      <p class="hero-sub">FlipRadar surveille les annonces iPhone, iPad, Samsung Galaxy et consoles de ta zone. Chacune est comparée au prix de revente sur Leboncoin et au prix de reprise en magasin (Cash Converters, EasyCash). Seules celles qui laissent une marge t'arrivent sur Telegram.</p>
+      <ul class="hero-points">
+        <li><strong>1 annonce sur <span id="h-ratio">30</span> passe le filtre.</strong> Tu ne reçois pas le reste.</li>
+        <li><strong>Le pire cas est chiffré.</strong> Chaque alerte indique ce que tu toucherais en revendant en magasin.</li>
+        <li><strong>Les annonces piège sont écartées</strong> : défaut majeur, batterie sous 80 %, prix d'appât, contrefaçons.</li>
+      </ul>
+      <div class="ctas">
+        <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Choisir ma zone · 29 €/mois</a>
+        <a href="https://t.me/flip_radar" class="bg" rel="noopener noreferrer">Voir le canal gratuit</a>
+      </div>
+      <p class="hero-fine">Sans engagement · résiliation en ligne · paiement par Stripe</p>
+    </div>
+    <figure class="tgdemo hero-alert" aria-label="Exemple d'alerte FlipRadar sur Telegram">
+      <div class="tgdemo-bubble">
+        <div class="tgdemo-sender">FlipRadar · Paris</div>
+        <div class="tgdemo-head"><span>🟢 DEAL DÉTECTÉ</span><span class="tgdemo-score">Score 8/10</span></div>
+        <div class="tgdemo-name">iPhone 15 Pro 256 Go</div>
+        <div class="tgdemo-loc">Paris (75) · Particulier</div>
+        <hr>
+        <div class="tgdemo-row"><span>Prix Leboncoin</span><span>315 €</span></div>
+        <div class="tgdemo-row"><span>Revente LBC (médiane)</span><span>~580 €</span></div>
+        <div class="tgdemo-row"><span>Reprise magasin (EasyCash)</span><span>412 €</span></div>
+        <hr>
+        <div class="tgdemo-row tgdemo-big"><span>Marge estimée</span><strong>+265 €</strong></div>
+        <div class="tgdemo-row"><span>Worst-case (revente en magasin)</span><strong class="tgdemo-amber">+97 €</strong></div>
+        <hr>
+        <p class="tgdemo-ia">Photos cohérentes, boîte présente. Vérifie l'absence de blocage iCloud avant achat.</p>
+        <p class="tgdemo-nego">« Bonjour, votre iPhone 15 Pro est-il toujours disponible ? Je peux passer aujourd'hui. »</p>
+        <div class="tgdemo-foot"><span>leboncoin.fr ↗</span><span>14:07 ✓✓</span></div>
+      </div>
+      <figcaption>Chiffres repris d'une alerte envoyée en septembre 2026. La marge est une estimation avant frais : vérifie toujours l'annonce avant d'acheter.</figcaption>
+    </figure>
   </div>
-  <a href="/estimation/" class="est-pill"><span class="est-new">Nouveau</span><span>Estimation de prix gratuite : ton annonce est-elle au bon prix ?</span><span class="est-go">→</span></a>
-  <h1 class="hero-slogan">Repéré.<br>Négocié.<br>Encaissé.<span class="scan-sweep" aria-hidden="true"></span></h1>
-  <p class="hp">
-    <span class="hp-line">Chaque annonce sous-cotée sur Leboncoin est repérée, analysée par IA et qualifiée.</span>
-    <span class="hp-line">Tu reçois sur Telegram la marge réaliste, <strong style="color:var(--amber)">le worst-case — ton filet de sécurité si la revente traîne</strong> — et le message de négociation prêt à envoyer.</span>
-    <span class="hp-marge"><strong><span id="hero-marge">+198€</span> de marge estimée moyenne par alerte.</strong></span>
-  </p>
   <div class="hstats">
     <div class="hs"><span class="hsv" id="h-annonces">240 000+</span><span class="hsl">annonces analysées</span></div>
-    <div class="hs"><span class="hsv" id="h-alertes">7 900</span><span class="hsl">alertes qualifiées</span></div>
-    <div class="hs"><span class="hsv" id="h-marge">+198€</span><span class="hsl">marge estimée moyenne / alerte</span></div>
-    <div class="hs"><span class="hsv" id="h-mediane">+180€</span><span class="hsl">marge estimée médiane / alerte</span></div>
+    <div class="hs"><span class="hsv" id="h-alertes">7 900</span><span class="hsl">alertes envoyées</span></div>
+    <div class="hs"><span class="hsv" id="h-mediane">+180€</span><span class="hsl">marge médiane par alerte</span></div>
+    <div class="hs"><span class="hsv">19</span><span class="hsl">zones en France</span></div>
   </div>
-  <div class="ctas">
-    <a href="#" class="bp" rel="noopener noreferrer" data-open-city-modal>Accès Premium — 29€/mois →</a>
-    <a href="https://t.me/flip_radar" class="bg bg-demo" rel="noopener noreferrer">🔗 Découvrir le Bot (Canal Telegram de démo gratuit)</a>
-  </div>
-  <div class="trust-row" style="margin-top:24px;animation:up .7s ease .38s both">
-    <div class="trust-item"><span class="trust-ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><strong style="color:var(--text)">Résiliable à tout moment</strong>&nbsp;— sans engagement</div>
-  </div>
-
-
-  <p class="scroll-teaser r">↓ Voici comment une alerte arrive jusqu'à toi</p>
-  <div class="scue"><span>scroll</span><div class="sline"></div></div>
 </section>
 
 <!-- APERÇU ALERTE + GRATUIT VS PREMIUM -->
-<section class="section apercu" id="apercu">
+<!-- COMPARATIF -->
+<section class="section" id="comparatif">
   <div class="wrap">
-    <p class="stag r">aperçu d'une alerte</p>
-    <h2 class="r">Voici ce qui arrive sur ton Telegram</h2>
+    <p class="stag r">comparatif</p>
+    <h2 class="r">Pourquoi pas un simple bot d'alertes ?</h2>
+    <p class="sec-lead r">Un bot d'alertes classique t'envoie chaque nouvelle annonce qui correspond à tes mots-clés. C'est ensuite à toi de juger si elle vaut le coup. FlipRadar fait ce travail avant de t'envoyer quoi que ce soit.</p>
+    <div class="cmpt-wrap r">
+      <table class="cmpt">
+        <thead>
+          <tr><th scope="col"><span class="sr-only">Critère</span></th><th scope="col">Bot d'alertes classique</th><th scope="col" class="cmpt-us">FlipRadar</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Qui juge si l'annonce vaut le coup</th><td>Toi, à chaque notification</td><td class="cmpt-us">Chaque annonce reçoit une note sur 10. Seules celles à 7 ou plus sont envoyées</td></tr>
+          <tr><th scope="row">Prix de revente</th><td>À chercher toi-même</td><td class="cmpt-us">Prix médian sur Leboncoin pour le même modèle et la même capacité</td></tr>
+          <tr><th scope="row">Si la revente traîne</th><td>Aucune indication</td><td class="cmpt-us">Prix de reprise Cash Converters et EasyCash, et ta marge dans ce cas</td></tr>
+          <tr><th scope="row">Annonces piège</th><td>À repérer toi-même</td><td class="cmpt-us">Écartées avant l'envoi : défaut majeur, batterie sous 80 %, prix d'appât, contrefaçons</td></tr>
+          <tr><th scope="row">Réglages</th><td>Mots-clés, prix maximum, filtres à entretenir</td><td class="cmpt-us">Aucun. Tu choisis ta zone</td></tr>
+          <tr><th scope="row">Ce qui est surveillé</th><td>Ce que tu veux</td><td class="cmpt-us">Uniquement la tech sur Leboncoin : iPhone, iPad, Samsung Galaxy, PS5, PS4, Xbox Series</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cmpt-note r">Tu cherches des vêtements, des meubles ou des annonces Vinted ? Un bot d'alertes classique te conviendra mieux. FlipRadar ne fait qu'une chose : la tech d'occasion sur Leboncoin, avec la marge.</p>
+  </div>
+</section>
+
+<section class="section alt apercu" id="apercu">
+  <div class="wrap">
+    <p class="stag r">canal gratuit ou premium</p>
+    <h2 class="r">Teste d'abord, gratuitement</h2>
     <div class="apercu-grid">
-      <figure class="tgdemo r" aria-label="Exemple d'alerte FlipRadar sur Telegram">
-        <div class="tgdemo-bubble">
-          <div class="tgdemo-sender">FlipRadar · Paris</div>
-          <div class="tgdemo-head"><span>🟢 DEAL DÉTECTÉ</span><span class="tgdemo-score">Score 8/10</span></div>
-          <div class="tgdemo-name">iPhone 15 Pro 256 Go</div>
-          <div class="tgdemo-loc">Paris (75) · Particulier</div>
-          <hr>
-          <div class="tgdemo-row"><span>Prix Leboncoin</span><span>315 €</span></div>
-          <div class="tgdemo-row"><span>Revente LBC (médiane)</span><span>~580 €</span></div>
-          <div class="tgdemo-row"><span>Reprise magasin (EasyCash)</span><span>412 €</span></div>
-          <hr>
-          <div class="tgdemo-row tgdemo-big"><span>Marge estimée</span><strong>+265 €</strong></div>
-          <div class="tgdemo-row"><span>Worst-case (revente en magasin)</span><strong class="tgdemo-amber">+97 €</strong></div>
-          <hr>
-          <p class="tgdemo-ia">Photos cohérentes, boîte présente. Vérifie l'absence de blocage iCloud avant achat.</p>
-          <p class="tgdemo-nego">« Bonjour, votre iPhone 15 Pro est-il toujours disponible ? Je peux passer aujourd'hui. »</p>
-          <div class="tgdemo-foot"><span>leboncoin.fr ↗</span><span>14:07 ✓✓</span></div>
-        </div>
-        <figcaption>Chiffres repris d'une alerte envoyée en septembre 2026. La marge est une estimation avant frais : vérifie toujours l'annonce avant d'acheter.</figcaption>
-      </figure>
+
       <div class="cmp r">
         <div class="cmp-col">
           <p class="cmp-tag">Canal de démo · gratuit</p>
@@ -770,23 +770,20 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   </div>
 </section>
 
-<!-- TICKER -->
-<div class="tw"><div class="tt" id="ticker"></div></div>
-
 <!-- LIVE STATS -->
 <section class="section">
   <div class="wrap">
-    <p class="stag r">rapport de mission</p>
+    <p class="stag r">chiffres en direct</p>
     <h2 class="r">
       Depuis le lancement
       <span class="live-badge loading" id="live-badge"><span class="ldot" id="live-dot"></span><span id="live-label">synchronisation…</span></span>
     </h2>
     <div class="mstats r reveal">
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Alertes aujourd'hui</div><div class="mval" id="s-today">—</div><div class="msub">alertes qualifiées détectées</div></div>
-      <div class="mstat"><div class="mtag"><span class="ldot"></span>Moy. hebdomadaire</div><div class="mval" id="s-7j">—</div><div class="msub">alertes envoyées</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>7 derniers jours</div><div class="mval" id="s-7j">—</div><div class="msub">alertes envoyées</div></div>
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Total depuis lancement</div><div class="mval" id="s-total">—</div><div class="msub">alertes qualifiées ≥ 7/10</div></div>
       <div class="mstat"><div class="mtag"><span class="ldot"></span>Red flags détectés</div><div class="mval" id="s-redflags">—</div><div class="msub">annonces suspectes filtrées par l'IA</div></div>
-      <div class="mstat"><div class="mtag"><span class="ldot"></span>Sélectivité IA</div><div class="mval" id="s-selectivite">—</div><div class="msub">des annonces analysées sont écartées avant l'envoi</div></div>
+      <div class="mstat"><div class="mtag"><span class="ldot"></span>Annonces écartées</div><div class="mval" id="s-selectivite">—</div><div class="msub">des annonces analysées sont écartées avant l'envoi</div></div>
     </div>
 
     <div class="stats2 r">
@@ -816,7 +813,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <!-- ALERTES -->
 <section class="section alt" id="alertes">
   <div class="wrap">
-    <p class="stag r">activité récente</p>
+    <p class="stag r">alertes récentes</p>
     <h2 class="r">Deals détectés récemment</h2>
     <span class="dlog-caption r" id="dlog-caption">Exemples représentatifs du type d'alertes envoyées</span>
     <div class="dlog" id="agrid"></div>
@@ -1073,21 +1070,21 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <!-- PIPELINE -->
 <section class="section" id="comment">
   <div class="wrap">
-    <p class="stag r">protocole de détection</p>
-    <h2 class="r">FLIPRADAR en 4 étapes</h2>
+    <p class="stag r">comment ça marche</p>
+    <h2 class="r">D'une annonce Leboncoin à ton Telegram</h2>
     <div class="pipe r reveal">
-      <div class="ps"><div class="pn">01</div><p class="pt">Détection continue</p><p class="pd">Scan permanent de Leboncoin sur 19 zones — rayon de 40 à 100km autour de chaque ville. Zéro angle mort, zéro pause.</p></div>
-      <div class="ps"><div class="pn">02</div><p class="pt">Enrichissement prix</p><p class="pd">Chaque annonce est croisée avec les prix de rachat Cash Converters, EasyCash et les prix de revente médians observés sur LBC.</p></div>
-      <div class="ps"><div class="pn">03</div><p class="pt">Analyse IA</p><p class="pd">L'IA qualifie chaque deal : red flags vendeur, cohérence du prix, état visible, qualité de l'annonce — scoré de 7 à 10/10.</p></div>
-      <div class="ps"><div class="pn">04</div><p class="pt">Alerte Telegram</p><p class="pd">Tu reçois : marge réaliste, worst-case, score IA et un message de négociation prêt à copier-coller.</p></div>
+      <div class="ps"><div class="pn">01</div><p class="pt">Surveillance</p><p class="pd">Les nouvelles annonces des 19 zones sont relevées toutes les 30 minutes de 9 h à 1 h 30, et toutes les 10 minutes jour et nuit pour les iPhone des 8 plus grandes zones.</p></div>
+      <div class="ps"><div class="pn">02</div><p class="pt">Prix de référence</p><p class="pd">Chaque annonce est comparée au prix médian du même modèle sur Leboncoin et aux prix de reprise Cash Converters et EasyCash.</p></div>
+      <div class="ps"><div class="pn">03</div><p class="pt">Analyse</p><p class="pd">Une IA lit l'annonce et regarde les photos : état, signaux d'alerte, cohérence du prix. L'annonce reçoit une note sur 10. En dessous de 7, elle n'est pas envoyée.</p></div>
+      <div class="ps"><div class="pn">04</div><p class="pt">Alerte</p><p class="pd">Tu reçois le prix, la marge estimée, la marge dans le pire cas, la note, les points à vérifier et un message de contact prêt à envoyer.</p></div>
     </div>
 
     <div class="wc-box r">
-      <div class="wc-title">Risque contrôlé — le worst-case expliqué</div>
+      <div class="wc-title">Le worst-case, ou pire cas</div>
       <div class="wc-text">
         <p style="margin-bottom:12px"><strong>Chaque alerte intègre une validation du pire scénario.</strong> Le <strong>worst-case</strong> répond à une seule question : <em>"Combien je gagne minimum si je n'arrive pas à revendre sur LBC ?"</em></p>
-        <p style="margin-bottom:12px">Dans ce scénario, tu te retournes vers Cash Converters au prix de rachat pro estimé à partir des référentiels disponibles. Si ce chiffre est <strong>positif, tu es rentable même dans le pire scénario</strong> — c'est ton filet de sécurité.</p>
-        <p>Un worst-case trop dégradé par rapport au prix fait déjà chuter le score sous la barre des 7/10 avant l'envoi. C'est ça, le risque contrôlé.</p>
+        <p style="margin-bottom:12px">Dans ce scénario, tu revends l'appareil en magasin, chez Cash Converters ou EasyCash, au prix de reprise relevé chez eux. Si ce chiffre est <strong>positif, tu es rentable même dans le pire scénario</strong> — c'est ton filet de sécurité.</p>
+        <p>Quand le pire cas est trop négatif par rapport au prix, la note tombe sous 7 et l'annonce n'est pas envoyée.</p>
       </div>
     </div>
   </div>
@@ -1096,8 +1093,8 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <!-- FONDATEUR -->
 <section class="section alt" id="fondateur">
   <div class="wrap">
-    <p class="stag r">poste de commandement</p>
-    <h2 class="r">Un seul opérateur, pas une plateforme ouverte à tous</h2>
+    <p class="stag r">fondateur</p>
+    <h2 class="r">Qui est derrière FlipRadar</h2>
     <div class="founder-card r reveal">
       <div class="founder-avatar">
         <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
@@ -1112,7 +1109,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         <p class="founder-lead">FlipRadar est né d'une méthode que j'utilisais pour moi-même : repérer les annonces sous-cotées sur Leboncoin, calculer la marge, négocier, revendre.</p>
         <p class="founder-lead">Je suis basé à La Réunion, en dehors des 19 zones commercialisées par FlipRadar. <strong>Je continue d'utiliser cette méthode pour mes propres flips, sur ma zone — jamais sur celles de mes abonnés</strong> : je ne suis donc jamais en concurrence avec toi sur les mêmes annonces.</p>
         <p class="founder-lead">Ça me rapporte encore plusieurs centaines d'euros par semaine, et c'est comme ça que je sais que les alertes sont fiables avant de te les envoyer.</p>
-        <p class="founder-sub">Accès volontairement limité : un seul opérateur qui surveille la qualité des alertes en continu, pas une plateforme ouverte à tous sans contrôle.</p>
+        <p class="founder-sub">Accès volontairement limité : je surveille moi-même la qualité des alertes, plutôt que d'ouvrir le service à tout le monde sans contrôle.</p>
       </div>
     </div>
   </div>
@@ -1121,7 +1118,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <!-- COUVERTURE -->
 <section class="section" id="couverture">
   <div class="wrap">
-    <p class="stag r">zone de couverture radar</p>
+    <p class="stag r">couverture</p>
     <h2 class="r">19 zones · 3000+ communes</h2>
     <div class="frmap-layout r reveal">
       <div class="frmap-wrap">
@@ -1129,15 +1126,15 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       </div>
       <div class="frmap-info" id="frmap-info"></div>
     </div>
-    <div class="cnote r"><span>FLIPRADAR utilise une <strong>couverture intelligente</strong> : selon la zone, les communes situées jusqu’à 100 km autour du point de détection sont automatiquement prises en compte.</span></div>
+    <div class="cnote r"><span>Selon la zone, les annonces publiées jusqu’à 100 km autour de la ville sont prises en compte.</span></div>
   </div>
 </section>
 
 <!-- TARIFS -->
 <section class="section alt" id="tarifs">
   <div class="wrap">
-    <p class="stag r">accès opérateur</p>
-    <h2 class="r">Accès FLIPRADAR</h2>
+    <p class="stag r">tarif</p>
+    <h2 class="r">Un seul abonnement : 29 € par mois</h2>
     <p class="r" style="font-size:14px;color:var(--muted);margin-top:-44px;margin-bottom:52px">L'abonnement coûte 29€/mois ; la marge estimée médiane d'une alerte est de <strong style="color:var(--text)"><span id="tarif-mediane">+180€</span></strong>. Chaque chiffre reste une estimation : à toi de vérifier l'annonce avant d'acheter.</p>
     <div class="pgrid r reveal" style="max-width:380px;margin:0 auto">
       <div class="plan ft">
@@ -1204,7 +1201,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <div class="faq r" id="faqlist">
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?</h3><span class="farr" aria-hidden="true">+</span></button>
-        <div class="fa"><p class="fai">L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un <strong>bot alerte Leboncoin</strong> comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois des <strong>notifications Telegram instantanées</strong>, avec la marge et le prix de reprise déjà calculés.</p></div>
+        <div class="fa"><p class="fai">L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un <strong>bot alerte Leboncoin</strong> comme FlipRadar fait ce tri à ta place. Le radar tourne jour et nuit (les iPhone sont vérifiés toutes les 10 minutes dans les 8 plus grandes zones), écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une <strong>notification Telegram</strong>, avec la marge et le prix de reprise déjà calculés.</p></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">Comment le bot calcule-t-il la marge d'achat-revente en direct ?</h3><span class="farr" aria-hidden="true">+</span></button>
@@ -1254,7 +1251,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <a href="https://www.instagram.com/flip_radar/" rel="noopener noreferrer" aria-label="Instagram" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 1.5A4.3 4.3 0 0 0 3.5 7.8v8.4a4.3 4.3 0 0 0 4.3 4.3h8.4a4.3 4.3 0 0 0 4.3-4.3V7.8a4.3 4.3 0 0 0-4.3-4.3H7.8Zm4.2 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
     <a href="https://facebook.com/profile.php?id=61590312890661" rel="noopener noreferrer" aria-label="Facebook" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.5-3.1h-3.2v-2c0-.9.4-1.6 1.7-1.6h1.7V4.5c-.3 0-1.5-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9v1.7H6.6V14h2.8v8h4.1Z"/></svg></a>
   </div>
-  <p class="fcp"><span class="sdot"></span>Système actif · flipradar.fr · 2026</p>
+  <p class="fcp">© 2026 FlipRadar · Tevin CREUS</p>
   <p style="font-size:10px;color:var(--muted);margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;text-align:center">FlipRadar est un outil de veille automatisée sur Leboncoin pour la détection de bonnes affaires tech — iPhone, Samsung Galaxy, iPad, PS5, Xbox Series. Alertes Telegram en temps réel avec marge estimée, rachat Cash Converters et analyse IA. Les marges et worst-case sont des estimations basées sur des référentiels observés — FlipRadar ne garantit ni la disponibilité de l'annonce ni la rentabilité finale de l'opération.</p>
 </footer>
 
@@ -1301,75 +1298,6 @@ function safe(str) {
   }, { passive: true });
   update();
 })();
-
-//  RADAR 
-const canvas = document.getElementById('radar');
-const ctx = canvas.getContext('2d');
-const W=900,H=900,CX=W/2,CY=H/2,R=390;
-let angle = 0;
-const dots = Array.from({length:24}, () => ({
-  a: Math.random()*Math.PI*2, r: Math.random()*R*.9+20,
-  life: 0, maxLife: 80+Math.random()*110
-}));
-function draw() {
-  ctx.clearRect(0,0,W,H);
-  [R*.2,R*.4,R*.6,R*.8,R].forEach((r,i) => {
-    ctx.beginPath(); ctx.arc(CX,CY,r,0,Math.PI*2);
-    ctx.strokeStyle = i===4 ? 'rgba(0,255,136,0.16)' : 'rgba(0,255,136,0.055)';
-    ctx.lineWidth = i===4 ? 1.2 : .7; ctx.stroke();
-  });
-  [0,45,90,135].forEach(d => {
-    const rad = d*Math.PI/180;
-    ctx.beginPath(); ctx.moveTo(CX+Math.cos(rad)*R, CY+Math.sin(rad)*R);
-    ctx.lineTo(CX-Math.cos(rad)*R, CY-Math.sin(rad)*R);
-    ctx.strokeStyle = 'rgba(0,255,136,0.04)'; ctx.lineWidth = .7; ctx.stroke();
-  });
-  ctx.save(); ctx.translate(CX,CY); ctx.rotate(angle);
-  const sw = ctx.createLinearGradient(0,0,R,0);
-  sw.addColorStop(0,'rgba(0,255,136,0.2)'); sw.addColorStop(.45,'rgba(0,255,136,0.05)'); sw.addColorStop(1,'rgba(0,255,136,0)');
-  ctx.beginPath(); ctx.moveTo(0,0); ctx.arc(0,0,R,-.5,.5); ctx.closePath(); ctx.fillStyle=sw; ctx.fill();
-  ctx.beginPath(); ctx.moveTo(0,0); ctx.lineTo(R,0);
-  ctx.strokeStyle='rgba(0,255,136,0.85)'; ctx.lineWidth=1.5;
-  ctx.shadowBlur=10; ctx.shadowColor='#00ff88'; ctx.stroke(); ctx.shadowBlur=0;
-  ctx.restore();
-  dots.forEach(d => {
-    const sa=((angle%(Math.PI*2))+Math.PI*2)%(Math.PI*2), da=(d.a+Math.PI*2)%(Math.PI*2);
-    if(((sa-da+Math.PI*2)%(Math.PI*2)) < .12) d.life = d.maxLife;
-    if(d.life > 0) {
-      const f=d.life/d.maxLife, x=CX+Math.cos(d.a)*d.r, y=CY+Math.sin(d.a)*d.r;
-      ctx.beginPath(); ctx.arc(x,y,2.5+(1-f)*3,0,Math.PI*2);
-      ctx.fillStyle=`rgba(0,255,136,${f*.9})`;
-      ctx.shadowBlur=12; ctx.shadowColor='#00ff88'; ctx.fill(); ctx.shadowBlur=0;
-      d.life--;
-    }
-  });
-  angle += .006;
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(draw);
-}
-draw();
-
-//  TICKER
-const TICKS = [
-  {cat:'iPhone 16 Pro Max',city:'Paris',m:'+480€'},
-  {cat:'iPad Pro M1',city:'Lyon',m:'+450€'},
-  {cat:'Samsung S24 Ultra',city:'Bordeaux',m:'+210€'},
-  {cat:'iPhone 15 Pro',city:'Strasbourg',m:'+180€'},
-  {cat:'PS5 Slim',city:'Toulouse',m:'+115€'},
-  {cat:'Samsung',city:'Marseille',m:'+95€'},
-  {cat:'Xbox Series X',city:'Lille',m:'+130€'},
-  {cat:'iPhone 14 Pro',city:'Rennes',m:'+160€'},
-];
-const track = document.getElementById('ticker');
-function buildTicker(ticks) {
-  track.innerHTML = '';
-  [...ticks,...ticks].forEach(t => {
-    const el = document.createElement('span');
-    el.className = 'tick';
-    el.innerHTML = `<span class="tc">[${safe(t.cat)}]</span> ${safe(t.city)} <span class="tu">${safe(t.m)}</span>`;
-    track.appendChild(el);
-  });
-}
-buildTicker(TICKS);
 
 //  DEALS LOG — pool rotatif d'exemples, prix masqués
 // Pool d'exemples illustratifs (pas de fausse fraîcheur — pas de "il y a Xmin" sur des deals fictifs).
@@ -1655,7 +1583,7 @@ function renderStats(d) {
     if (d.annonces_total) countUp(document.getElementById('h-annonces'), d.annonces_total, v => v.toLocaleString('fr-FR') + '+');
     if (d.alertes_total)  countUp(document.getElementById('h-alertes'), d.alertes_total, v => v.toLocaleString('fr-FR'));
     if (d.marge_moyenne)  countUp(document.getElementById('h-marge'), d.marge_moyenne, v => '+' + v + '€');
-    if (d.marge_moyenne)  document.getElementById('hero-marge').textContent  = '+' + d.marge_moyenne + '€';
+    if (d.annonces_total && d.alertes_total) { const hr = document.getElementById('h-ratio'); if (hr) hr.textContent = Math.floor(d.annonces_total / d.alertes_total); }
     if (d.marge_mediane)  countUp(document.getElementById('h-mediane'), d.marge_mediane, v => '+' + v + '€');
     if (d.marge_mediane) { const tm = document.getElementById('tarif-mediane'); if (tm) tm.textContent = '+' + d.marge_mediane + '€'; }
 
@@ -1706,7 +1634,6 @@ function renderStats(d) {
         ago: 'récemment',
       }));
       renderDeals();
-      buildTicker(d.recent_deals.map(rd => ({ cat: rd.cat, city: rd.ville, m: '+' + rd.marge + '€' })));
       const cap = document.getElementById('dlog-caption');
       if (cap) cap.textContent = 'Alertes réelles les plus récentes détectées';
     }
