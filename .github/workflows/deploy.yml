@@ -20,3 +20,6 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+          # wrangler 3.x (défaut de l'action) ignore public/_headers : il était servi
+          # comme un simple fichier et aucun en-tête de sécurité n'était appliqué.
+          wranglerVersion: "4.136.3"
