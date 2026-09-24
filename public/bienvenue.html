@@ -42,6 +42,12 @@ h1{font-family:var(--display);font-size:clamp(24px,5vw,34px);font-weight:800;lin
 .bp.disabled{opacity:.4;pointer-events:none}
 .note{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.05em;margin-top:24px;line-height:1.8}
 .note a{color:var(--gtx);text-decoration:none}
+.note strong{color:var(--text);font-weight:600}
+.ou{display:flex;align-items:center;gap:14px;margin:22px 0;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.ou::before,.ou::after{content:"";flex:1;height:1px;background:var(--bdr)}
+.bs{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#fff;border:1px solid rgba(88,101,242,.55);font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:14px 30px;border-radius:4px;text-decoration:none;transition:all .2s ease;width:100%;justify-content:center}
+.bs:hover{background:rgba(88,101,242,.14);border-color:#5865F2;transform:translateY(-2px)}
+.bs svg{width:18px;height:18px;flex-shrink:0}
 
 footer{border-top:1px solid var(--bdr);padding:32px 24px;text-align:center;position:relative;z-index:1}
 .flogo{font-family:var(--display);font-size:15px;font-weight:800;color:#fff;letter-spacing:.02em;margin-bottom:10px}
@@ -63,6 +69,11 @@ footer a:hover{color:var(--gtx)}
     <p class="lead" id="lead-text">Ton paiement est confirmé. Il ne reste qu'une étape : <strong>active ton accès depuis Telegram</strong> pour rejoindre le groupe privé de ta ville et recevoir tes premières alertes.</p>
     <a href="https://t.me/flipradart_bot" class="bp" id="tg-cta" rel="noopener noreferrer">Ouvrir Telegram pour activer ton accès →</a>
     <p class="note" id="note-text">Le bot termine l'activation automatiquement et t'envoie un lien d'accès vers le groupe Telegram de ta ville.</p>
+    <div id="discord" hidden>
+      <div class="ou">ou sur Discord, sans surcoût</div>
+      <a href="#" class="bs" id="dc-cta" rel="noopener noreferrer" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#5865F2" d="M20.32 4.37A19.8 19.8 0 0 0 15.4 2.8a13.7 13.7 0 0 0-.63 1.3 18.4 18.4 0 0 0-5.5 0 12.6 12.6 0 0 0-.64-1.3 19.7 19.7 0 0 0-4.93 1.53C.6 9.05-.24 13.6.18 18.1a19.9 19.9 0 0 0 6.04 3.05c.49-.66.92-1.36 1.3-2.1a12.9 12.9 0 0 1-2.04-.98l.5-.39a14.2 14.2 0 0 0 12.08 0l.5.39c-.65.39-1.33.71-2.05.98.38.74.81 1.44 1.3 2.1a19.8 19.8 0 0 0 6.05-3.05c.5-5.2-.84-9.72-3.54-13.73ZM8.02 15.33c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.2 0 2.17 1.09 2.15 2.42 0 1.34-.95 2.42-2.15 2.42Zm7.96 0c-1.18 0-2.15-1.08-2.15-2.42s.95-2.42 2.15-2.42c1.2 0 2.17 1.09 2.15 2.42 0 1.34-.94 2.42-2.15 2.42Z"/></svg>Rejoindre sur Discord</a>
+      <p class="note">Sur le serveur, ouvre le salon <strong>#mon-compte</strong>, clique sur « Lier mon abonnement » et saisis l'e-mail de ce paiement : ton salon d'alertes s'ouvre automatiquement.</p>
+    </div>
   </div>
 </main>
 
@@ -75,6 +86,14 @@ footer a:hover{color:var(--gtx)}
 </footer>
 
 <script>
+// Lien d'invitation permanent du serveur Discord. Vide = bouton masqué (serveur pas encore ouvert).
+const DISCORD_INVITE = '';
+(function() {
+  if (DISCORD_INVITE) {
+    document.getElementById('dc-cta').href = DISCORD_INVITE;
+    document.getElementById('discord').hidden = false;
+  }
+})();
 (function() {
   const params = new URLSearchParams(window.location.search);
   const token = params.get('token');
