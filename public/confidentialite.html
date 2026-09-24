@@ -50,7 +50,7 @@ footer a:hover{color:var(--gtx)}
 <header><a href="/" class="logo">FLIP<em>RADAR</em></a></header>
 <main class="wrap">
   <h1>Politique de confidentialité</h1>
-  <p class="updated">Dernière mise à jour : 23 septembre 2026</p>
+  <p class="updated">Dernière mise à jour : 24 septembre 2026</p>
 
   <h2>1. Responsable du traitement</h2>
   <p>Le service FlipRadar est responsable du traitement des données décrites ci-dessous. Pour toute question relative à vos données personnelles : <a href="mailto:contact@flipradar.fr">contact@flipradar.fr</a></p>
@@ -59,7 +59,9 @@ footer a:hover{color:var(--gtx)}
   <table>
     <tr><th>Donnée</th><th>Origine</th><th>Finalité et base légale</th></tr>
     <tr><td>Identifiant et pseudo Telegram</td><td>Fournie par Telegram lors de l'utilisation du bot @flipradart_bot</td><td>Identification de l'abonné, envoi des alertes, accès au groupe de la ville choisie</td></tr>
-    <tr><td>Ville sélectionnée</td><td>Choisie par l'utilisateur sur le site ou via le bot</td><td>Attribution au groupe Telegram correspondant</td></tr>
+    <tr><td>Identifiant Discord</td><td>Fourni par Discord lorsque l'abonné lie son abonnement sur le serveur FlipRadar</td><td>Identification de l'abonné, ouverture du salon de la ville choisie, retrait de l'accès à la fin de l'abonnement</td></tr>
+    <tr><td>Adresse e-mail et code de vérification (liaison Discord)</td><td>Adresse saisie par l'abonné sur le serveur Discord ; code généré par le service</td><td>Vérifier que l'abonné est bien titulaire de l'abonnement Stripe avant d'ouvrir son accès</td></tr>
+    <tr><td>Ville sélectionnée</td><td>Choisie par l'utilisateur sur le site ou via le bot</td><td>Attribution au salon Discord et au groupe Telegram correspondants</td></tr>
     <tr><td>Adresse e-mail</td><td>Transmise par Stripe lors du paiement</td><td>Facturation, gestion de l'abonnement, support</td></tr>
     <tr><td>Statut et historique d'abonnement</td><td>Généré par le service</td><td>Gestion de l'accès, support, statistiques internes anonymisées</td></tr>
     <tr><td>Adresse e-mail (récap mensuel des prix)</td><td>Saisie volontairement sur une page « estimation », après avoir coché la case dédiée</td><td>Envoi d'un récap mensuel des prix du modèle choisi. Base légale : <strong>consentement</strong>, retirable à tout moment</td></tr>
@@ -73,6 +75,7 @@ footer a:hover{color:var(--gtx)}
 
   <h2>4. Sous-traitants et destinataires</h2>
   <ul>
+    <li><strong>Discord</strong> — plateforme communautaire utilisée pour l'envoi des alertes et la gestion du serveur FlipRadar.</li>
     <li><strong>Telegram</strong> — messagerie utilisée pour l'envoi des alertes et la gestion des groupes privés.</li>
     <li><strong>Stripe</strong> — traitement des paiements et de la facturation (certifié PCI-DSS niveau 1).</li>
     <li><strong>Google Fonts</strong> — hébergement des polices utilisées sur le site.</li>
@@ -82,6 +85,7 @@ footer a:hover{color:var(--gtx)}
   <h2>5. Durée de conservation</h2>
   <p>Les données liées à un abonnement sont conservées pendant toute la durée de l'abonnement, puis archivées le temps nécessaire au respect des obligations légales (notamment comptables), avant suppression ou anonymisation.</p>
   <p>L'adresse e-mail du récap mensuel est conservée jusqu'au retrait du consentement : un lien de désinscription figure dans chaque envoi, et la désinscription peut aussi être demandée à <a href="mailto:contact@flipradar.fr">contact@flipradar.fr</a>. Une alerte gratuite Telegram est conservée 30 jours au plus, ou jusqu'à son envoi.</p>
+  <p>Le code de vérification Discord n'est jamais conservé en clair (seule une empreinte l'est) et expire au bout de 15 minutes.</p>
 
   <h2>6. Vos droits</h2>
   <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation et d'opposition concernant vos données personnelles. Vous pouvez exercer ces droits, ainsi que retirer votre consentement, à tout moment en écrivant à <a href="mailto:contact@flipradar.fr">contact@flipradar.fr</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (<a href="https://www.cnil.fr" rel="noopener noreferrer">cnil.fr</a>).</p>

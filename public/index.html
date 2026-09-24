@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram</title>
-<meta name="description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Telegram avec calcul automatique de la marge et du prix de reprise magasin (Cash Converters, EasyCash). 29€/mois, sans engagement.">
-<meta property="og:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram">
-<meta property="og:description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Telegram avec calcul automatique de la marge et du prix de reprise magasin. 29€/mois, sans engagement.">
+<title>FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Discord et Telegram</title>
+<meta name="description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Discord et Telegram avec calcul automatique de la marge et du prix de reprise magasin (Cash Converters, EasyCash). 29€/mois, sans engagement.">
+<meta property="og:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Discord et Telegram">
+<meta property="og:description" content="Bot d'alerte Leboncoin pour l'achat-revente tech : notifications Discord et Telegram avec calcul automatique de la marge et du prix de reprise magasin. 29€/mois, sans engagement.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flipradar.fr/">
 <meta property="og:site_name" content="FlipRadar">
@@ -14,10 +14,10 @@
 <meta property="og:image" content="https://flipradar.fr/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta name="twitter:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Telegram">
-<meta name="twitter:description" content="Alertes Leboncoin sur Telegram avec marge et prix de reprise magasin calculés automatiquement. 29€/mois, sans engagement.">
+<meta name="twitter:title" content="FlipRadar | Bot Alerte Leboncoin en Temps Réel sur Discord et Telegram">
+<meta name="twitter:description" content="Alertes Leboncoin sur Discord et Telegram avec marge et prix de reprise magasin calculés automatiquement. 29€/mois, sans engagement.">
 <meta name="twitter:image" content="https://flipradar.fr/og.png">
-<meta name="keywords" content="bot alerte leboncoin telegram, bot alerte leboncoin, achat revente leboncoin, veille automatique leboncoin, alerte leboncoin iphone, achat revente tech, calcul marge revente, prix rachat cash converters, flipradar">
+<meta name="keywords" content="bot alerte leboncoin telegram, bot alerte leboncoin discord, bot alerte leboncoin, achat revente leboncoin, veille automatique leboncoin, alerte leboncoin iphone, achat revente tech, calcul marge revente, prix rachat cash converters, flipradar">
 <link rel="canonical" href="https://flipradar.fr/">
 <meta name="twitter:card" content="summary_large_image">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -553,9 +553,9 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   "@type": "SoftwareApplication",
   "name": "FlipRadar",
   "url": "https://flipradar.fr",
-  "description": "Bot d'alerte Leboncoin pour l'achat-revente tech : alertes Telegram sur les annonces iPhone, Samsung, iPad, PS5 et Xbox sous-cotées, avec marge et prix de reprise magasin calculés automatiquement.",
+  "description": "Bot d'alerte Leboncoin pour l'achat-revente tech : alertes Discord et Telegram sur les annonces iPhone, Samsung, iPad, PS5 et Xbox sous-cotées, avec marge et prix de reprise magasin calculés automatiquement.",
   "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Web, Telegram",
+  "operatingSystem": "Web, Discord, Telegram",
   "offers": [
     {
       "@type": "Offer",
@@ -581,10 +581,10 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?",
+      "name": "Pourquoi utiliser un bot alerte Leboncoin sur Discord ou Telegram au lieu de l'application ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un bot alerte Leboncoin comme FlipRadar fait ce tri à ta place. Le radar surveille automatiquement les nouvelles annonces, écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une notification Telegram, avec la marge et le prix de reprise déjà calculés."
+        "text": "L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un bot alerte Leboncoin comme FlipRadar fait ce tri à ta place. Le radar surveille automatiquement les nouvelles annonces, écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une notification sur Discord ou Telegram, avec la marge et le prix de reprise déjà calculés."
       }
     },
     {
@@ -597,10 +597,18 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     },
     {
       "@type": "Question",
+      "name": "Discord ou Telegram : lequel choisir ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Les deux sont inclus dans l'abonnement, sans surcoût : tu peux utiliser l'un, l'autre ou les deux. Sur Discord, tu lies ton abonnement avec l'e-mail de ton paiement et ton salon d'alertes s'ouvre automatiquement ; tu choisis aussi les produits pour lesquels être notifié. Sur Telegram, tu rejoins le groupe privé de ta ville via le lien reçu après le paiement."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Peut-on utiliser FlipRadar gratuitement ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui, pour découvrir l'outil : le canal Telegram de démo est 100 % gratuit. Il publie une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans un groupe Telegram privé dédié à ta ville."
+        "text": "Oui, pour découvrir l'outil : le salon démo du serveur Discord et le canal Telegram de démo sont 100 % gratuits. Ils publient une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans ton salon Discord privé ou ton groupe Telegram privé, au choix."
       }
     },
     {
@@ -632,7 +640,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       "name": "FlipRadar couvre-t-il ma ville ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones."
+        "text": "19 zones sont analysées automatiquement, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones."
       }
     }
   ]
@@ -647,7 +655,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <button class="modal-close" id="city-modal-close" aria-label="Fermer">✕</button>
     <p class="stag" style="margin-bottom:8px">abonnement</p>
     <h3 class="modal-title">Choisis ta zone de couverture</h3>
-    <p class="modal-sub">Une zone : <strong style="color:var(--gtx)">29 €/mois</strong>, les alertes de ta ville dans un groupe Telegram privé. Toute la France : <strong style="color:var(--gtx)">59 €/mois</strong>, les 19 zones dans un seul groupe. Paiement par Stripe, sans engagement.</p>
+    <p class="modal-sub">Une zone : <strong style="color:var(--gtx)">29 €/mois</strong>, les alertes de ta ville sur Discord ou Telegram. Toute la France : <strong style="color:var(--gtx)">59 €/mois</strong>, les 19 zones. Paiement par Stripe, sans engagement.</p>
     <div class="city-grid" id="city-grid"></div>
     <p class="modal-status" id="city-modal-status"></p>
   </div>
@@ -669,6 +677,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <a href="#tarifs">Tarifs</a>
     <a href="#faq">FAQ</a>
     <div style="display:flex;align-items:center;gap:8px;margin-left:4px">
+      <a href="https://discord.gg/V3PTgbkADv" rel="noopener noreferrer" aria-label="Serveur Discord" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a>
       <a href="https://t.me/flip_radar" rel="noopener noreferrer" aria-label="Canal Telegram" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.7 3.3 2.9 10.6c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.7.8.5 0 .8-.2 1.1-.5l2.6-2.5 5.3 3.9c1 .5 1.6.2 1.9-.9l3.4-15.9c.3-1.3-.5-1.9-1.6-1.4Z"/></svg></a>
       <a href="https://www.instagram.com/flip_radar/" rel="noopener noreferrer" aria-label="Instagram FlipRadar" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 1.5A4.3 4.3 0 0 0 3.5 7.8v8.4a4.3 4.3 0 0 0 4.3 4.3h8.4a4.3 4.3 0 0 0 4.3-4.3V7.8a4.3 4.3 0 0 0-4.3-4.3H7.8Zm4.2 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
       <a href="https://facebook.com/profile.php?id=61590312890661" rel="noopener noreferrer" aria-label="Facebook FlipRadar" style="display:grid;place-items:center;width:32px;height:32px;color:var(--muted);border-radius:6px;transition:color .2s" onmouseover="this.style.color='var(--green)'" onmouseout="this.style.color='var(--muted)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.5-3.1h-3.2v-2c0-.9.4-1.6 1.7-1.6h1.7V4.5c-.3 0-1.5-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9v1.7H6.6V14h2.8v8h4.1Z"/></svg></a>
@@ -683,7 +692,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <div class="hero-copy">
       <a href="/estimation/" class="est-pill"><span class="est-new">Gratuit</span><span>Estimation de prix : ton annonce est-elle au bon prix ?</span><span class="est-go">→</span></a>
       <h1 class="hero-h1">Les bonnes affaires tech de Leboncoin, avec la marge déjà calculée.</h1>
-      <p class="hero-sub">FlipRadar surveille les annonces iPhone, iPad, Samsung Galaxy et consoles de ta zone. Chacune est comparée au prix de revente sur Leboncoin et au prix de reprise en magasin (Cash Converters, EasyCash). Seules celles qui laissent une marge t'arrivent sur Telegram.</p>
+      <p class="hero-sub">FlipRadar surveille les annonces iPhone, iPad, Samsung Galaxy et consoles de ta zone. Chacune est comparée au prix de revente sur Leboncoin et au prix de reprise en magasin (Cash Converters, EasyCash). Seules celles qui laissent une marge t'arrivent sur Discord ou Telegram.</p>
       <ul class="hero-points">
         <li><strong>1 annonce sur <span id="h-ratio">30</span> passe le filtre.</strong> Tu ne reçois pas le reste.</li>
         <li><strong>Le pire cas est chiffré.</strong> Chaque alerte indique ce que tu toucherais en revendant en magasin.</li>
@@ -769,7 +778,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         <div class="cmp-col cmp-premium">
           <p class="cmp-tag">Premium · 29€/mois</p>
           <ul>
-            <li><strong>Toutes</strong> les alertes qualifiées (score ≥ 7/10) de ta zone, dans un groupe Telegram privé</li>
+            <li><strong>Toutes</strong> les alertes qualifiées (score ≥ 7/10) de ta zone, sur Discord ou Telegram au choix</li>
             <li>Filtre par ville : 19 zones, rayon de 40 à 100 km</li>
             <li><strong>Calcul de marge automatique</strong> : revente médiane, reprise magasin et worst-case</li>
             <li>Message de négociation prêt à envoyer, red flags signalés</li>
@@ -831,7 +840,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <div class="r reveal" style="margin-top:36px;padding:26px 28px;border:1px solid var(--bdg);border-radius:var(--r);background:var(--glo);display:flex;flex-wrap:wrap;align-items:center;gap:18px;justify-content:space-between">
       <div style="max-width:560px">
         <p style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--gtx);text-transform:uppercase;margin-bottom:8px">Ne nous crois pas sur parole</p>
-        <p style="font-size:14px;line-height:1.6">Le canal Telegram public publie régulièrement une sélection des deals détectés, <strong style="color:var(--text)">horodatés et vérifiables</strong> — avant tout abonnement, tu peux juger la qualité du radar par toi-même.</p>
+        <p style="font-size:14px;line-height:1.6">Le salon démo du Discord et le canal Telegram public publient régulièrement une sélection des deals détectés, <strong style="color:var(--text)">horodatés et vérifiables</strong> — avant tout abonnement, tu peux juger la qualité du radar par toi-même.</p>
       </div>
       <a href="https://t.me/flip_radar" rel="noopener noreferrer" class="bg" style="white-space:nowrap">Voir le canal public →</a>
     </div>
@@ -1082,7 +1091,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <section class="section" id="comment">
   <div class="wrap">
     <p class="stag r">comment ça marche</p>
-    <h2 class="r">D'une annonce Leboncoin à ton Telegram</h2>
+    <h2 class="r">D'une annonce Leboncoin à ton Discord ou ton Telegram</h2>
     <div class="pipe r reveal">
       <div class="ps"><div class="pn">01</div><p class="pt">Surveillance</p><p class="pd">Les nouvelles annonces des 19 zones sont relevées automatiquement et régulièrement, avec une surveillance renforcée sur les iPhone des plus grandes zones.</p></div>
       <div class="ps"><div class="pn">02</div><p class="pt">Prix de référence</p><p class="pd">Chaque annonce est comparée au prix médian du même modèle sur Leboncoin et aux prix de reprise Cash Converters et EasyCash.</p></div>
@@ -1153,7 +1162,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
         <p class="pprice"><sup>€</sup>29</p>
         <p class="pper">par mois · sans engagement</p>
         <ul class="feats">
-          <li>Alertes Telegram — ville de ton choix</li>
+          <li>Alertes Discord ou Telegram — ville de ton choix</li>
           <li>Message de négociation IA inclus</li>
           <li>Marge réaliste + worst-case estimé</li>
           <li>Analyse vendeur et red flags</li>
@@ -1189,7 +1198,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
   <div class="wrap">
     <p class="stag r">19 zones d'arbitrage local</p>
     <h2 class="r">La vitesse est une affaire locale</h2>
-    <p class="zones-txt r">Sur Leboncoin, une bonne affaire se joue à quelques kilomètres près : l'acheteur qui gagne est celui qui peut <strong>contacter le vendeur et passer récupérer l'appareil</strong> avant les autres. L'arbitrage dépend donc de ton secteur géographique. Un iPhone sous-coté à Lille ne sert à rien si tu vis à Bordeaux. C'est pour ça que FlipRadar découpe la France en 19 zones et envoie chaque alerte dans le groupe Telegram de sa ville : tu ne reçois que des deals que tu peux réellement aller chercher. Si tu achètes avec livraison ou couvres plusieurs villes, l'offre France entière regroupe les 19 zones.</p>
+    <p class="zones-txt r">Sur Leboncoin, une bonne affaire se joue à quelques kilomètres près : l'acheteur qui gagne est celui qui peut <strong>contacter le vendeur et passer récupérer l'appareil</strong> avant les autres. L'arbitrage dépend donc de ton secteur géographique. Un iPhone sous-coté à Lille ne sert à rien si tu vis à Bordeaux. C'est pour ça que FlipRadar découpe la France en 19 zones et envoie chaque alerte dans le salon Discord et le groupe Telegram de sa ville : tu ne reçois que des deals que tu peux réellement aller chercher. Si tu achètes avec livraison ou couvres plusieurs villes, l'offre France entière regroupe les 19 zones.</p>
     <ul class="zbadges r" aria-label="Zones couvertes par FlipRadar">
         <li><a href="/ville/paris">Paris &amp; Île-de-France</a></li>
         <li><a href="/ville/lyon">Lyon / Saint-Étienne</a></li>
@@ -1222,16 +1231,20 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <h2 class="r">Questions fréquentes sur le bot alerte Leboncoin</h2>
     <div class="faq r" id="faqlist">
       <div class="fi">
-        <button class="fq" aria-expanded="false"><h3 class="fqt">Pourquoi utiliser un bot alerte Leboncoin sur Telegram au lieu de l'application ?</h3><span class="farr" aria-hidden="true">+</span></button>
-        <div class="fa"><p class="fai">L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un <strong>bot alerte Leboncoin</strong> comme FlipRadar fait ce tri à ta place. Le radar surveille automatiquement les nouvelles annonces, écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une <strong>notification Telegram</strong>, avec la marge et le prix de reprise déjà calculés.</p></div>
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Pourquoi utiliser un bot alerte Leboncoin sur Discord ou Telegram au lieu de l'application ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">L'alerte native de Leboncoin te prévient qu'une annonce correspond à ta recherche, mais elle ne te dit pas si c'est une bonne affaire : c'est à toi de comparer les prix, à chaque notification. Un <strong>bot alerte Leboncoin</strong> comme FlipRadar fait ce tri à ta place. Le radar surveille automatiquement les nouvelles annonces, écarte les annonces sans intérêt et ne t'envoie que les deals qualifiés. Dès qu'une annonce passe le filtre, tu reçois une <strong>notification sur Discord ou Telegram</strong>, avec la marge et le prix de reprise déjà calculés.</p></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">Comment le bot calcule-t-il la marge d'achat-revente en direct ?</h3><span class="farr" aria-hidden="true">+</span></button>
         <div class="fa"><p class="fai">Chaque annonce est croisée automatiquement avec deux références. D'abord le prix de revente médian observé sur Leboncoin pour le même modèle et la même capacité, ce qui donne la marge réaliste. Ensuite le prix de reprise minimum pratiqué par Cash Converters et EasyCash, ce qui donne le worst-case : ce que tu gagnes au minimum si tu revends en magasin plutôt que sur Leboncoin. Ce <strong>calcul de marge automatique</strong> est la base de l'<strong>achat revente tech</strong> rentable : si le worst-case est positif, tu es couvert même si la revente traîne. Les chiffres sont des estimations avant frais.</p></div>
       </div>
       <div class="fi">
+        <button class="fq" aria-expanded="false"><h3 class="fqt">Discord ou Telegram : lequel choisir ?</h3><span class="farr" aria-hidden="true">+</span></button>
+        <div class="fa"><p class="fai">Les deux sont inclus dans l'abonnement, <strong>sans surcoût</strong> : tu peux utiliser l'un, l'autre ou les deux. Sur Discord, tu lies ton abonnement avec l'e-mail de ton paiement et ton salon d'alertes s'ouvre automatiquement ; tu choisis aussi les produits pour lesquels être notifié. Sur Telegram, tu rejoins le groupe privé de ta ville via le lien reçu après le paiement.</p></div>
+      </div>
+      <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">Peut-on utiliser FlipRadar gratuitement ?</h3><span class="farr" aria-hidden="true">+</span></button>
-        <div class="fa"><p class="fai">Oui, pour découvrir l'outil : le canal Telegram de démo est 100 % gratuit. Il publie une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans un groupe Telegram privé dédié à ta ville.</p></div>
+        <div class="fa"><p class="fai">Oui, pour découvrir l'outil : le salon démo du serveur Discord et le canal Telegram de démo sont 100 % gratuits. Ils publient une sélection partielle des deals détectés, toutes villes confondues, pour que tu juges la qualité des alertes avant de payer. L'accès Premium à 29€/mois te donne toutes les alertes qualifiées de ta zone, dans ton salon Discord privé ou ton groupe Telegram privé, au choix.</p></div>
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">Est-ce que le bot filtre les arnaques Leboncoin ?</h3><span class="farr" aria-hidden="true">+</span></button>
@@ -1247,7 +1260,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
       </div>
       <div class="fi">
         <button class="fq" aria-expanded="false"><h3 class="fqt">FlipRadar couvre-t-il ma ville ?</h3><span class="farr" aria-hidden="true">+</span></button>
-        <div class="fa"><p class="fai">19 zones sont analysées en continu, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones.</p></div>
+        <div class="fa"><p class="fai">19 zones sont analysées automatiquement, chacune avec un rayon de 40 à 100 km : plus de 3 000 communes sont couvertes sans configuration de ta part. La liste des zones est juste au-dessus ; choisis la plus proche de chez toi au moment de t'abonner, ou l'offre France entière (59 €/mois) pour recevoir les 19 zones.</p></div>
       </div>
     </div>
   </div>
@@ -1256,6 +1269,7 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
 <footer>
   <div class="flogo">FLIP<em>RADAR</em></div>
   <div class="flinks">
+    <a href="https://discord.gg/V3PTgbkADv" rel="noopener noreferrer">Serveur Discord</a>
     <a href="https://t.me/flip_radar" rel="noopener noreferrer">Canal Telegram</a>
     <a href="https://t.me/flipradart_bot" rel="noopener noreferrer">Bot @flipradart_bot</a>
     <a href="#tarifs">Tarifs</a>
@@ -1269,12 +1283,13 @@ footer{border-top:1px solid var(--bdr);padding:56px 24px 48px;text-align:center;
     <a href="/resilier" rel="noopener noreferrer">Résilier mon abonnement</a>
   </div>
   <div style="display:flex;justify-content:center;gap:16px;margin-bottom:24px">
+    <a href="https://discord.gg/V3PTgbkADv" rel="noopener noreferrer" aria-label="Discord" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a>
     <a href="https://t.me/flip_radar" rel="noopener noreferrer" aria-label="Telegram" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21.7 3.3 2.9 10.6c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.4c.2.6.1.8.7.8.5 0 .8-.2 1.1-.5l2.6-2.5 5.3 3.9c1 .5 1.6.2 1.9-.9l3.4-15.9c.3-1.3-.5-1.9-1.6-1.4Z"/></svg></a>
     <a href="https://www.instagram.com/flip_radar/" rel="noopener noreferrer" aria-label="Instagram" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 1.5A4.3 4.3 0 0 0 3.5 7.8v8.4a4.3 4.3 0 0 0 4.3 4.3h8.4a4.3 4.3 0 0 0 4.3-4.3V7.8a4.3 4.3 0 0 0-4.3-4.3H7.8Zm4.2 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-2.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg></a>
     <a href="https://facebook.com/profile.php?id=61590312890661" rel="noopener noreferrer" aria-label="Facebook" style="display:grid;place-items:center;width:36px;height:36px;border:1px solid var(--bdr);border-radius:8px;color:var(--muted);transition:all .2s" onmouseover="this.style.color='var(--green)';this.style.borderColor='var(--bdg)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--bdr)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22v-8h2.7l.5-3.1h-3.2v-2c0-.9.4-1.6 1.7-1.6h1.7V4.5c-.3 0-1.5-.2-2.8-.2-2.8 0-4.7 1.7-4.7 4.9v1.7H6.6V14h2.8v8h4.1Z"/></svg></a>
   </div>
   <p class="fcp">© 2026 FlipRadar · Tevin CREUS</p>
-  <p style="font-size:10px;color:var(--muted);margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;text-align:center">FlipRadar est un outil de veille automatisée sur Leboncoin pour la détection de bonnes affaires tech — iPhone, Samsung Galaxy, iPad, PS5, Xbox Series. Alertes Telegram en temps réel avec marge estimée, rachat Cash Converters et analyse IA. Les marges et worst-case sont des estimations basées sur des référentiels observés — FlipRadar ne garantit ni la disponibilité de l'annonce ni la rentabilité finale de l'opération.</p>
+  <p style="font-size:10px;color:var(--muted);margin-top:8px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6;text-align:center">FlipRadar est un outil de veille automatisée sur Leboncoin pour la détection de bonnes affaires tech — iPhone, Samsung Galaxy, iPad, PS5, Xbox Series. Alertes Discord et Telegram en temps réel avec marge estimée, rachat Cash Converters et analyse IA. Les marges et worst-case sont des estimations basées sur des référentiels observés — FlipRadar ne garantit ni la disponibilité de l'annonce ni la rentabilité finale de l'opération.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
